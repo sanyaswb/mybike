@@ -1,0 +1,46 @@
+.menu {
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #c2c2c2;
+  font-weight: 600;
+
+  &__top {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+  }
+
+  &__content {
+    font-weight: 600;
+    padding-inline: 20px;
+    color: $primariy-font-color;
+
+    @include onTablet {
+      padding-inline: 72px;
+    }
+  }
+
+  &__phone-number {
+    display: block;
+    color: inherit;
+
+    margin-bottom: 16px;
+  }
+
+  &__book-test-ride {
+    display: block;
+    height: 24px;
+    font-size: 12px;
+    line-height: 16px;
+    width: fit-content;
+    color: inherit;
+
+    border-bottom: 1px solid $primariy-font-color;
+  }
+}

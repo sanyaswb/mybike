@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 480px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: 86%;
+  background-image: url(../images/backgrounds/header-bg-mobile.webp);
+
+  @include onTablet {
+    height: 628px;
+    background-position: center;
+  }
+
+  &__bottom {
+    padding-bottom: 90px;
+    @include contentPaddingInline;
+    @include onTablet {
+      padding-bottom: 130px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    line-height: 100%;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin: 0;
+
+    @include onTablet {
+      font-size: 64px;
+    }
+  }
+}

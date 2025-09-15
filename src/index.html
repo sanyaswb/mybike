@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="./styles/style.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="page__body">
+    <header class="header">
+      <div class="top-bar">
+        <a class="top-bar__logo-link" href="#">
+          <img
+            src="./images/icons/logo-my-bike.svg"
+            alt="logo my bike"
+            class="top-bar__logo-img"
+          />
+        </a>
+        <div class="top-bar__icons">
+          <a href="#" class="icon icon--phone"></a>
+          <a href="#menu" class="icon icon--menu"></a>
+        </div>
+      </div>
+      <div class="header__bottom">
+        <h1 class="header__title">Take the Streets</h1>
+      </div>
+    </header>
+
+    <aside class="page__menu menu" id="menu">
+      <div class="top-bar menu__top">
+        <a href="#" class="top-bar__logo-link">
+          <img
+            src="./images/icons/logo-my-bike-menu.svg"
+            alt="logo my bike"
+            class="top-bar__logo-img"
+          />
+        </a>
+        <a href="#" class="icon icon--close"></a>
+      </div>
+
+      <div class="menu__content">
+        <nav class="nav menu__nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="#"> home </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#about-us"> about-us </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#compare-bikes"> compare-bikes </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#details"> details </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#contacts"> contacts </a>
+            </li>
+          </ul>
+        </nav>
+
+        <a href="tel:+1 234 5555-55-55" class="menu__phone-number">
+          +1 234 5555-55-55
+          <br />
+        </a>
+        <a href="#" class="menu__book-test-ride"> book a test ride </a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="section section-free">
+        <h2 class="section-free__title">Move Free</h2>
+        <p>
+          Shift your ride, not gears. Find the fastest way to move in the city
+          as the bike adapts intuitively to power the speed you need.
+        </p>
+      </section>
+
+      <section class="section section-bikes">
+        <h2 class="section__title" id="compare-bikes">Compare bikes</h2>
+
+        <div class="section-bikes__card card">
+          <div class="card__img section-bikes__img section-bikes__img--1"></div>
+          <h3 class="card__title">Sporty 4</h3>
+          <p class="card__description section-bikes__description">
+            The iconic frame brought to a new performance height as a sporty,
+            active ride.
+          </p>
+          <div class="section-bikes__price">
+            <span class="card__price">$ 2 590</span>
+            <a href="#details--ride-in-town-st">
+              <button class="button button--details" type="button">
+                Details
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="section-bikes__card card">
+          <div class="card__img section-bikes__img section-bikes__img--2"></div>
+          <h3 class="card__title">Ride in town ST</h3>
+          <p class="card__description section-bikes__description">
+            An open frame for an upright riding position as the most comfortable
+            ride in town.
+          </p>
+
+          <div class="section-bikes__price">
+            <span class="card__price">$ 2 590</span>
+            <a href="#details--ride-in-town-st">
+              <button class="button button--details" type="button">
+                Details
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="section-bikes__card card">
+          <div class="card__img section-bikes__img section-bikes__img--3"></div>
+          <h3 class="card__title">Agile ride 3</h3>
+          <p class="card__description section-bikes__description">
+            The lightweight frame that has earned its street tread as a sleek,
+            agile ride.
+          </p>
+          <div class="section-bikes__price">
+            <span class="card__price">$ 2 090</span>
+            <a href="#details--ride-in-town-st">
+              <button class="button button--details" type="button">
+                Details
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-details" id="details--ride-in-town-st">
+        <h2 class="section__title" id="details">The details</h2>
+        <div class="section-details__card card">
+          <div class="section-details__images">
+            <div
+              class="card__img section-details__img section-details__img--1"
+            ></div>
+            <div
+              class="card__img section-details__img section-details__img--2"
+            ></div>
+          </div>
+          <h3 class="card__title">Auto Unlock</h3>
+          <p class="card__description">
+            The app senses when you're nearby to unlock automatically. GPS
+            tracking so you know where your bike is and can track it anytime.
+          </p>
+        </div>
+
+        <div class="section-details__card card">
+          <div class="section-details__images">
+            <div
+              class="card__img section-details__img section-details__img--3"
+            ></div>
+            <div
+              class="card__img section-details__img section-details__img--4"
+            ></div>
+          </div>
+          <h3 class="card__title">Range & Integrated lights</h3>
+          <p class="card__description">
+            The removable battery has up to 70km battery autonomy and weighs
+            only 2.4 kg. Lights integrated into the frame give you always-on
+            visibility day and night.
+          </p>
+        </div>
+
+        <div class="section-details__card card">
+          <div class="section-details__images">
+            <div
+              class="card__img section-details__img section-details__img--5"
+            ></div>
+            <div
+              class="card__img section-details__img section-details__img--6"
+            ></div>
+          </div>
+          <h3 class="card__title">Hydraulic disc brakes & Lightweight</h3>
+          <p class="card__description">
+            Brakes with total stopping power the second you make contact. The
+            removable battery has up to 70km battery autonomy and weighs only
+            2.4 kg. Lights integrated into the frame give you always-on
+            visibility day and night.
+          </p>
+        </div>
+
+        <div class="button__wrapper">
+          <button class="button button--buy" type="button">Buy</button>
+        </div>
+      </section>
+
+      <section class="section section-contacts">
+        <h2 class="section__title" id="contacts">contact us</h2>
+
+        <form action="#" class="form">
+          <div class="form__wrap">
+            <label class="form__label">
+              <input
+                class="form__input"
+                type="text"
+                name="name"
+                placeholder="Name"
+              />
+            </label>
+            <label class="form__label">
+              <input
+                class="form__input"
+                type="email"
+                name="email"
+                placeholder="Email"
+              />
+            </label>
+            <label class="form__label form__label-textarea">
+              <textarea
+                class="form__textarea form__input"
+                type="text"
+                name="your message"
+                placeholder="Message"
+              ></textarea>
+            </label>
+          </div>
+
+          <div class="button__wrapper">
+            <button class="button button--form" type="submit">Send</button>
+          </div>
+        </form>
+
+        <div class="contacts-info" id="about-us">
+          <ul>
+            <p>Phone</p>
+            <li>+ 234 5555-55-55</li>
+          </ul>
+          <ul>
+            <p>Email</p>
+            <li>hello@miami.com</li>
+          </ul>
+          <ul>
+            <p>Address</p>
+            <li>400 first ave.</li>
+            <li>suite 700</li>
+            <li>Minneapolis, MN 55401</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
