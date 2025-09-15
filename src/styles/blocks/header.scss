@@ -5,12 +5,17 @@
   height: 480px;
   box-sizing: border-box;
   background-size: cover;
-  background-position: 86%;
+  background-repeat: no-repeat;
+  background-position-x: right;
   background-image: url(../images/backgrounds/header-bg-mobile.webp);
 
   @include onTablet {
     height: 628px;
     background-position: center;
+  }
+
+  @include onDesktop {
+    height: 711px;
   }
 
   &__icons {
@@ -20,9 +25,14 @@
 
   &__bottom {
     padding-bottom: 90px;
+
     @include contentPaddingInline;
     @include onTablet {
       padding-bottom: 130px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 203px;
     }
   }
 
@@ -36,6 +46,10 @@
 
     @include onTablet {
       font-size: 64px;
+    }
+
+    @include onDesktop {
+      font-size: 80px;
     }
   }
 }

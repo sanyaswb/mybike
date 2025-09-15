@@ -10,6 +10,23 @@
   }
 }
 
+@mixin mainPadding() {
+  padding-inline: 20px;
+  padding-top: 60px;
+  padding-bottom: 120px;
+
+  @include onTablet {
+    padding-inline: 72px;
+    padding-block: 120px;
+  }
+
+  @include onDesktop {
+    padding-inline: 120px;
+    padding-top: 120px;
+    padding-bottom: 182px;
+  }
+}
+
 @mixin contentPaddingInline() {
   padding-inline: 20px;
 

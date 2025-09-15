@@ -26,6 +26,10 @@
     @include onTablet {
       margin-bottom: 8px;
     }
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
   }
 
   &__nav {
@@ -39,6 +43,10 @@
 
     @include onTablet {
       padding-inline: 72px;
+    }
+
+    @include onDesktop {
+      padding-inline: 120px;
     }
   }
 
