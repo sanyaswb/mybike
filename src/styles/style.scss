@@ -1,11 +1,18 @@
 @import "./utils/variables";
 @import "./utils/mixins";
+@import "./utils/reset";
 
-@import "blocks/normalize";
-@import "blocks/page";
-@import "blocks/header";
-@import "blocks/top-bar";
-@import "blocks/icon";
-@import "blocks/menu";
-@import "blocks/nav";
-@import "blocks/main";
+@import "./blocks/main";
+@import "./blocks/header";
+@import "./blocks/menu";
+@import "./blocks/nav";
+@import "./blocks/header";
+@import "./blocks/icon";
+@import "./blocks/card";
+@import "./blocks/page";
+
+@import "./blocks/sections/free";
+@import "./blocks/sections/bikes";
+@import "./blocks/sections/details";
+@import "./blocks/sections/contacts";
+@import "./blocks/footer";

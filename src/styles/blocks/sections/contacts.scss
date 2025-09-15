@@ -1,0 +1,30 @@
+.contacts {
+  &__form {
+    margin-bottom: 48px;
+  }
+
+  &__info {
+    ul:not(:last-child) {
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    li {
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 140%;
+      color: #cecece;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,37 @@
+.bikes {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 92px;
+
+  &__card:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  &__img {
+    width: 280px;
+    height: 228px;
+    margin-bottom: 32px;
+  }
+
+  &__img--1 {
+    background-image: url(../images/bikes/sporty_4-high.png);
+  }
+
+  &__img--2 {
+    background-image: url(../images/bikes/ride_in_town_ST.png);
+  }
+
+  &__img--3 {
+    background-image: url(../images/bikes/agile_ride_3.png);
+  }
+
+  &__description {
+    margin-bottom: 16px;
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
