@@ -4,18 +4,26 @@
   flex-direction: column;
   height: 480px;
   box-sizing: border-box;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-x: right;
-  background-image: url(../images/backgrounds/header-bg-mobile.webp);
+
+  background-image: url("../images/backgrounds/header_bike-uhd.webp"),
+    url("../images/backgrounds/header_bk-uhd.webp");
+
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: right, right;
 
   @include onTablet {
     height: 628px;
-    background-position: center;
+    background-size: contain, cover;
+    background-position: center, center;
   }
 
   @include onDesktop {
     height: 711px;
+  }
+
+  @media (min-width: 1261px) {
+    height: 100vh;
   }
 
   &__icons {
