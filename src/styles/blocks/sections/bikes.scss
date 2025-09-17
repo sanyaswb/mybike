@@ -1,16 +1,18 @@
 .bikes {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  justify-content: center;
   margin-bottom: 92px;
 
-  &__card:not(:last-child) {
-    margin-bottom: 40px;
-  }
+  &__container {
+    display: grid;
+    row-gap: 40px;
+    max-width: 392px;
 
-  &__img {
-    width: 280px;
-    height: 228px;
-    margin-bottom: 32px;
+    @include onDesktop {
+      max-width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 24px;
+    }
   }
 
   &__img--1 {
@@ -23,15 +25,5 @@
 
   &__img--3 {
     background-image: url(../images/bikes/agile_ride_3.png);
-  }
-
-  &__description {
-    margin-bottom: 16px;
-  }
-
-  &__price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 }
