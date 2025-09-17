@@ -10,7 +10,7 @@
 
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
-  background-position: right, right;
+  background-position: 90%, right;
 
   @include onTablet {
     height: 628px;
