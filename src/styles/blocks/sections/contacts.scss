@@ -5,11 +5,35 @@
     }
   }
 
+  &__content {
+    @include pageGrid;
+  }
+
   &__form {
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      grid-column: span 5;
+    }
+
     margin-bottom: 48px;
   }
 
   &__info {
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / -1;
+    }
+
     ul:not(:last-child) {
       font-weight: 400;
       margin-bottom: 24px;

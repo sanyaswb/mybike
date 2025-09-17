@@ -1,6 +1,14 @@
 .details {
   margin-bottom: 80px;
 
+  @include onTablet {
+    margin-bottom: 120px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 180px;
+  }
+
   &__wrapper {
     display: grid;
     row-gap: 40px;
@@ -9,6 +17,22 @@
     @include onTablet {
       row-gap: 48px;
       margin-bottom: 48px;
+    }
+  }
+
+  &__button {
+    @include pageGrid;
+
+    &--buy {
+      grid-column: span 2;
+
+      @include onTablet {
+        grid-column: 2 / -2;
+      }
+
+      @include onDesktop {
+        grid-column: 5 / -5;
+      }
     }
   }
 }
@@ -49,17 +73,40 @@
   &__image {
     width: 100%;
     object-fit: cover;
+
+    &--reverse {
+      transform: scaleX(-1);
+    }
+
+    &--position {
+      object-position: 80%;
+    }
   }
 
   &__title {
     @include contentTitleFonts;
   }
 
+  &__description-container {
+    @include pageGrid;
+  }
+
   &__description {
+    grid-column: 1 / -1;
+
     @include contentDescriptionFonts;
+
+    @include onDesktop {
+      grid-column: 1 / 9;
+    }
 
     &--margin {
       margin-bottom: 0;
     }
+  }
+
+  &__button {
+    height: 36px;
+    width: 120px;
   }
 }

@@ -98,7 +98,7 @@
                 <div class="card__price-section">
                   <span class="card__price">$ 2 590</span>
                   <a href="#details--ride-in-town-st">
-                    <button class="button button--details" type="button">
+                    <button class="detail__button button" type="button">
                       Details
                     </button>
                   </a>
@@ -116,7 +116,7 @@
                 <div class="card__price-section">
                   <span class="card__price">$ 2 590</span>
                   <a href="#details--ride-in-town-st">
-                    <button class="button button--details" type="button">
+                    <button class="detail__button button" type="button">
                       Details
                     </button>
                   </a>
@@ -134,7 +134,7 @@
                 <div class="card__price-section">
                   <span class="card__price">$ 2 090</span>
                   <a href="#details--ride-in-town-st">
-                    <button class="button button--details" type="button">
+                    <button class="detail__button button" type="button">
                       Details
                     </button>
                   </a>
@@ -163,11 +163,13 @@
                   </a>
                 </div>
                 <h3 class="detail__title">Auto Unlock</h3>
-                <p class="detail__description">
-                  The app senses when you're nearby to unlock automatically. GPS
-                  tracking so you know where your bike is and can track it
-                  anytime.
-                </p>
+                <div class="detail__description-container">
+                  <p class="detail__description">
+                    The app senses when you're nearby to unlock automatically.
+                    GPS tracking so you know where your bike is and can track it
+                    anytime.
+                  </p>
+                </div>
               </article>
 
               <article class="detail">
@@ -182,17 +184,19 @@
                   <a class="detail__link detail__link--square">
                     <img
                       src="./images/bikes/ride_in_town_ST-4.png"
-                      class="detail__image"
+                      class="detail__image detail__image--reverse"
                       alt="bike ride in town"
                     />
                   </a>
                 </div>
                 <h3 class="detail__title">Range & Integrated lights</h3>
-                <p class="detail__description">
-                  The removable battery has up to 70km battery autonomy and
-                  weighs only 2.4 kg. Lights integrated into the frame give you
-                  always-on visibility day and night.
-                </p>
+                <div class="detail__description-container">
+                  <p class="detail__description">
+                    The removable battery has up to 70km battery autonomy and
+                    weighs only 2.4 kg. Lights integrated into the frame give
+                    you always-on visibility day and night.
+                  </p>
+                </div>
               </article>
 
               <article class="detail">
@@ -200,7 +204,7 @@
                   <a class="detail__link detail__link--square">
                     <img
                       src="./images/bikes/ride_in_town_ST-5.png"
-                      class="detail__image"
+                      class="detail__image detail__image--position"
                       alt="bike ride in town"
                     />
                   </a>
@@ -215,68 +219,76 @@
                 <h3 class="detail__title">
                   Hydraulic disc brakes & Lightweight
                 </h3>
-                <p class="detail__description detail__description--margin">
-                  Brakes with total stopping power the second you make contact.
-                  The removable battery has up to 70km battery autonomy and
-                  weighs only 2.4 kg. Lights integrated into the frame give you
-                  always-on visibility day and night.
-                </p>
+                <div class="detail__description-container">
+                  <p class="detail__description detail__description--margin">
+                    Brakes with total stopping power the second you make
+                    contact. The removable battery has up to 70km battery
+                    autonomy and weighs only 2.4 kg. Lights integrated into the
+                    frame give you always-on visibility day and night.
+                  </p>
+                </div>
               </article>
             </div>
-            <div class="button__wrapper">
-              <button class="button button--buy" type="button">Buy</button>
+            <div class="details__button">
+              <button class="button details__button--buy" type="button">
+                Buy
+              </button>
             </div>
           </section>
           <section class="section contacts">
             <h2 class="section__title contacts__title" id="contacts">
               contact us
             </h2>
-            <form action="#" class="contacts__form form">
-              <div class="form__wrap">
-                <label class="form__label">
-                  <input
-                    class="form__input"
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                  />
-                </label>
-                <label class="form__label">
-                  <input
-                    class="form__input"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                  />
-                </label>
-                <label class="form__label form__label-textarea">
-                  <textarea
-                    class="form__textarea form__input"
-                    type="text"
-                    name="your message"
-                    placeholder="Message"
-                  ></textarea>
-                </label>
+            <div class="contacts__content">
+              <form action="#" class="contacts__form form">
+                <div class="form__wrap">
+                  <label class="form__label">
+                    <input
+                      class="form__input"
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                    />
+                  </label>
+                  <label class="form__label">
+                    <input
+                      class="form__input"
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                    />
+                  </label>
+                  <label class="form__label form__label-textarea">
+                    <textarea
+                      class="form__textarea form__input"
+                      type="text"
+                      name="your message"
+                      placeholder="Message"
+                    ></textarea>
+                  </label>
+                </div>
+                <div class="contacts__button">
+                  <button class="button button--form" type="submit">
+                    Send
+                  </button>
+                </div>
+              </form>
+              <div class="contacts__info" id="about-us">
+                <ul>
+                  <p>Phone</p>
+                  <li>+ 234 5555-55-55</li>
+                </ul>
+                <ul>
+                  <p>Email</p>
+                  <li>hello@miami.com</li>
+                </ul>
+                <ul>
+                  <p>Address</p>
+                  <li>400 first ave.</li>
+                  <li>suite 700</li>
+                  <li>Minneapolis, MN 55401</li>
+                </ul>
               </div>
-              <div class="contacts__button">
-                <button class="button button--form" type="submit">Send</button>
-              </div>
-            </form>
-            <div class="contacts__info" id="about-us">
-              <ul>
-                <p>Phone</p>
-                <li>+ 234 5555-55-55</li>
-              </ul>
-              <ul>
-                <p>Email</p>
-                <li>hello@miami.com</li>
-              </ul>
-              <ul>
-                <p>Address</p>
-                <li>400 first ave.</li>
-                <li>suite 700</li>
-                <li>Minneapolis, MN 55401</li>
-              </ul>
             </div>
           </section>
         </div>
