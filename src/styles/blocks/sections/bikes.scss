@@ -1,23 +1,21 @@
 .bikes {
-  display: grid;
-  justify-content: center;
+  justify-items: center;
   margin-bottom: 92px;
 
   &__container {
-    display: grid;
+    @include pageGrid;
     row-gap: 40px;
-    max-width: 392px;
-
-    @include onDesktop {
-      max-width: 100%;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 24px;
-    }
   }
 
-  &__title {
+  &__card {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+
     @include onDesktop {
-      font-size: 64px;
+      grid-column: span 4;
     }
   }
 

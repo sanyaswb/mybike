@@ -1,42 +1,65 @@
 .details {
   margin-bottom: 80px;
 
-  &__card {
+  &__wrapper {
+    display: grid;
+    row-gap: 40px;
     margin-bottom: 40px;
-  }
 
+    @include onTablet {
+      row-gap: 48px;
+      margin-bottom: 48px;
+    }
+  }
+}
+
+.detail {
   &__images {
-    display: flex;
-    gap: 20px;
+    @include pageGrid;
+    justify-items: center;
     margin-bottom: 16px;
   }
 
-  &__img {
-    width: 130px;
-    height: 130px;
+  &__link {
+    @media (max-width: 743px) {
+      aspect-ratio: 1 / 1;
+    }
+
+    &--wide {
+      @include onTablet {
+        grid-column: span 4;
+      }
+
+      @include onDesktop {
+        grid-column: span 8;
+      }
+    }
+
+    &--square {
+      @include onTablet {
+        grid-column: span 2;
+      }
+
+      @include onDesktop {
+        grid-column: span 4;
+      }
+    }
   }
 
-  &__img--1 {
-    background-image: url(../images/bikes/ride_in_town_ST-1-low.png);
+  &__image {
+    width: 100%;
+    object-fit: cover;
   }
 
-  &__img--2 {
-    background-image: url(../images/bikes/ride_in_town_ST-2-low.png);
+  &__title {
+    @include contentTitleFonts;
   }
 
-  &__img--3 {
-    background-image: url(../images/bikes/ride_in_town_ST-3-low.png);
-  }
+  &__description {
+    @include contentDescriptionFonts;
 
-  &__img--4 {
-    background-image: url(../images/bikes/ride_in_town_ST-4-low.png);
-  }
-
-  &__img--5 {
-    background-image: url(../images/bikes/ride_in_town_ST-5-low.png);
-  }
-
-  &__img--6 {
-    background-image: url(../images/bikes/ride_in_town_ST-6-low.png);
+    &--margin {
+      margin-bottom: 0;
+    }
   }
 }
