@@ -15,15 +15,27 @@
     }
   }
 
-  &__img--1 {
+  &__card--img {
+    height: 228px;
+
+    @include onTablet {
+      height: 316px;
+    }
+
+    @include onDesktop {
+      height: 256px;
+    }
+  }
+
+  &__card--img--1 {
     background-image: url(../images/bikes/sporty_4-high.png);
   }
 
-  &__img--2 {
+  &__card--img--2 {
     background-image: url(../images/bikes/ride_in_town_ST.png);
   }
 
-  &__img--3 {
+  &__card--img--3 {
     background-image: url(../images/bikes/agile_ride_3.png);
   }
 }

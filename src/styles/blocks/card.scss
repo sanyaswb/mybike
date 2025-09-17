@@ -1,13 +1,12 @@
 .card {
   display: flex;
   flex-direction: column;
-  height: 466px;
 
   &__img {
-    height: 228px;
-    background-position: center;
+    height: 100%;
+    background-position: top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     margin-bottom: 32px;
   }
 
@@ -22,7 +21,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 140%;
-    margin-bottom: auto;
+    margin-bottom: 16px;
   }
 
   &__price-section {
@@ -32,5 +31,6 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 140%;
+    margin-top: auto;
   }
 }
