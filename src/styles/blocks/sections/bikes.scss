@@ -46,5 +46,9 @@
   &__button {
     height: 36px;
     width: 300px;
+
+    @include onDesktop {
+      height: 56px;
+    }
   }
 }
