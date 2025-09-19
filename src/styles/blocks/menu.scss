@@ -1,4 +1,5 @@
 .menu {
+  z-index: 2;
   @include headerPadding;
 
   height: 100vh;
@@ -15,36 +16,6 @@
   transition: all 0.3s;
   transform: translateX(-100%);
   pointer-events: none;
-
-  // &--desktop {
-  //   @include onDesktop {
-  //     @include contentPaddingInline;
-  //     transform: translateX(0);
-  //     opacity: 1;
-  //     background-color: transparent;
-
-  //     .menu__top {
-  //       display: none;
-  //     }
-
-  //     .menu__phone-number {
-  //       display: none;
-  //     }
-
-  //     .menu__book-test-ride {
-  //       display: none;
-  //     }
-  //   }
-
-  //   .nav__list {
-  //     flex-direction: row;
-  //     justify-content: space-between;
-  //   }
-
-  //   .nav__link {
-  //     color: $secondary-font-color;
-  //   }
-  // }
 
   &:target {
     opacity: 1;

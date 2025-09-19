@@ -32,13 +32,18 @@
   &__top {
     z-index: 1;
     position: fixed;
-    padding-inline: 120px;
-    left: 0;
-    right: 0;
-    top: 36px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include contentPaddingInline;
+    top: 24px;
+    left: 0;
+    right: 0;
+
+    @include onTablet {
+      top: 36px;
+    }
   }
 
   &__nav {
