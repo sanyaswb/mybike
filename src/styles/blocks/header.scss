@@ -78,5 +78,14 @@
 
   &__button {
     height: 56px;
+
+    @include onDesktop {
+      height: 72px;
+      margin-bottom: 50px;
+
+      &--size {
+        font-size: 32px;
+      }
+    }
   }
 }
