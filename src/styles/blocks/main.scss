@@ -8,12 +8,12 @@
   }
 
   &__sticky {
+    z-index: 1;
     position: sticky;
     height: 0;
     top: 0;
 
     &::before {
-      z-index: 1;
       display: block;
       content: "";
       height: 62px;
