@@ -29,6 +29,20 @@
       </div>
       <div class="header__bottom">
         <h1 class="header__title">Take the Streets</h1>
+        <div class="header__button-grid">
+          <div class="header__button button--double">
+            <a
+              href="#details"
+              class="button button--double__left button--double__link"
+              >Details</a
+            >
+            <a
+              href="#buy"
+              class="button button--double__right button--double__link"
+              >Buy</a
+            >
+          </div>
+        </div>
       </div>
     </header>
 
@@ -97,11 +111,18 @@
                 </p>
                 <div class="card__price-section">
                   <span class="card__price">$ 2 590</span>
-                  <a href="#details--ride-in-town-st">
-                    <button class="detail__button button" type="button">
-                      Details
-                    </button>
-                  </a>
+                  <div class="bikes__button button--double">
+                    <a
+                      href="#details"
+                      class="button button--double__left button--double__link"
+                      >Details</a
+                    >
+                    <a
+                      href="#buy"
+                      class="button button--double__right button--double__link"
+                      >Buy</a
+                    >
+                  </div>
                 </div>
               </div>
               <div class="bikes__card card">
@@ -115,11 +136,18 @@
                 </p>
                 <div class="card__price-section">
                   <span class="card__price">$ 2 590</span>
-                  <a href="#details--ride-in-town-st">
-                    <button class="detail__button button" type="button">
-                      Details
-                    </button>
-                  </a>
+                  <div class="bikes__button button--double">
+                    <a
+                      href="#details"
+                      class="button button--double__left button--double__link"
+                      >Details</a
+                    >
+                    <a
+                      href="#buy"
+                      class="button button--double__right button--double__link"
+                      >Buy</a
+                    >
+                  </div>
                 </div>
               </div>
               <div class="bikes__card card">
@@ -133,11 +161,18 @@
                 </p>
                 <div class="card__price-section">
                   <span class="card__price">$ 2 090</span>
-                  <a href="#details--ride-in-town-st">
-                    <button class="detail__button button" type="button">
-                      Details
-                    </button>
-                  </a>
+                  <div class="bikes__button button--double">
+                    <a
+                      href="#details"
+                      class="button button--double__left button--double__link"
+                      >Details</a
+                    >
+                    <a
+                      href="#buy"
+                      class="button button--double__right button--double__link"
+                      >Buy</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -230,12 +265,12 @@
               </article>
             </div>
             <div class="details__button">
-              <button class="button details__button--buy" type="button">
-                Buy
-              </button>
+              <a href="#buy" class="details__button-link">
+                <button class="button" type="button">Buy</button>
+              </a>
             </div>
           </section>
-          <section class="section contacts">
+          <section class="section contacts" id="buy">
             <h2 class="section__title contacts__title" id="contacts">
               contact us
             </h2>
@@ -295,7 +330,12 @@
       </div>
     </main>
     <footer class="footer">
-      <img src="./images/footer-low.webp" alt="footer" class="footer__image" />
+      <img
+        src="./images/footer-low.webp"
+        alt="footer"
+        class="footer__image"
+        loading="lazy"
+      />
     </footer>
   </body>
 </html>

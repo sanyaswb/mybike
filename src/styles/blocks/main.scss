@@ -53,7 +53,6 @@
 }
 
 .button {
-  height: 56px;
   width: 100%;
   font-weight: 700;
   font-size: 16px;
@@ -61,6 +60,68 @@
   background-color: $secondary-font-color;
   color: $primariy-font-color;
   border-radius: 40px;
+  border: 1px solid $secondary-font-color;
+  transition: all 0.2s ease;
+
+  &--double {
+    grid-column: span 2;
+    color: $primariy-font-color;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / -5;
+    }
+
+    display: flex;
+
+    &__link {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &__left {
+      border-right: 1px solid $primariy-font-color;
+      border-radius: 40px 0 0 40px;
+
+      &:hover {
+        transform: scale(1.1);
+        transform-origin: right;
+        color: $secondary-font-color;
+        background-color: transparent;
+        border-right: 1px solid $secondary-font-color;
+      }
+    }
+
+    &__right {
+      border-left: 1px solid $primariy-font-color;
+      border-radius: 0 40px 40px 0;
+
+      &:hover {
+        transform: scale(1.1);
+        transform-origin: left;
+        color: $secondary-font-color;
+        background-color: transparent;
+        border-left: 1px solid $secondary-font-color;
+      }
+    }
+  }
+}
+
+.button:hover {
+  -webkit-box-shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.4);
+  box-shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.4);
+}
+
+.button:active {
+  -webkit-box-shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.64);
+  box-shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.64);
 }
 
 .form {

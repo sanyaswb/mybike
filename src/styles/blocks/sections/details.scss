@@ -21,9 +21,11 @@
   }
 
   &__button {
+    height: 56px;
+
     @include pageGrid;
 
-    &--buy {
+    &-link {
       grid-column: span 2;
 
       @include onTablet {
@@ -103,10 +105,5 @@
     &--margin {
       margin-bottom: 0;
     }
-  }
-
-  &__button {
-    height: 36px;
-    width: 120px;
   }
 }
