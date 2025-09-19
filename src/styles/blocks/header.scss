@@ -1,4 +1,6 @@
 .header {
+  @include headerPadding;
+
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -20,29 +22,43 @@
   }
 
   @include onDesktop {
-    height: 711px;
+    height: 100vh;
+
+    .icon--menu {
+      display: none;
+    }
   }
 
-  @media (min-width: 1261px) {
-    height: 100vh;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    .nav__list {
+      flex-direction: row;
+    }
+
+    .nav__link {
+      color: $secondary-font-color;
+
+      &::after {
+        background-color: $secondary-font-color;
+        opacity: 1;
+      }
+    }
   }
 
   &__icons {
     display: flex;
     gap: 24px;
-  }
-
-  &__bottom {
-    padding-bottom: 90px;
-
-    @include contentPaddingInline;
-    @include onTablet {
-      padding-bottom: 130px;
-    }
-
-    @include onDesktop {
-      padding-bottom: 203px;
-    }
   }
 
   &__title {

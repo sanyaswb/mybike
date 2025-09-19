@@ -7,6 +7,12 @@
     font-size: 22px;
     line-height: 22px;
     letter-spacing: 2px;
+
+    @include onDesktop {
+      &--header {
+        flex-direction: row;
+      }
+    }
   }
 
   &__item {

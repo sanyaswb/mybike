@@ -10,25 +10,6 @@
   }
 }
 
-@mixin mainPadding() {
-  padding-inline: 20px;
-  padding-top: 60px;
-  padding-bottom: 120px;
-
-  @include onTablet {
-    padding-inline: 72px;
-    padding-block: 120px;
-  }
-
-  @include onDesktop {
-    padding-inline: 120px;
-    padding-top: 120px;
-    padding-bottom: 182px;
-    max-width: 1020px;
-    margin-inline: auto;
-  }
-}
-
 @mixin contentPaddingInline() {
   padding-inline: 20px;
 
@@ -38,6 +19,40 @@
 
   @include onDesktop {
     padding-inline: 120px;
+  }
+}
+
+@mixin headerPadding {
+  @include contentPaddingInline;
+
+  padding-top: 24px;
+  padding-bottom: 88px;
+
+  @include onTablet {
+    padding-top: 36px;
+    padding-bottom: 130px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 203px;
+  }
+}
+
+@mixin mainPadding() {
+  @include contentPaddingInline;
+
+  padding-top: 60px;
+  padding-bottom: 120px;
+
+  @include onTablet {
+    padding-block: 120px;
+  }
+
+  @include onDesktop {
+    padding-top: 120px;
+    padding-bottom: 182px;
+    max-width: 1020px;
+    margin-inline: auto;
   }
 }
 

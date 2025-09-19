@@ -1,4 +1,6 @@
 .menu {
+  @include headerPadding;
+
   height: 100vh;
   box-sizing: border-box;
   background-color: $menu-background;
@@ -14,6 +16,36 @@
   transform: translateX(-100%);
   pointer-events: none;
 
+  // &--desktop {
+  //   @include onDesktop {
+  //     @include contentPaddingInline;
+  //     transform: translateX(0);
+  //     opacity: 1;
+  //     background-color: transparent;
+
+  //     .menu__top {
+  //       display: none;
+  //     }
+
+  //     .menu__phone-number {
+  //       display: none;
+  //     }
+
+  //     .menu__book-test-ride {
+  //       display: none;
+  //     }
+  //   }
+
+  //   .nav__list {
+  //     flex-direction: row;
+  //     justify-content: space-between;
+  //   }
+
+  //   .nav__link {
+  //     color: $secondary-font-color;
+  //   }
+  // }
+
   &:target {
     opacity: 1;
     transform: translateX(0);
@@ -21,14 +53,18 @@
   }
 
   &__top {
-    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 48px;
 
     @include onTablet {
-      margin-bottom: 8px;
+      margin-bottom: 44px;
     }
 
     @include onDesktop {
-      margin-bottom: 24px;
+      margin-bottom: 60px;
     }
   }
 
@@ -38,16 +74,7 @@
 
   &__content {
     font-weight: 600;
-    padding-inline: 20px;
     color: $primariy-font-color;
-
-    @include onTablet {
-      padding-inline: 72px;
-    }
-
-    @include onDesktop {
-      padding-inline: 120px;
-    }
   }
 
   &__phone-number {
