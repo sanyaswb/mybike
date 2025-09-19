@@ -7,24 +7,23 @@
     @include mainPadding;
   }
 
-  &__nav--sticky {
+  &__sticky {
     position: sticky;
-    height: 56px;
+    height: 0;
     top: 0;
-    left: 0;
-    right: 0;
-    background-color: $secondary-font-color;
-  }
 
-  @include onDesktop {
     &::before {
+      z-index: 1;
       display: block;
       content: "";
-      position: sticky;
-      height: 92px;
+      height: 62px;
       top: 0;
       background-color: $page-background-night;
       opacity: 0.9;
+
+      @include onTablet {
+        height: 92px;
+      }
     }
   }
 }
