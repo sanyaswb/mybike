@@ -42,16 +42,20 @@
 .detail {
   &__images {
     @include pageGrid;
-    justify-items: center;
     margin-bottom: 16px;
   }
 
   &__link {
+    height: 100%;
+    width: 100%;
+
     @media (max-width: 743px) {
       aspect-ratio: 1 / 1;
     }
 
     &--wide {
+      aspect-ratio: 2 / 1;
+
       @include onTablet {
         grid-column: span 4;
       }
@@ -62,6 +66,8 @@
     }
 
     &--square {
+      aspect-ratio: 1 / 1;
+
       @include onTablet {
         grid-column: span 2;
       }
