@@ -5,6 +5,7 @@ const sectionsDetailImages = document.querySelectorAll(".detail__images");
 const detailImage = document.querySelectorAll(".detail__image");
 const navList = document.querySelector(".nav__list");
 const navDropdown = document.querySelector(".dropdown");
+const navDropdownLink = document.querySelectorAll(".dropdown__link");
 const navDropdownItem = document.querySelectorAll(".dropdown__item");
 const headerDropdownButton = document.querySelector(
   ".header__nav__link-dropdown-button--close"
@@ -60,4 +61,15 @@ dropdownButton.addEventListener("click", () => {
   headerDropdownButton.classList.toggle(
     "header__nav__link-dropdown-button--open"
   );
+});
+
+navDropdownLink.forEach((link) => {
+  link.addEventListener("click", () => {
+    headerNavItemDropdown.classList.toggle("header__nav__item-dropdown--open");
+    headerNavLinkDropdown.classList.toggle("header__nav__link-dropdown--open");
+    headerDropdown.classList.toggle("header__dropdown--open");
+    headerDropdownButton.classList.toggle(
+      "header__nav__link-dropdown-button--open"
+    );
+  });
 });
