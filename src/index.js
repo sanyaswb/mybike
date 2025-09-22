@@ -1,3 +1,16 @@
+const page = document.querySelector(".page");
+
+const clickPageDeletedClasses = (...targets) => {
+  page.addEventListener("click", (event) => {
+    const clickedInside = targets.some(({ el }) => el.contains(event.target));
+    if (clickedInside) return;
+
+    for (const { el, className } of targets) {
+      el.classList.remove(className);
+    }
+  });
+};
+
 const menu = document.querySelector(".menu");
 const navList = document.querySelector(".nav__list");
 const menuOpen = document.querySelector(".icon--menu");
@@ -85,3 +98,37 @@ detailsDropdownButton.addEventListener("click", () => {
   compareNavLink.classList.remove("header__nav__link-dropdown--open");
   compareDropdown.classList.remove("header__dropdown--open");
 });
+
+detailsDropdownLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    detailsDropdownButton.classList.remove(
+      "header__nav__link-dropdown-button--open"
+    );
+    detailsItem.classList.remove("header__nav__item-dropdown--open");
+    detailsNavLink.classList.remove("header__nav__link-dropdown--open");
+    detailsDropdown.classList.remove("header__dropdown--open");
+  });
+});
+
+clickPageDeletedClasses(
+  {
+    el: compareDropdownButton,
+    className: "header__nav__link-dropdown-button--open",
+  },
+  { el: compareItem, className: "header__nav__item-dropdown--open" },
+  {
+    el: compareNavLink,
+    className: "header__nav__link-dropdown--open",
+  },
+  { el: compareDropdown, className: "header__dropdown--open" },
+  {
+    el: detailsDropdownButton,
+    className: "header__nav__link-dropdown-button--open",
+  },
+  { el: detailsItem, className: "header__nav__item-dropdown--open" },
+  {
+    el: detailsNavLink,
+    className: "header__nav__link-dropdown--open",
+  },
+  { el: detailsDropdown, className: "header__dropdown--open" }
+);
