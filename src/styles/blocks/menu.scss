@@ -41,6 +41,14 @@
 
   &__nav {
     margin-bottom: 40px;
+
+    &-link::after {
+      margin-bottom: -8px;
+    }
+
+    &-link {
+      color: $primariy-font-color;
+    }
   }
 
   &__content {

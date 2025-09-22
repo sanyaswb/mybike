@@ -50,21 +50,100 @@
     display: none;
 
     @include onDesktop {
-      display: block;
+      display: flex;
     }
 
-    .nav__list {
+    &__list {
       flex-direction: row;
     }
 
-    .nav__link {
+    &__item {
+      display: flex;
+      gap: 20px;
+
+      &-dropdown--open {
+        border-radius: 10px 10px 0 0;
+        background-color: rgba($color: $menu-background, $alpha: 0.5);
+      }
+    }
+
+    &__link {
       color: $secondary-font-color;
+      height: 56px;
 
       &::after {
         background-color: $secondary-font-color;
-        opacity: 1;
+      }
+
+      &-dropdown--close {
+        margin-left: 20px;
+      }
+
+      &-dropdown--open {
+        display: block;
+        position: relative;
+        align-content: center;
+        height: 56px;
+        color: $primariy-font-color;
+      }
+
+      &-dropdown-button--close {
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 100%;
+        padding-right: 20px;
+        transform: translateY(5%);
+        transition: all 0.3s ease-in-out;
+
+        &:hover::before {
+          content: "";
+          width: 40px;
+          height: 40px;
+          background-color: rgba($color: $menu-background, $alpha: 0.5);
+          border-radius: 5px;
+          transform: translateY(-10%);
+        }
+
+        & :nth-child(-n + 2) {
+          position: absolute;
+          height: 20px;
+          width: 8px;
+          background-color: $secondary-font-color;
+          top: 25%;
+        }
+
+        & :first-child {
+          transform-origin: bottom left;
+          transform: translateX(50%) rotate(-45deg);
+        }
+
+        & :last-child {
+          transform-origin: bottom right;
+          transform: translateX(-50%) rotate(45deg);
+        }
+      }
+
+      &-dropdown-button--open {
+        & :first-child {
+          transform-origin: top right;
+          transform: translateX(-50%) rotate(-45deg);
+        }
+
+        & :last-child {
+          transform-origin: top left;
+          transform: translateX(50%) rotate(45deg);
+        }
       }
     }
+  }
+
+  &__dropdown--close {
+    display: none;
+  }
+
+  &__dropdown--open {
+    display: grid;
   }
 
   &__icons {
