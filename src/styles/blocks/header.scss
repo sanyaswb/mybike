@@ -32,7 +32,12 @@
   &__top {
     z-index: 2;
     position: fixed;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "logo list icons"
+      "center center center";
     justify-content: space-between;
     align-items: center;
 
@@ -46,11 +51,26 @@
     }
   }
 
+  &__logo {
+    grid-area: logo;
+    margin-right: 20px;
+  }
+
+  &__dropdown {
+    @media (max-width: 1450px) {
+      transform: translateY(56px);
+    }
+  }
+
   &__nav {
     display: none;
 
     @include onDesktop {
       display: flex;
+    }
+
+    @media (max-width: 1450px) {
+      grid-area: center;
     }
 
     &__list {
@@ -147,6 +167,8 @@
   }
 
   &__icons {
+    grid-column: 3 / -1;
+    justify-content: end;
     display: flex;
     gap: 24px;
   }

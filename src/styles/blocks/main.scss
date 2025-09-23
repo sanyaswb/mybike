@@ -24,6 +24,10 @@
       @include onTablet {
         height: 92px;
       }
+
+      @media (max-width: 1450px) {
+        height: 140px;
+      }
     }
   }
 }
@@ -175,4 +179,8 @@
       line-height: 20px;
     }
   }
+}
+
+.no-wrap-text {
+  white-space: nowrap;
 }
