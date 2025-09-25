@@ -278,8 +278,8 @@
   }
 
   &__link {
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 162px 1fr;
     grid-template-areas: "first last";
     column-gap: 20px;

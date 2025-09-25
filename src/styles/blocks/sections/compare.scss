@@ -165,38 +165,38 @@
       }
     }
 
-    &__item {
-      &--last {
-        @include onDesktop {
-          &:hover {
-            background: linear-gradient(
-              -90deg,
-              rgba(29, 29, 29, 1) 0%,
-              rgba(29, 29, 29, 1) 50%,
-              rgba(29, 29, 29, 0) 100%
-            );
-          }
-        }
-      }
-    }
+    // &__item {
+    //   &--last {
+    //     @include onDesktop {
+    //       &:hover {
+    //         background: linear-gradient(
+    //           -90deg,
+    //           rgba(29, 29, 29, 1) 0%,
+    //           rgba(29, 29, 29, 1) 50%,
+    //           rgba(29, 29, 29, 0) 100%
+    //         );
+    //       }
+    //     }
+    //   }
+    // }
 
-    &__link {
-      &--last {
-        grid-template-columns: 1fr 162px;
-      }
-    }
+    // &__link {
+    //   &--last {
+    //     grid-template-columns: 1fr 162px;
+    //   }
+    // }
 
-    &__img {
-      &--last {
-        grid-area: last;
-        transform: scaleX(-1);
-      }
-    }
+    // &__img {
+    //   &--last {
+    //     grid-area: last;
+    //     transform: scaleX(-1);
+    //   }
+    // }
 
-    &__text {
-      &--last {
-        grid-area: first;
-      }
-    }
+    // &__text {
+    //   &--last {
+    //     grid-area: first;
+    //   }
+    // }
   }
 }
