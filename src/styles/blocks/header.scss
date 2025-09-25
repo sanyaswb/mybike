@@ -6,7 +6,6 @@
   justify-content: space-between;
   flex-direction: column;
   height: 480px;
-  box-sizing: border-box;
 
   background-image: url("../images/backgrounds/header_bike-uhd.webp"),
     url("../images/backgrounds/header_bk-uhd.webp");
@@ -56,12 +55,6 @@
     margin-right: 20px;
   }
 
-  &__dropdown {
-    @media (max-width: 1450px) {
-      transform: translateY(56px);
-    }
-  }
-
   &__nav {
     display: none;
 
@@ -77,92 +70,51 @@
       flex-direction: row;
     }
 
-    &__item {
+    &__details {
       display: flex;
-      gap: 20px;
+      flex-direction: column;
 
-      &-dropdown--open {
+      &__top {
+        display: flex;
+        align-items: center;
+        padding-inline: 20px;
+        gap: 20px;
         border-radius: 10px 10px 0 0;
-        background-color: rgba($color: $menu-background, $alpha: 0.5);
+        background: transparent;
+
+        &--open {
+          background-color: rgba($color: $menu-background, $alpha: 0.5);
+        }
+
+        &-button {
+          position: relative;
+        }
+      }
+
+      &__dropdown {
+        display: none;
+        position: absolute;
+
+        @media (max-width: 1450px) {
+          transform: translateY(56px);
+        }
+
+        &--open {
+          display: grid;
+        }
       }
     }
 
     &__link {
-      color: $secondary-font-color;
       height: 56px;
 
       &::after {
         background-color: $secondary-font-color;
       }
 
-      &-dropdown {
-        margin-left: 20px;
-
-        &--open {
-          display: block;
-          position: relative;
-          align-content: center;
-          height: 56px;
-          color: $primariy-font-color;
-        }
-
-        &-button {
-          justify-content: center;
-          align-items: center;
-          width: 40px;
-          height: 100%;
-          padding-right: 20px;
-          transform: translateY(5%);
-          transition: all 0.3s ease-in-out;
-
-          &:hover::before {
-            content: "";
-            width: 40px;
-            height: 40px;
-            background-color: rgba($color: $menu-background, $alpha: 0.5);
-            border-radius: 5px;
-            transform: translateY(-10%);
-          }
-
-          & :nth-child(-n + 2) {
-            position: absolute;
-            height: 20px;
-            width: 8px;
-            background-color: $secondary-font-color;
-            top: 25%;
-          }
-
-          & :first-child {
-            transform-origin: bottom left;
-            transform: translateX(50%) rotate(-45deg);
-          }
-
-          & :last-child {
-            transform-origin: bottom right;
-            transform: translateX(-50%) rotate(45deg);
-          }
-
-          &--open {
-            & :first-child {
-              transform-origin: top right;
-              transform: translateX(-50%) rotate(-45deg);
-            }
-
-            & :last-child {
-              transform-origin: top left;
-              transform: translateX(50%) rotate(45deg);
-            }
-          }
-        }
+      &__dropdown--open {
+        color: $primary-font-color;
       }
-    }
-  }
-
-  &__dropdown {
-    display: none;
-
-    &--open {
-      display: grid;
     }
   }
 
@@ -171,6 +123,10 @@
     justify-content: end;
     display: flex;
     gap: 24px;
+
+    @include onTablet {
+      gap: 32px;
+    }
   }
 
   &__title {

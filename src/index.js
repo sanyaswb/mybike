@@ -1,16 +1,4 @@
 const page = document.querySelector(".page");
-
-const clickPageDeletedClasses = (...targets) => {
-  page.addEventListener("click", (event) => {
-    const clickedInside = targets.some(({ el }) => el.contains(event.target));
-    if (clickedInside) return;
-
-    for (const { el, className } of targets) {
-      el.classList.remove(className);
-    }
-  });
-};
-
 const menu = document.querySelector(".menu");
 const navList = document.querySelector(".nav__list");
 const menuOpen = document.querySelector(".icon--menu");
@@ -21,20 +9,32 @@ const detailImage = document.querySelectorAll(".detail__image");
 const dropdown = document.querySelector(".dropdown");
 const dropdownItems = document.querySelectorAll(".dropdown__item");
 
-const compareItem = document.getElementById("compareItem");
-const compareNavLink = document.getElementById("compareNavLink");
-const compareDropdownButton = document.getElementById("compareDropdownButton");
-const compareDropdown = document.getElementById("compareDropdown");
-const compareDropdownLinks = document.querySelectorAll(
-  ".dropdown__compare__link"
-);
-
-const detailsItem = document.getElementById("detailsItem");
+const detailsDropdownTop = document.getElementById("detailsDropdownTop");
 const detailsNavLink = document.getElementById("detailsNavLink");
 const detailsDropdownButton = document.getElementById("detailsDropdownButton");
 const detailsDropdown = document.getElementById("detailsDropdown");
 const detailsDropdownLinks = document.querySelectorAll(
   ".dropdown__details__link"
+);
+
+const compareNavLink = document.getElementById("compareNavLink");
+const compare = document.getElementById("compare");
+const compareButton = document.getElementById("compareButton");
+const compareDropdownButtonFirst = document.getElementById(
+  "compareDropdownButtonFirst"
+);
+const compareDropdownButtonLast = document.getElementById(
+  "compareDropdownButtonLast"
+);
+const compareDropdownFirst = document.getElementById("compareDropdownFirst");
+const compareDropdownLast = document.getElementById("compareDropdownLast");
+const compareChoseBikeFirst = document.getElementById("compareChoseBikeFirst");
+const compareChoseBikeLast = document.getElementById("compareChoseBikeLast");
+const compareDropdownTopFirst = document.getElementById(
+  "compareDropdownTopFirst"
+);
+const compareDropdownTopLast = document.getElementById(
+  "compareDropdownTopLast"
 );
 
 menuOpen.addEventListener("click", () => {
@@ -69,66 +69,73 @@ const getMaxWidth = () => {
 const dropdownMaxWidth = getMaxWidth();
 dropdown.style.maxWidth = dropdownMaxWidth;
 
-compareDropdownButton.addEventListener("click", () => {
-  compareDropdownButton.classList.toggle(
-    "header__nav__link-dropdown-button--open"
-  );
-  compareItem.classList.toggle("header__nav__item-dropdown--open");
-  compareNavLink.classList.toggle("header__nav__link-dropdown--open");
-  compareDropdown.classList.toggle("header__dropdown--open");
-  detailsDropdownButton.classList.remove(
-    "header__nav__link-dropdown-button--open"
-  );
-  detailsItem.classList.remove("header__nav__item-dropdown--open");
-  detailsNavLink.classList.remove("header__nav__link-dropdown--open");
-  detailsDropdown.classList.remove("header__dropdown--open");
-});
+detailsDropdownButton.addEventListener("click", (event) => {
+  event.stopPropagation();
 
-detailsDropdownButton.addEventListener("click", () => {
-  detailsDropdownButton.classList.toggle(
-    "header__nav__link-dropdown-button--open"
-  );
-  detailsItem.classList.toggle("header__nav__item-dropdown--open");
-  detailsNavLink.classList.toggle("header__nav__link-dropdown--open");
-  detailsDropdown.classList.toggle("header__dropdown--open");
-  compareDropdownButton.classList.remove(
-    "header__nav__link-dropdown-button--open"
-  );
-  compareItem.classList.remove("header__nav__item-dropdown--open");
-  compareNavLink.classList.remove("header__nav__link-dropdown--open");
-  compareDropdown.classList.remove("header__dropdown--open");
+  detailsDropdownButton.classList.toggle("dropdown-button--open");
+  detailsDropdownTop.classList.toggle("header__nav__details__top--open");
+  detailsNavLink.classList.toggle("header__nav__details__top-link--open");
+  detailsDropdown.classList.toggle("header__nav__details__dropdown--open");
 });
 
 detailsDropdownLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    detailsDropdownButton.classList.remove(
-      "header__nav__link-dropdown-button--open"
-    );
-    detailsItem.classList.remove("header__nav__item-dropdown--open");
-    detailsNavLink.classList.remove("header__nav__link-dropdown--open");
-    detailsDropdown.classList.remove("header__dropdown--open");
+    detailsDropdownButton.classList.remove("dropdown-button--open");
+    detailsDropdownTop.classList.remove("header__nav__details__top--open");
+    detailsNavLink.classList.remove("header__nav__details__top-link--open");
+    detailsDropdown.classList.remove("header__nav__details__dropdown--open");
   });
 });
 
+compareNavLink.addEventListener("click", () => {
+  page.classList.add("page--overflow");
+  compare.classList.add("compare--open");
+});
+
+compareButton.addEventListener("click", () => {
+  page.classList.remove("page--overflow");
+  compare.classList.remove("compare--open");
+});
+
+compareDropdownButtonFirst.addEventListener("click", (event) => {
+  compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
+  compareDropdownFirst.classList.toggle("compare__dropdown__list--open");
+  compareDropdownTopFirst.classList.toggle("compare__dropdown__top--open");
+});
+
+compareDropdownButtonLast.addEventListener("click", (event) => {
+  compareDropdownButtonLast.classList.toggle("dropdown-button--open");
+  compareDropdownLast.classList.toggle("compare__dropdown__list--open");
+  compareDropdownTopLast.classList.toggle("compare__dropdown__top--open");
+});
+
+const clickPageDeletedClasses = (...targets) => {
+  page.addEventListener("click", (event) => {
+    const clickedInside = targets.some(({ el }) => {
+      el.contains(event.target);
+    });
+
+    if (clickedInside) return;
+
+    for (const { el, className } of targets) {
+      el.classList.remove(className);
+    }
+  });
+};
+
 clickPageDeletedClasses(
   {
-    el: compareDropdownButton,
-    className: "header__nav__link-dropdown-button--open",
-  },
-  { el: compareItem, className: "header__nav__item-dropdown--open" },
-  {
-    el: compareNavLink,
-    className: "header__nav__link-dropdown--open",
-  },
-  { el: compareDropdown, className: "header__dropdown--open" },
-  {
     el: detailsDropdownButton,
-    className: "header__nav__link-dropdown-button--open",
+    className: "dropdown-button--open",
   },
-  { el: detailsItem, className: "header__nav__item-dropdown--open" },
+  { el: detailsDropdownTop, className: "header__nav__details__top--open" },
   {
     el: detailsNavLink,
-    className: "header__nav__link-dropdown--open",
+    className: "header__nav__details__top-link--open",
   },
-  { el: detailsDropdown, className: "header__dropdown--open" }
+  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
+  // { el: compareDropdownFirst, className: "compare__dropdown__list--open" },
+  // { el: compareDropdownLast, className: "compare__dropdown__list--open" }
+  // { el: compareDropdownTopFirst, className: "compare__dropdown__top--open" },
+  // { el: compareDropdownTopLast, className: "compare__dropdown__top--open" }
 );

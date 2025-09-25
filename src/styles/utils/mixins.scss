@@ -91,3 +91,18 @@
   line-height: 140%;
   margin-bottom: 16px;
 }
+
+@mixin resetScrollBar {
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $secondary-font-color, $alpha: 0.5);
+    border-radius: 5px;
+  }
+}

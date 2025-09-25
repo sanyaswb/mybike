@@ -2,5 +2,9 @@
   font-family: Poppins, sans-serif;
   color: $secondary-font-color;
   scroll-behavior: smooth;
-  background-color: $primariy-font-color;
+  background-color: $primary-font-color;
+
+  &--overflow {
+    overflow: hidden;
+  }
 }

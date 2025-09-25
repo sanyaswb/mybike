@@ -41,8 +41,8 @@
 
 .detail {
   &__images {
-    position: relative;
     // @include pageGrid;
+    position: relative;
     display: flex;
     gap: 20px;
 

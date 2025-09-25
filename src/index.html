@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="page">
+<html lang="en" class="page page--overflow1">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,102 +28,35 @@
             <li class="nav__item">
               <a class="header__nav__link nav__link" href="#"> home </a>
             </li>
-            <li class="header__nav__item nav__item" id="compareItem">
+            <li class="header__nav__compare nav__item">
               <a
-                class="header__nav__link header__nav__link-dropdown nav__link"
+                class="header__nav__link nav__link"
                 href="#compare-bikes"
                 id="compareNavLink"
               >
                 compare-bikes
               </a>
-              <a
-                href="#"
-                class="header__nav__link-dropdown-button"
-                id="compareDropdownButton"
-              >
-                <div></div>
-                <div></div>
-              </a>
-              <ul class="header__dropdown dropdown" id="compareDropdown">
-                <li class="dropdown__item">
-                  <a
-                    href="#"
-                    class="dropdown__link dropdown__compare__link"
-                    id="sporty-4"
-                  >
-                    <div class="dropdown__img dropdown__img--1"></div>
-                    <span class="dropdown__text">Sporty 4</span>
-                  </a>
-                </li>
-                <li class="dropdown__item">
-                  <a
-                    href="#"
-                    class="dropdown__link dropdown__compare__link"
-                    id="ride-in-town"
-                  >
-                    <div class="dropdown__img dropdown__img--2"></div>
-                    <span class="dropdown__text">Cowboy 4 ST</span>
-                  </a>
-                </li>
-                <li class="dropdown__item">
-                  <a
-                    href="#"
-                    class="dropdown__link dropdown__compare__link"
-                    id="agile-ride-3"
-                  >
-                    <div class="dropdown__img dropdown__img--3"></div>
-                    <span class="dropdown__text">Agile ride 3</span>
-                  </a>
-                </li>
-                <li class="dropdown__item">
-                  <a
-                    href="#"
-                    class="dropdown__link dropdown__compare__link"
-                    id="sporty-4"
-                  >
-                    <div class="dropdown__img dropdown__img--1"></div>
-                    <span class="dropdown__text">Sporty 4</span>
-                  </a>
-                </li>
-                <li class="dropdown__item">
-                  <a
-                    href="#"
-                    class="dropdown__link dropdown__compare__link"
-                    id="ride-in-town"
-                  >
-                    <div class="dropdown__img dropdown__img--2"></div>
-                    <span class="dropdown__text">Ride in town</span>
-                  </a>
-                </li>
-                <li class="dropdown__item">
-                  <a
-                    href="#"
-                    class="dropdown__link dropdown__compare__link"
-                    id="agile-ride-3"
-                  >
-                    <div class="dropdown__img dropdown__img--3"></div>
-                    <span class="dropdown__text">Agile ride 3</span>
-                  </a>
-                </li>
-              </ul>
             </li>
-            <li class="header__nav__item nav__item" id="detailsItem">
-              <a
-                class="header__nav__link header__nav__link-dropdown nav__link"
-                href="#details"
-                id="detailsNavLink"
+            <li class="header__nav__details nav__item">
+              <div class="header__nav__details__top" id="detailsDropdownTop">
+                <a
+                  class="header__nav__link nav__link"
+                  href="#details"
+                  id="detailsNavLink"
+                >
+                  details
+                </a>
+                <a
+                  href="#123"
+                  class="header__nav__details__top-button dropdown-button"
+                  id="detailsDropdownButton"
+                >
+                </a>
+              </div>
+              <ul
+                class="header__nav__details__dropdown dropdown"
+                id="detailsDropdown"
               >
-                details
-              </a>
-              <a
-                href="#"
-                class="header__nav__link-dropdown-button"
-                id="detailsDropdownButton"
-              >
-                <div></div>
-                <div></div>
-              </a>
-              <ul class="header__dropdown dropdown" id="detailsDropdown">
                 <li class="dropdown__item">
                   <a
                     href="#"
@@ -273,6 +206,125 @@
       <div class="main__sticky"></div>
       <div class="main__wrapper">
         <div class="main__content">
+          <section class="compare" id="compare">
+            <div class="compare__container">
+              <div class="compare__button--close" id="compareButton"></div>
+              <h2 class="section__title">compare bikes</h2>
+              <div class="compare__bar"></div>
+              <div class="compare__cards">
+                <div class="compare__dropdown compare__dropdown--first">
+                  <div
+                    class="compare__dropdown__top"
+                    id="compareDropdownTopFirst"
+                  >
+                    <p
+                      class="compare__dropdown__top-bike"
+                      id="compareChoseBikeFirst"
+                    >
+                      Sporty 4
+                    </p>
+                    <a
+                      href="#"
+                      class="compare__dropdown__top-button dropdown-button"
+                      id="compareDropdownButtonFirst"
+                    >
+                    </a>
+                  </div>
+                  <ul
+                    class="compare__dropdown__list dropdown"
+                    id="compareDropdownFirst"
+                  >
+                    <li class="dropdown__item">
+                      <a
+                        href="#"
+                        class="dropdown__link dropdown__compare__link"
+                        id="sporty-4"
+                      >
+                        <div class="dropdown__img dropdown__img--1"></div>
+                        <span class="dropdown__text">Sporty 4</span>
+                      </a>
+                    </li>
+                    <li class="dropdown__item">
+                      <a
+                        href="#"
+                        class="dropdown__link dropdown__compare__link"
+                        id="ride-in-town"
+                      >
+                        <div class="dropdown__img dropdown__img--2"></div>
+                        <span class="dropdown__text">Cowboy 4 ST</span>
+                      </a>
+                    </li>
+                    <li class="dropdown__item">
+                      <a
+                        href="#"
+                        class="dropdown__link dropdown__compare__link"
+                        id="agile-ride-3"
+                      >
+                        <div class="dropdown__img dropdown__img--3"></div>
+                        <span class="dropdown__text">Agile ride 3</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="compare__dropdown compare__dropdown--last">
+                  <div
+                    class="compare__dropdown__top"
+                    id="compareDropdownTopLast"
+                  >
+                    <p
+                      class="compare__dropdown__top-bike"
+                      id="compareChoseBikeFirst"
+                    >
+                      Sporty 4
+                    </p>
+                    <a
+                      href="#"
+                      class="compare__dropdown__top-button dropdown-button"
+                      id="compareDropdownButtonLast"
+                    >
+                    </a>
+                  </div>
+                  <ul
+                    class="compare__dropdown__list dropdown"
+                    id="compareDropdownLast"
+                  >
+                    <li class="dropdown__item">
+                      <a
+                        href="#"
+                        class="dropdown__link dropdown__compare__link"
+                        id="sporty-4"
+                      >
+                        <div class="dropdown__img dropdown__img--1"></div>
+                        <span class="dropdown__text">Sporty 4</span>
+                      </a>
+                    </li>
+                    <li class="dropdown__item">
+                      <a
+                        href="#"
+                        class="dropdown__link dropdown__compare__link"
+                        id="ride-in-town"
+                      >
+                        <div class="dropdown__img dropdown__img--2"></div>
+                        <span class="dropdown__text">Cowboy 4 ST</span>
+                      </a>
+                    </li>
+                    <li class="dropdown__item">
+                      <a
+                        href="#"
+                        class="dropdown__link dropdown__compare__link"
+                        id="agile-ride-3"
+                      >
+                        <div class="dropdown__img dropdown__img--3"></div>
+                        <span class="dropdown__text">Agile ride 3</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="compare__card"></div>
+                <div class="compare__card"></div>
+              </div>
+            </div>
+          </section>
           <section class="section free">
             <h2 class="section__title free__title">Move Free</h2>
             <p class="free__content">

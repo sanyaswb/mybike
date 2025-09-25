@@ -33,7 +33,7 @@
       display: block;
       height: 1px;
       width: 100%;
-      background-color: $primariy-font-color;
+      background-color: $primary-font-color;
 
       transition: transform 0.3s;
       transform: scale(0);
@@ -45,64 +45,5 @@
       left: 0;
       transform: scale(1);
     }
-  }
-}
-
-.dropdown {
-  box-sizing: border-box;
-  position: absolute;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-auto-flow: row;
-  max-height: 536px;
-  overflow-y: scroll;
-  overflow-x: clip;
-  row-gap: 20px;
-  z-index: 1;
-  top: 56px;
-  background-color: rgba($color: $menu-background, $alpha: 0.5);
-  padding-inline: 20px;
-  padding-block: 56px;
-  border-radius: 0 10px 10px 10px;
-
-  &__item {
-    color: $primariy-font-color;
-    font-size: 28px;
-    font-weight: 800;
-    &:hover {
-      background: linear-gradient(
-        90deg,
-        rgba(29, 29, 29, 1) 0%,
-        rgba(29, 29, 29, 1) 50%,
-        rgba(29, 29, 29, 0) 100%
-      );
-
-      color: $secondary-font-color;
-    }
-  }
-
-  &__img {
-    height: 128px;
-    width: 100%;
-    background-color: black;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    &--1 {
-      background-image: url(../images/bikes/sporty_4.png);
-    }
-    &--2 {
-      background-image: url(../images/bikes/agile_ride_3.png);
-    }
-    &--3 {
-      background-image: url(../images/bikes/ride_in_town_ST.png);
-    }
-  }
-
-  &__link {
-    display: grid;
-    grid-template-columns: 162px 1fr;
-    column-gap: 40px;
-    align-items: center;
   }
 }
