@@ -13,9 +13,37 @@
     display: block;
   }
 
+  &__container {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    margin: 20px;
+    padding-inline: 20px;
+    padding-top: 90px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border: 1px solid $secondary-font-color;
+    border-radius: 40px;
+    justify-content: center;
+    overflow-x: none;
+    overflow-y: scroll;
+    height: 100%;
+    max-height: calc(100vh - 40px);
+    min-width: 280px;
+    @include onTablet {
+      margin-inline: 72px;
+    }
+
+    @include onDesktop {
+      margin-inline: 120px;
+    }
+
+    @include resetScrollBar;
+  }
+
   &__button--close {
     display: flex;
-
     position: absolute;
     width: 50px;
     height: 50px;
@@ -78,46 +106,27 @@
     }
   }
 
-  &__container {
-    position: absolute;
+  &__cards {
+    column-gap: 20px;
+    // position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     left: 0;
     right: 0;
-
-    margin: 20px;
-    padding-inline: 20px;
-    padding-top: 90px;
-    background: transparent;
-    backdrop-filter: blur(10px);
-    border: 1px solid $secondary-font-color;
-    border-radius: 40px;
-    justify-content: center;
-    overflow-x: none;
     height: 100%;
-    max-height: calc(100vh - 40px);
-    min-width: 280px;
-    overflow: hidden;
-
-    @include onTablet {
-      margin-inline: 72px;
-      // max-height: calc(100vh - 72px);
-    }
-
-    @include onDesktop {
-      margin-inline: 120px;
-      // max-height: calc(100vh - 120px);
-    }
-
-    @include resetScrollBar;
   }
 
-  &__cards {
-    position: relative;
+  &__top {
+    z-index: 1;
+    grid-column: 1 / -1;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "first last";
-    left: 0;
-    right: 0;
-    height: 100%;
+    column-gap: 20px;
+    position: absolute;
+    left: 20px;
+    right: 20px;
   }
 
   &__dropdown {
@@ -128,14 +137,10 @@
       display: flex;
       justify-content: end;
       width: 100%;
-      max-width: 90%;
+      max-width: 80%;
       background-color: rgba($color: $menu-background, $alpha: 0.5);
       border-radius: 10px;
       padding: 10px;
-
-      // &:hover {
-      //   background-color: rgba($color: $menu-background, $alpha: 0.7);
-      // }
 
       &--open {
         border-radius: 10px 10px 0 0;
@@ -155,9 +160,16 @@
       }
     }
 
+    &--first {
+      grid-area: first;
+    }
+    &--last {
+      grid-area: last;
+    }
+
     &__list {
       width: 100%;
-      max-width: 90%;
+      max-width: 80%;
       display: none;
 
       &--open {
@@ -198,5 +210,14 @@
         grid-area: first;
       }
     }
+  }
+
+  &__card {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 3200px;
+    // background-color: red;
+    padding-block: 112px;
   }
 }

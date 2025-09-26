@@ -37,6 +37,14 @@ const compareDropdownTopLast = document.getElementById(
   "compareDropdownTopLast"
 );
 
+const linkSporty4 = document.querySelectorAll(`[data-product-id="sporty-4"]`);
+const linkRideInTown = document.querySelectorAll(
+  `[data-product-id="ride-in-town"]`
+);
+const linkAgileRide3 = document.querySelectorAll(
+  `[data-product-id="agile-ride-3"]`
+);
+
 menuOpen.addEventListener("click", () => {
   menu.classList.toggle("menu--open");
 });
@@ -95,6 +103,12 @@ compareNavLink.addEventListener("click", () => {
 compareButton.addEventListener("click", () => {
   page.classList.remove("page--overflow");
   compare.classList.remove("compare--open");
+  compareDropdownFirst.classList.remove("compare__dropdown__list--open");
+  compareDropdownLast.classList.remove("compare__dropdown__list--open");
+  compareDropdownTopFirst.classList.remove("compare__dropdown__top--open");
+  compareDropdownTopLast.classList.remove("compare__dropdown__top--open");
+  compareDropdownButtonFirst.classList.remove("dropdown-button--open");
+  compareDropdownButtonLast.classList.remove("dropdown-button--open");
 });
 
 compareDropdownButtonFirst.addEventListener("click", (event) => {

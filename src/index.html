@@ -2,7 +2,10 @@
 <html lang="en" class="page page--overflow1">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      data-product-id="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Landing Page</title>
     <link rel="stylesheet" href="./styles/style.scss" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -212,122 +215,154 @@
               <h2 class="section__title">compare bikes</h2>
               <div class="compare__bar"></div>
               <div class="compare__cards">
-                <div class="compare__dropdown compare__dropdown--first">
-                  <div
-                    class="compare__dropdown__top"
-                    id="compareDropdownTopFirst"
-                  >
-                    <p
-                      class="compare__dropdown__top-bike"
-                      id="compareChoseBikeFirst"
+                <div class="compare__top">
+                  <div class="compare__dropdown compare__dropdown--first">
+                    <div
+                      class="compare__dropdown__top"
+                      id="compareDropdownTopFirst"
                     >
-                      Sporty 4
-                    </p>
-                    <a
-                      href="#"
-                      class="compare__dropdown__top-button dropdown-button"
-                      id="compareDropdownButtonFirst"
+                      <p
+                        class="compare__dropdown__top-bike"
+                        id="compareChoseBikeFirst"
+                      >
+                        Sporty 4
+                      </p>
+                      <a
+                        href="#"
+                        class="compare__dropdown__top-button dropdown-button"
+                        id="compareDropdownButtonFirst"
+                      >
+                      </a>
+                    </div>
+                    <ul
+                      class="compare__dropdown__list dropdown"
+                      id="compareDropdownFirst"
                     >
-                    </a>
+                      <li class="dropdown__item">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link"
+                          data-product-id="sporty-4"
+                        >
+                          <div class="dropdown__img dropdown__img--1"></div>
+                          <span class="dropdown__text">Sporty 4</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link"
+                          data-product-id="ride-in-town"
+                        >
+                          <div class="dropdown__img dropdown__img--2"></div>
+                          <span class="dropdown__text">Cowboy 4 ST</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link"
+                          data-product-id="agile-ride-3"
+                        >
+                          <div class="dropdown__img dropdown__img--3"></div>
+                          <span class="dropdown__text">Agile ride 3</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link"
+                          data-product-id="sporty-4"
+                        >
+                          <div class="dropdown__img dropdown__img--1"></div>
+                          <span class="dropdown__text">Sporty 4</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link"
+                          data-product-id="ride-in-town"
+                        >
+                          <div class="dropdown__img dropdown__img--2"></div>
+                          <span class="dropdown__text">Cowboy 4 ST</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link"
+                          data-product-id="agile-ride-3"
+                        >
+                          <div class="dropdown__img dropdown__img--3"></div>
+                          <span class="dropdown__text">Agile ride 3</span>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
-                  <ul
-                    class="compare__dropdown__list dropdown"
-                    id="compareDropdownFirst"
-                  >
-                    <li class="dropdown__item">
-                      <a
-                        href="#"
-                        class="dropdown__link compare__dropdown__link"
-                        id="sporty-4"
-                      >
-                        <div class="dropdown__img dropdown__img--1"></div>
-                        <span class="dropdown__text">Sporty 4</span>
-                      </a>
-                    </li>
-                    <li class="dropdown__item">
-                      <a
-                        href="#"
-                        class="dropdown__link compare__dropdown__link"
-                        id="ride-in-town"
-                      >
-                        <div class="dropdown__img dropdown__img--2"></div>
-                        <span class="dropdown__text">Cowboy 4 ST</span>
-                      </a>
-                    </li>
-                    <li class="dropdown__item">
-                      <a
-                        href="#"
-                        class="dropdown__link compare__dropdown__link"
-                        id="agile-ride-3"
-                      >
-                        <div class="dropdown__img dropdown__img--3"></div>
-                        <span class="dropdown__text">Agile ride 3</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="compare__dropdown compare__dropdown--last">
-                  <div
-                    class="compare__dropdown__top"
-                    id="compareDropdownTopLast"
-                  >
-                    <p
-                      class="compare__dropdown__top-bike"
-                      id="compareChoseBikeFirst"
+                  <div class="compare__dropdown compare__dropdown--last">
+                    <div
+                      class="compare__dropdown__top"
+                      id="compareDropdownTopLast"
                     >
-                      Sporty 4
-                    </p>
-                    <a
-                      href="#"
-                      class="compare__dropdown__top-button dropdown-button"
-                      id="compareDropdownButtonLast"
+                      <p
+                        class="compare__dropdown__top-bike"
+                        id="compareChoseBikeFirst"
+                      >
+                        Sporty 4
+                      </p>
+                      <a
+                        href="#"
+                        class="compare__dropdown__top-button dropdown-button"
+                        id="compareDropdownButtonLast"
+                      >
+                      </a>
+                    </div>
+                    <ul
+                      class="compare__dropdown__list dropdown"
+                      id="compareDropdownLast"
                     >
-                    </a>
+                      <li class="dropdown__item compare__dropdown__item--last">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link--last"
+                          data-product-id="sporty-4"
+                        >
+                          <div
+                            class="dropdown__img compare__dropdown__img--last dropdown__img--1"
+                          ></div>
+                          <span class="dropdown__text">Sporty 4</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item compare__dropdown__item--last">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link--last"
+                          data-product-id="ride-in-town"
+                        >
+                          <div
+                            class="dropdown__img compare__dropdown__img--last dropdown__img--2"
+                          ></div>
+                          <span class="dropdown__text">Cowboy 4 ST</span>
+                        </a>
+                      </li>
+                      <li class="dropdown__item compare__dropdown__item--last">
+                        <a
+                          href="#"
+                          class="dropdown__link compare__dropdown__link--last"
+                          data-product-id="agile-ride-3"
+                        >
+                          <div
+                            class="dropdown__img compare__dropdown__img--last dropdown__img--3"
+                          ></div>
+                          <span class="dropdown__text">Agile ride 3</span>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
-                  <ul
-                    class="compare__dropdown__list dropdown"
-                    id="compareDropdownLast"
-                  >
-                    <li class="dropdown__item compare__dropdown__item--last">
-                      <a
-                        href="#"
-                        class="dropdown__link compare__dropdown__link--last"
-                        id="sporty-4"
-                      >
-                        <div
-                          class="dropdown__img compare__dropdown__img--last dropdown__img--1"
-                        ></div>
-                        <span class="dropdown__text">Sporty 4</span>
-                      </a>
-                    </li>
-                    <li class="dropdown__item compare__dropdown__item--last">
-                      <a
-                        href="#"
-                        class="dropdown__link compare__dropdown__link--last"
-                        id="ride-in-town"
-                      >
-                        <div
-                          class="dropdown__img compare__dropdown__img--last dropdown__img--2"
-                        ></div>
-                        <span class="dropdown__text">Cowboy 4 ST</span>
-                      </a>
-                    </li>
-                    <li class="dropdown__item compare__dropdown__item--last">
-                      <a
-                        href="#"
-                        class="dropdown__link compare__dropdown__link--last"
-                        id="agile-ride-3"
-                      >
-                        <div
-                          class="dropdown__img compare__dropdown__img--last dropdown__img--3"
-                        ></div>
-                        <span class="dropdown__text">Agile ride 3</span>
-                      </a>
-                    </li>
-                  </ul>
                 </div>
-                <div class="compare__card"></div>
-                <div class="compare__card"></div>
+                <div class="compare__card compare__card--first card"></div>
+                <div class="compare__card compare__card--last card"></div>
               </div>
             </div>
           </section>
@@ -522,7 +557,7 @@
                     <input
                       class="form__input"
                       type="text"
-                      name="name"
+                      data-product-id="name"
                       placeholder="Name"
                     />
                   </label>
@@ -530,7 +565,7 @@
                     <input
                       class="form__input"
                       type="email"
-                      name="email"
+                      data-product-id="email"
                       placeholder="Email"
                     />
                   </label>
@@ -538,7 +573,7 @@
                     <textarea
                       class="form__input"
                       type="text"
-                      name="your message"
+                      data-product-id="your message"
                       placeholder="Message"
                     ></textarea>
                   </label>
