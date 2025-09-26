@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: rgba($color: $page-background-night, $alpha: 0.5);
   min-width: 320px;
 
@@ -18,7 +18,8 @@
     left: 0;
     right: 0;
 
-    margin: 20px;
+    margin-block: 20px;
+    // margin-inline: 20px;
     padding-inline: 20px;
     padding-top: 90px;
     background: transparent;
@@ -31,6 +32,9 @@
     height: 100%;
     max-height: calc(100vh - 40px);
     min-width: 280px;
+
+    @include resetScrollBar;
+
     @include onTablet {
       margin-inline: 72px;
     }
@@ -38,8 +42,6 @@
     @include onDesktop {
       margin-inline: 120px;
     }
-
-    @include resetScrollBar;
   }
 
   &__button--close {
