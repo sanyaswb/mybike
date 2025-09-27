@@ -19,7 +19,6 @@
     right: 0;
 
     margin-block: 20px;
-    // margin-inline: 20px;
     padding-inline: 20px;
     padding-top: 90px;
     background: transparent;
@@ -110,7 +109,6 @@
 
   &__cards {
     column-gap: 20px;
-    // position: absolute;
     display: grid;
     grid-template-columns: 1fr 1fr;
     left: 0;
@@ -129,6 +127,7 @@
     position: absolute;
     left: 20px;
     right: 20px;
+    padding-top: 20px;
   }
 
   &__dropdown {
@@ -218,8 +217,35 @@
     position: relative;
     left: 0;
     width: 100%;
-    height: 3200px;
-    // background-color: red;
     padding-block: 112px;
+    background-color: rgba($color: $page-background-night, $alpha: 0.9);
+    border-radius: 20px;
+
+    &--last {
+      grid-column: 2 / -1;
+    }
+
+    &-img {
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      aspect-ratio: 1.5 / 1;
+
+      &--last {
+        transform: scaleX(-1);
+      }
+    }
+
+    &-title {
+      text-align: center;
+
+      @include onTablet {
+        font-size: 24px;
+      }
+
+      @include onDesktop {
+        font-size: 32px;
+      }
+    }
   }
 }

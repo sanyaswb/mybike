@@ -28,6 +28,9 @@ const compareDropdownButtonFirst = document.getElementById(
 const compareDropdownButtonLast = document.getElementById(
   "compare-dropdown-button-last"
 );
+
+// const compareLists = document.getElementById("compare-lists");
+
 const compareDropdownListFirst = document.getElementById(
   "compare-dropdown-list-first"
 );
@@ -45,13 +48,8 @@ const compareDropdownTopLast = document.getElementById(
   "compare-dropdown-top-last"
 );
 
-// const linkSporty4 = document.querySelectorAll(`[data-product-id="sporty-4"]`);
-// const linkRideInTown = document.querySelectorAll(
-//   `[data-product-id="ride-in-town"]`
-// );
-// const linkAgileRide3 = document.querySelectorAll(
-//   `[data-product-id="agile-ride-3"]`
-// );
+const compareCardFirst = document.querySelector(".compare__card--first");
+const compareCardLast = document.querySelector(".compare__card--last");
 
 menuOpen.addEventListener("click", () => {
   menu.classList.toggle("menu--open");
@@ -147,16 +145,218 @@ const clickPageDeletedClasses = (...targets) => {
 
 clickPageDeletedClasses(
   {
-    el: details - dropdown - button,
+    el: detailsDropdownButton,
     className: "dropdown-button--open",
   },
   {
-    el: details - dropdown - top,
+    el: detailsDropdownTop,
     className: "header__nav__details__top--open",
   },
   {
-    el: details - nav - link,
+    el: detailsNavLink,
     className: "header__nav__details__top-link--open",
   },
-  { el: details - dropdown, className: "header__nav__details__dropdown--open" }
+  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
 );
+
+let sporty4Cost = 2549;
+let cowboy4STCost = 3424;
+let agileRide3Cost = 2249;
+
+const sporty4 = {
+  id: "1",
+  type: "electric",
+  name: "Sporty",
+  version: 4,
+  cost: `$ ${sporty4Cost}`,
+  color: ["black", "white"],
+  material: "Aluminum",
+  height: 677,
+  lengt: 1855,
+  width: 610,
+  weight: 20.2,
+  diameterWheels: 10,
+  widthFrontWheel: 40,
+  widthBackWheel: 56,
+  speedometer: "Yes",
+  numberSpeedGears: 12,
+  electricEngine: "Super MX2000",
+  enginePower: 500,
+  gyroscope: "No",
+  batteryCapacity: 20,
+  travelRange: 40,
+  maxSpeed: 70,
+  maxLoad: 120,
+  headLight: "Xenon",
+  releaseYear: 2025,
+};
+const cowboy4ST = {
+  id: "2",
+  type: "electric",
+  name: "Cowboy ST",
+  version: 4,
+  cost: `$ ${cowboy4STCost}`,
+  color: ["black", "white", "yellow"],
+  material: "Titan",
+  height: 647,
+  lengt: 1725,
+  width: 557,
+  weight: 17.1,
+  diameterWheels: 12,
+  widthFrontWheel: 43,
+  widthBackWheel: 53,
+  speedometer: "Yes",
+  numberSpeedGears: 13,
+  electricEngine: "Super MX3000",
+  enginePower: 700,
+  gyroscope: "Yes",
+  batteryCapacity: 25,
+  travelRange: 50,
+  maxSpeed: 88,
+  maxLoad: 126,
+  headLight: "LED",
+  releaseYear: 2025,
+};
+const agileRide3 = {
+  id: "3",
+  type: "electric",
+  name: "Agile ride",
+  version: 3,
+  cost: `$ ${agileRide3Cost}`,
+  color: ["grey"],
+  material: "titan",
+  height: 637,
+  lengt: 1625,
+  width: 760,
+  weight: 25.2,
+  diameterWheels: 9,
+  widthFrontWheel: 40,
+  widthBackWheel: 40,
+  speedometer: "No",
+  numberSpeedGears: 6,
+  electricEngine: "Super MX1000",
+  enginePower: 400,
+  gyroscope: "No",
+  batteryCapacity: 10,
+  travelRange: 20,
+  maxSpeed: 50,
+  maxLoad: 90,
+  headLight: "Halogen",
+  releaseYear: 2024,
+};
+
+compareDropdownListFirst.addEventListener("click", (event) => {
+  const targetElement = event.target.closest("[data-product-id]");
+
+  if (targetElement) {
+    const productId = targetElement.dataset.productId;
+    compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
+    compareDropdownListFirst.classList.toggle("compare__dropdown__list--open");
+    compareDropdownTopFirst.classList.toggle("compare__dropdown__top--open");
+
+    let firstBike = {};
+
+    if (productId === "sporty-4") {
+      firstBike = sporty4;
+    } else if (productId === "cowboy-4-st") {
+      firstBike = cowboy4ST;
+    } else if (productId === "agile-ride-3") {
+      firstBike = agileRide3;
+    } else {
+      console.log("no bike!");
+    }
+
+    compareChoseBikeFirst.textContent = `${firstBike.name} ${firstBike.version}`;
+
+    compareCardFirst.innerHTML = `
+        <div
+          class="compare__card-img compare__card-img--first bikes__card--img--${firstBike.id}"
+        ></div>
+        <h3 class="compare__card-title">${firstBike.name}</h3>
+        <div class="compare__card-tth">
+          <ul class="tth__list">
+            <li class="tth__item">Cost: ${firstBike.cost}</li>
+            <li class="tth__item">Type: ${firstBike.type}</li>
+            <li class="tth__item">Version: ${firstBike.version}</li>
+            <li class="tth__item">Material: ${firstBike.material}</li>
+            <li class="tth__item">Lengt: ${firstBike.lengt}</li>
+            <li class="tth__item">Height: ${firstBike.height}</li>
+            <li class="tth__item">Width: ${firstBike.width}</li>
+            <li class="tth__item">Weight: ${firstBike.weight}</li>
+            <li class="tth__item">Diameter wheels: ${firstBike.diameterWheels}</li>
+            <li class="tth__item">Width front wheel: ${firstBike.widthFrontWheel}</li>
+            <li class="tth__item">Width back wheel: ${firstBike.widthBackWheel}</li>
+            <li class="tth__item">Speedometer: ${firstBike.speedometer}</li>
+            <li class="tth__item">Number speed gears: ${firstBike.numberSpeedGears}</li>
+            <li class="tth__item">Engine: ${firstBike.electricEngine}</li>
+            <li class="tth__item">Engine power: ${firstBike.enginePower}</li>
+            <li class="tth__item">Gyroscope: ${firstBike.gyroscope}</li>
+            <li class="tth__item">Battery capacity: ${firstBike.batteryCapacity}</li>
+            <li class="tth__item">Travel range: ${firstBike.travelRange}</li>
+            <li class="tth__item">Max speed: ${firstBike.maxSpeed}</li>
+            <li class="tth__item">Max load: ${firstBike.maxLoad}</li>
+            <li class="tth__item">Head light: ${firstBike.headLight}</li>
+            <li class="tth__item">Release year: ${firstBike.releaseYear}</li>
+          </ul>
+        </div>
+      `;
+  }
+});
+
+compareDropdownListLast.addEventListener("click", (event) => {
+  const targetElement = event.target.closest("[data-product-id]");
+
+  if (targetElement) {
+    const productId = targetElement.dataset.productId;
+    compareDropdownButtonLast.classList.toggle("dropdown-button--open");
+    compareDropdownListLast.classList.toggle("compare__dropdown__list--open");
+    compareDropdownTopLast.classList.toggle("compare__dropdown__top--open");
+
+    let lastBike = {};
+
+    if (productId === "sporty-4") {
+      lastBike = sporty4;
+    } else if (productId === "cowboy-4-st") {
+      lastBike = cowboy4ST;
+    } else if (productId === "agile-ride-3") {
+      lastBike = agileRide3;
+    } else {
+      console.log("no bike!");
+    }
+
+    compareChoseBikeLast.textContent = `${lastBike.name} ${lastBike.version}`;
+
+    compareCardLast.innerHTML = `
+        <div
+          class="compare__card-img compare__card-img--last bikes__card--img--${lastBike.id}"
+        ></div>
+        <h3 class="compare__card-title">${lastBike.name}</h3>
+        <div class="compare__card-tth">
+          <ul class="tth__list">
+            <li class="tth__item">Cost: ${lastBike.cost}</li>
+            <li class="tth__item">Type: ${lastBike.type}</li>
+            <li class="tth__item">Version: ${lastBike.version}</li>
+            <li class="tth__item">Material: ${lastBike.material}</li>
+            <li class="tth__item">Lengt: ${lastBike.lengt}</li>
+            <li class="tth__item">Height: ${lastBike.height}</li>
+            <li class="tth__item">Width: ${lastBike.width}</li>
+            <li class="tth__item">Weight: ${lastBike.weight}</li>
+            <li class="tth__item">Diameter wheels: ${lastBike.diameterWheels}</li>
+            <li class="tth__item">Width front wheel: ${lastBike.widthFrontWheel}</li>
+            <li class="tth__item">Width back wheel: ${lastBike.widthBackWheel}</li>
+            <li class="tth__item">Speedometer: ${lastBike.speedometer}</li>
+            <li class="tth__item">Number speed gears: ${lastBike.numberSpeedGears}</li>
+            <li class="tth__item">Engine: ${lastBike.electricEngine}</li>
+            <li class="tth__item">Engine power: ${lastBike.enginePower}</li>
+            <li class="tth__item">Gyroscope: ${lastBike.gyroscope}</li>
+            <li class="tth__item">Battery capacity: ${lastBike.batteryCapacity}</li>
+            <li class="tth__item">Travel range: ${lastBike.travelRange}</li>
+            <li class="tth__item">Max speed: ${lastBike.maxSpeed}</li>
+            <li class="tth__item">Max load: ${lastBike.maxLoad}</li>
+            <li class="tth__item">Head light: ${lastBike.headLight}</li>
+            <li class="tth__item">Release year: ${lastBike.releaseYear}</li>
+          </ul>
+        </div>
+      `;
+  }
+});

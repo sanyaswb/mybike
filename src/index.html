@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="page page--overflow1">
+<html lang="en" class="page">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -206,13 +206,13 @@
       <div class="main__sticky"></div>
       <div class="main__wrapper">
         <div class="main__content">
-          <section class="compare" id="compare">
+          <section class="compare compare--open" id="compare">
             <div class="compare__container">
               <div class="compare__button--close" id="compare-button"></div>
               <h2 class="section__title">compare bikes</h2>
               <div class="compare__bar"></div>
               <div class="compare__cards">
-                <div class="compare__top">
+                <div class="compare__top" id="compare-lists">
                   <div class="compare__dropdown compare__dropdown--first">
                     <div
                       class="compare__dropdown__top"
@@ -222,7 +222,7 @@
                         class="compare__dropdown__top-bike"
                         id="compare-chose-bike-first"
                       >
-                        Sporty 4
+                        Chose
                       </p>
                       <a
                         href="#"
@@ -249,37 +249,7 @@
                         <a
                           href="#"
                           class="dropdown__link compare__dropdown__link"
-                          data-product-id="ride-in-town"
-                        >
-                          <div class="dropdown__img dropdown__img--2"></div>
-                          <span class="dropdown__text">Cowboy 4 ST</span>
-                        </a>
-                      </li>
-                      <li class="dropdown__item">
-                        <a
-                          href="#"
-                          class="dropdown__link compare__dropdown__link"
-                          data-product-id="agile-ride-3"
-                        >
-                          <div class="dropdown__img dropdown__img--3"></div>
-                          <span class="dropdown__text">Agile ride 3</span>
-                        </a>
-                      </li>
-                      <li class="dropdown__item">
-                        <a
-                          href="#"
-                          class="dropdown__link compare__dropdown__link"
-                          data-product-id="sporty-4"
-                        >
-                          <div class="dropdown__img dropdown__img--1"></div>
-                          <span class="dropdown__text">Sporty 4</span>
-                        </a>
-                      </li>
-                      <li class="dropdown__item">
-                        <a
-                          href="#"
-                          class="dropdown__link compare__dropdown__link"
-                          data-product-id="ride-in-town"
+                          data-product-id="cowboy-4-st"
                         >
                           <div class="dropdown__img dropdown__img--2"></div>
                           <span class="dropdown__text">Cowboy 4 ST</span>
@@ -306,7 +276,7 @@
                         class="compare__dropdown__top-bike"
                         id="compare-chose-bike-last"
                       >
-                        Sporty 4
+                        Chose
                       </p>
                       <a
                         href="#"
@@ -335,7 +305,7 @@
                         <a
                           href="#"
                           class="dropdown__link compare__dropdown__link--last"
-                          data-product-id="ride-in-town"
+                          data-product-id="cowboy-4-st"
                         >
                           <div
                             class="dropdown__img compare__dropdown__img--last dropdown__img--2"
@@ -358,8 +328,9 @@
                     </ul>
                   </div>
                 </div>
-                <div class="compare__card compare__card--first card"></div>
-                <div class="compare__card compare__card--last card"></div>
+                <article class="compare__card compare__card--first"></article>
+
+                <article class="compare__card compare__card--last"></article>
               </div>
             </div>
           </section>
