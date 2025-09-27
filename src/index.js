@@ -9,41 +9,49 @@ const detailImage = document.querySelectorAll(".detail__image");
 const dropdown = document.querySelector(".dropdown");
 const dropdownItems = document.querySelectorAll(".dropdown__item");
 
-const detailsDropdownTop = document.getElementById("detailsDropdownTop");
-const detailsNavLink = document.getElementById("detailsNavLink");
-const detailsDropdownButton = document.getElementById("detailsDropdownButton");
-const detailsDropdown = document.getElementById("detailsDropdown");
+const detailsDropdownTop = document.getElementById("details-dropdown-top");
+const detailsNavLink = document.getElementById("details-nav-link");
+const detailsDropdownButton = document.getElementById(
+  "details-dropdown-button"
+);
+const detailsDropdown = document.getElementById("details-dropdown");
 const detailsDropdownLinks = document.querySelectorAll(
   ".dropdown__details__link"
 );
 
-const compareNavLink = document.getElementById("compareNavLink");
+const compareNavLink = document.getElementById("compare-nav-link");
 const compare = document.getElementById("compare");
-const compareButton = document.getElementById("compareButton");
+const compareButton = document.getElementById("compare-button");
 const compareDropdownButtonFirst = document.getElementById(
-  "compareDropdownButtonFirst"
+  "compare-dropdown-button-first"
 );
 const compareDropdownButtonLast = document.getElementById(
-  "compareDropdownButtonLast"
+  "compare-dropdown-button-last"
 );
-const compareDropdownFirst = document.getElementById("compareDropdownFirst");
-const compareDropdownLast = document.getElementById("compareDropdownLast");
-const compareChoseBikeFirst = document.getElementById("compareChoseBikeFirst");
-const compareChoseBikeLast = document.getElementById("compareChoseBikeLast");
+const compareDropdownListFirst = document.getElementById(
+  "compare-dropdown-list-first"
+);
+const compareDropdownListLast = document.getElementById(
+  "compare-dropdown-list-last"
+);
+const compareChoseBikeFirst = document.getElementById(
+  "compare-chose-bike-first"
+);
+const compareChoseBikeLast = document.getElementById("compare-chose-bike-last");
 const compareDropdownTopFirst = document.getElementById(
-  "compareDropdownTopFirst"
+  "compare-dropdown-top-first"
 );
 const compareDropdownTopLast = document.getElementById(
-  "compareDropdownTopLast"
+  "compare-dropdown-top-last"
 );
 
-const linkSporty4 = document.querySelectorAll(`[data-product-id="sporty-4"]`);
-const linkRideInTown = document.querySelectorAll(
-  `[data-product-id="ride-in-town"]`
-);
-const linkAgileRide3 = document.querySelectorAll(
-  `[data-product-id="agile-ride-3"]`
-);
+// const linkSporty4 = document.querySelectorAll(`[data-product-id="sporty-4"]`);
+// const linkRideInTown = document.querySelectorAll(
+//   `[data-product-id="ride-in-town"]`
+// );
+// const linkAgileRide3 = document.querySelectorAll(
+//   `[data-product-id="agile-ride-3"]`
+// );
 
 menuOpen.addEventListener("click", () => {
   menu.classList.toggle("menu--open");
@@ -74,8 +82,8 @@ const getMaxWidth = () => {
   const navListWidth = navList.clientWidth;
   return `${navListWidth}px`;
 };
-const dropdownMaxWidth = getMaxWidth();
-dropdown.style.maxWidth = dropdownMaxWidth;
+
+dropdown.style.maxWidth = getMaxWidth();
 
 detailsDropdownButton.addEventListener("click", (event) => {
   event.stopPropagation();
@@ -103,8 +111,8 @@ compareNavLink.addEventListener("click", () => {
 compareButton.addEventListener("click", () => {
   page.classList.remove("page--overflow");
   compare.classList.remove("compare--open");
-  compareDropdownFirst.classList.remove("compare__dropdown__list--open");
-  compareDropdownLast.classList.remove("compare__dropdown__list--open");
+  compareDropdownListFirst.classList.remove("compare__dropdown__list--open");
+  compareDropdownListLast.classList.remove("compare__dropdown__list--open");
   compareDropdownTopFirst.classList.remove("compare__dropdown__top--open");
   compareDropdownTopLast.classList.remove("compare__dropdown__top--open");
   compareDropdownButtonFirst.classList.remove("dropdown-button--open");
@@ -113,13 +121,13 @@ compareButton.addEventListener("click", () => {
 
 compareDropdownButtonFirst.addEventListener("click", (event) => {
   compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
-  compareDropdownFirst.classList.toggle("compare__dropdown__list--open");
+  compareDropdownListFirst.classList.toggle("compare__dropdown__list--open");
   compareDropdownTopFirst.classList.toggle("compare__dropdown__top--open");
 });
 
 compareDropdownButtonLast.addEventListener("click", (event) => {
   compareDropdownButtonLast.classList.toggle("dropdown-button--open");
-  compareDropdownLast.classList.toggle("compare__dropdown__list--open");
+  compareDropdownListLast.classList.toggle("compare__dropdown__list--open");
   compareDropdownTopLast.classList.toggle("compare__dropdown__top--open");
 });
 
@@ -139,17 +147,16 @@ const clickPageDeletedClasses = (...targets) => {
 
 clickPageDeletedClasses(
   {
-    el: detailsDropdownButton,
+    el: details - dropdown - button,
     className: "dropdown-button--open",
   },
-  { el: detailsDropdownTop, className: "header__nav__details__top--open" },
   {
-    el: detailsNavLink,
+    el: details - dropdown - top,
+    className: "header__nav__details__top--open",
+  },
+  {
+    el: details - nav - link,
     className: "header__nav__details__top-link--open",
   },
-  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
-  // { el: compareDropdownFirst, className: "compare__dropdown__list--open" },
-  // { el: compareDropdownLast, className: "compare__dropdown__list--open" }
-  // { el: compareDropdownTopFirst, className: "compare__dropdown__top--open" },
-  // { el: compareDropdownTopLast, className: "compare__dropdown__top--open" }
+  { el: details - dropdown, className: "header__nav__details__dropdown--open" }
 );
