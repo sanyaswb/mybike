@@ -284,12 +284,13 @@
     row-gap: 5px;
     text-align: center;
 
-    & :nth-child(1) {
+    &:nth-child(1) {
       &::before {
         content: "";
+        grid-column: 1 / -1;
         display: block;
         position: relative;
-        top: -4px;
+        top: 4px;
         height: 1px;
         width: 100%;
         background: #fff;
@@ -306,6 +307,19 @@
   }
 
   &__item {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-areas: "first value last";
+    font-size: 12px;
+
+    @include onTablet {
+      font-size: 18px;
+    }
+
+    @include onDesktop {
+      font-size: 24px;
+    }
+
     padding-block: 5px;
     background: #000;
     background: linear-gradient(
@@ -321,6 +335,7 @@
       content: "";
       display: block;
       position: relative;
+      grid-column: 1 / -1;
       bottom: -4px;
       height: 1px;
       width: 100%;
@@ -334,5 +349,17 @@
         rgba(255, 255, 255, 0) 100%
       );
     }
+  }
+
+  &__first {
+    grid-area: first;
+  }
+
+  &__value {
+    grid-area: value;
+  }
+
+  &__last {
+    grid-area: last;
   }
 }

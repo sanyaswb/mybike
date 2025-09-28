@@ -29,7 +29,7 @@ const compareDropdownButtonLast = document.getElementById(
   "compare-dropdown-button-last"
 );
 
-// const compareLists = document.getElementById("compare-lists");
+const compareLists = document.getElementById("compare-lists");
 
 const compareDropdownListFirst = document.getElementById(
   "compare-dropdown-list-first"
@@ -191,7 +191,7 @@ const sporty4 = {
   releaseYear: 2025,
 };
 const cowboy4ST = {
-  id: "2",
+  id: "3",
   type: "electric",
   name: "Cowboy ST",
   version: 4,
@@ -218,7 +218,7 @@ const cowboy4ST = {
   releaseYear: 2025,
 };
 const agileRide3 = {
-  id: "3",
+  id: "2",
   type: "electric",
   name: "Agile ride",
   version: 3,
@@ -245,118 +245,254 @@ const agileRide3 = {
   releaseYear: 2024,
 };
 
-compareDropdownListFirst.addEventListener("click", (event) => {
+let selectedFirstBike = {};
+let selectedLastBike = {};
+
+const products = {
+  "sporty-4": sporty4,
+  "cowboy-4-st": cowboy4ST,
+  "agile-ride-3": agileRide3,
+};
+
+function renderCompareTable() {
+  if (selectedFirstBike.name) {
+    compareChoseBikeFirst.textContent = `${selectedFirstBike.name} ${selectedFirstBike.version}`;
+  } else {
+    compareChoseBikeFirst.textContent = "Choose bike";
+  }
+
+  if (selectedLastBike.name) {
+    compareChoseBikeLast.textContent = `${selectedLastBike.name} ${selectedLastBike.version}`;
+  } else {
+    compareChoseBikeLast.textContent = "Choose bike";
+  }
+
+  function getProp(bike, prop) {
+    return bike[prop] ?? "---";
+  }
+
+  compareCardFirst.innerHTML = `
+    <div
+      class="compare__card-img compare__card-img--first bikes__card--img--${getProp(
+        selectedFirstBike,
+        "id"
+      )}"
+    ></div>
+    <h3 class="compare__card-title">${getProp(selectedFirstBike, "name")}</h3>
+    <div class="compare__card-tth">
+      <ul class="tth tth__list">
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "cost")}</p>
+          <p class="tth__value">Cost</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "cost"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "type")}</p>
+          <p class="tth__value">Type</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "type"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "version")}</p>
+          <p class="tth__value">Version</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "version"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "material")}</p>
+          <p class="tth__value">Material</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "material"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "lengt")}</p>
+          <p class="tth__value">Lengt</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "lengt"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "height")}</p>
+          <p class="tth__value">Height</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "height"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "width")}</p>
+          <p class="tth__value">Width</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "width"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "weight")}</p>
+          <p class="tth__value">Weight</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "weight"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(
+            selectedFirstBike,
+            "diameterWheels"
+          )}</p>
+          <p class="tth__value">Diameter wheels</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "diameterWheels"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(
+            selectedFirstBike,
+            "widthFrontWheel"
+          )}</p>
+          <p class="tth__value">Width front wheel</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "widthFrontWheel"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(
+            selectedFirstBike,
+            "widthBackWheel"
+          )}</p>
+          <p class="tth__value">Width back wheel</p>
+          <p class="tth__last">${getProp(
+            selectedLastBike,
+            "widthBackWheel"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "speedometer")}</p>
+          <p class="tth__value">Speedometer</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "speedometer"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(
+            selectedFirstBike,
+            "numberSpeedGears"
+          )}</p>
+          <p class="tth__value">Number speed gears</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "numberSpeedGears"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(
+            selectedFirstBike,
+            "electricEngine"
+          )}</p>
+          <p class="tth__value">Engine</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "electricEngine"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "enginePower")}</p>
+          <p class="tth__value">Engine power</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "enginePower"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "gyroscope")}</p>
+          <p class="tth__value">Gyroscope</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "gyroscope"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(
+            selectedFirstBike,
+            "batteryCapacity"
+          )}</p>
+          <p class="tth__value">Battery capacity</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "batteryCapacity"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "travelRange")}</p>
+          <p class="tth__value">Travel range</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "travelRange"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "maxSpeed")}</p>
+          <p class="tth__value">Max speed</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "maxSpeed"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "maxLoad")}</p>
+          <p class="tth__value">Max load</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "maxLoad"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "headLight")}</p>
+          <p class="tth__value">Head light</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "headLight"
+          )}</p>
+        </li>
+        <li class="tth__item">
+          <p class="tth__first">${getProp(selectedFirstBike, "releaseYear")}</p>
+          <p class="tth__value">Release year</p><p class="tth__last">${getProp(
+            selectedLastBike,
+            "releaseYear"
+          )}</p>
+        </li>
+      </ul>
+    </div>
+  `;
+
+  compareCardLast.innerHTML = `
+      <div
+        class="compare__card-img compare__card-img--last bikes__card--img--${getProp(
+          selectedLastBike,
+          "id"
+        )}"
+      ></div>
+      <h3 class="compare__card-title">${getProp(selectedLastBike, "name")}</h3>
+  `;
+}
+
+compareLists.addEventListener("click", (event) => {
   const targetElement = event.target.closest("[data-product-id]");
 
-  if (targetElement) {
-    const productId = targetElement.dataset.productId;
+  if (!targetElement) return;
+
+  const productId = targetElement.dataset.productId;
+  const [id, slot] = productId.split("--");
+  const bikeData = products[id];
+
+  if (!bikeData) return;
+
+  if (slot === "first") {
+    selectedFirstBike = { ...bikeData };
     compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
     compareDropdownListFirst.classList.toggle("compare__dropdown__list--open");
     compareDropdownTopFirst.classList.toggle("compare__dropdown__top--open");
-
-    let firstBike = {};
-
-    if (productId === "sporty-4") {
-      firstBike = sporty4;
-    } else if (productId === "cowboy-4-st") {
-      firstBike = cowboy4ST;
-    } else if (productId === "agile-ride-3") {
-      firstBike = agileRide3;
-    } else {
-      console.log("no bike!");
-    }
-
-    compareChoseBikeFirst.textContent = `${firstBike.name} ${firstBike.version}`;
-
-    compareCardFirst.innerHTML = `
-        <div
-          class="compare__card-img compare__card-img--first bikes__card--img--${firstBike.id}"
-        ></div>
-        <h3 class="compare__card-title">${firstBike.name}</h3>
-        <div class="compare__card-tth">
-          <ul class="tth__list">
-            <li class="tth__item">Cost: ${firstBike.cost}</li>
-            <li class="tth__item">Type: ${firstBike.type}</li>
-            <li class="tth__item">Version: ${firstBike.version}</li>
-            <li class="tth__item">Material: ${firstBike.material}</li>
-            <li class="tth__item">Lengt: ${firstBike.lengt}</li>
-            <li class="tth__item">Height: ${firstBike.height}</li>
-            <li class="tth__item">Width: ${firstBike.width}</li>
-            <li class="tth__item">Weight: ${firstBike.weight}</li>
-            <li class="tth__item">Diameter wheels: ${firstBike.diameterWheels}</li>
-            <li class="tth__item">Width front wheel: ${firstBike.widthFrontWheel}</li>
-            <li class="tth__item">Width back wheel: ${firstBike.widthBackWheel}</li>
-            <li class="tth__item">Speedometer: ${firstBike.speedometer}</li>
-            <li class="tth__item">Number speed gears: ${firstBike.numberSpeedGears}</li>
-            <li class="tth__item">Engine: ${firstBike.electricEngine}</li>
-            <li class="tth__item">Engine power: ${firstBike.enginePower}</li>
-            <li class="tth__item">Gyroscope: ${firstBike.gyroscope}</li>
-            <li class="tth__item">Battery capacity: ${firstBike.batteryCapacity}</li>
-            <li class="tth__item">Travel range: ${firstBike.travelRange}</li>
-            <li class="tth__item">Max speed: ${firstBike.maxSpeed}</li>
-            <li class="tth__item">Max load: ${firstBike.maxLoad}</li>
-            <li class="tth__item">Head light: ${firstBike.headLight}</li>
-            <li class="tth__item">Release year: ${firstBike.releaseYear}</li>
-          </ul>
-        </div>
-      `;
-  }
-});
-
-compareDropdownListLast.addEventListener("click", (event) => {
-  const targetElement = event.target.closest("[data-product-id]");
-
-  if (targetElement) {
-    const productId = targetElement.dataset.productId;
+  } else if (slot === "last") {
+    selectedLastBike = { ...bikeData };
     compareDropdownButtonLast.classList.toggle("dropdown-button--open");
     compareDropdownListLast.classList.toggle("compare__dropdown__list--open");
     compareDropdownTopLast.classList.toggle("compare__dropdown__top--open");
-
-    let lastBike = {};
-
-    if (productId === "sporty-4") {
-      lastBike = sporty4;
-    } else if (productId === "cowboy-4-st") {
-      lastBike = cowboy4ST;
-    } else if (productId === "agile-ride-3") {
-      lastBike = agileRide3;
-    } else {
-      console.log("no bike!");
-    }
-
-    compareChoseBikeLast.textContent = `${lastBike.name} ${lastBike.version}`;
-
-    compareCardLast.innerHTML = `
-        <div
-          class="compare__card-img compare__card-img--last bikes__card--img--${lastBike.id}"
-        ></div>
-        <h3 class="compare__card-title">${lastBike.name}</h3>
-        <div class="compare__card-tth">
-          <ul class="tth__list">
-            <li class="tth__item">Cost: ${lastBike.cost}</li>
-            <li class="tth__item">Type: ${lastBike.type}</li>
-            <li class="tth__item">Version: ${lastBike.version}</li>
-            <li class="tth__item">Material: ${lastBike.material}</li>
-            <li class="tth__item">Lengt: ${lastBike.lengt}</li>
-            <li class="tth__item">Height: ${lastBike.height}</li>
-            <li class="tth__item">Width: ${lastBike.width}</li>
-            <li class="tth__item">Weight: ${lastBike.weight}</li>
-            <li class="tth__item">Diameter wheels: ${lastBike.diameterWheels}</li>
-            <li class="tth__item">Width front wheel: ${lastBike.widthFrontWheel}</li>
-            <li class="tth__item">Width back wheel: ${lastBike.widthBackWheel}</li>
-            <li class="tth__item">Speedometer: ${lastBike.speedometer}</li>
-            <li class="tth__item">Number speed gears: ${lastBike.numberSpeedGears}</li>
-            <li class="tth__item">Engine: ${lastBike.electricEngine}</li>
-            <li class="tth__item">Engine power: ${lastBike.enginePower}</li>
-            <li class="tth__item">Gyroscope: ${lastBike.gyroscope}</li>
-            <li class="tth__item">Battery capacity: ${lastBike.batteryCapacity}</li>
-            <li class="tth__item">Travel range: ${lastBike.travelRange}</li>
-            <li class="tth__item">Max speed: ${lastBike.maxSpeed}</li>
-            <li class="tth__item">Max load: ${lastBike.maxLoad}</li>
-            <li class="tth__item">Head light: ${lastBike.headLight}</li>
-            <li class="tth__item">Release year: ${lastBike.releaseYear}</li>
-          </ul>
-        </div>
-      `;
   }
+
+  renderCompareTable();
 });
+
+document.addEventListener("DOMContentLoaded", renderCompareTable);
