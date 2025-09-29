@@ -1,14 +1,12 @@
 const page = document.querySelector(".page");
-const menu = document.querySelector(".menu");
 const navList = document.querySelector(".nav__list");
+const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon--menu");
 const menuClose = document.querySelector(".icon--close");
 const detailImages = document.querySelectorAll(".detail__images");
 const detailImage = document.querySelectorAll(".detail__image");
-
 const dropdown = document.querySelector(".dropdown");
 const dropdownItems = document.querySelectorAll(".dropdown__item");
-
 const detailsDropdownTop = document.getElementById("details-dropdown-top");
 const detailsNavLink = document.getElementById("details-nav-link");
 const detailsDropdownButton = document.getElementById(
@@ -18,7 +16,6 @@ const detailsDropdown = document.getElementById("details-dropdown");
 const detailsDropdownLinks = document.querySelectorAll(
   ".dropdown__details__link"
 );
-
 const compareNavLink = document.getElementById("compare-nav-link");
 const compare = document.getElementById("compare");
 const compareButton = document.getElementById("compare-button");
@@ -28,9 +25,7 @@ const compareDropdownButtonFirst = document.getElementById(
 const compareDropdownButtonLast = document.getElementById(
   "compare-dropdown-button-last"
 );
-
 const compareLists = document.getElementById("compare-lists");
-
 const compareDropdownListFirst = document.getElementById(
   "compare-dropdown-list-first"
 );
@@ -47,9 +42,10 @@ const compareDropdownTopFirst = document.getElementById(
 const compareDropdownTopLast = document.getElementById(
   "compare-dropdown-top-last"
 );
-
 const compareCardFirst = document.querySelector(".compare__card--first");
 const compareCardLast = document.querySelector(".compare__card--last");
+const compareBarFirst = document.querySelector(".compare__bar--first");
+const compareBarLast = document.querySelector(".compare__bar--last");
 
 menuOpen.addEventListener("click", () => {
   menu.classList.toggle("menu--open");
@@ -80,7 +76,6 @@ const getMaxWidth = () => {
   const navListWidth = navList.clientWidth;
   return `${navListWidth}px`;
 };
-
 dropdown.style.maxWidth = getMaxWidth();
 
 detailsDropdownButton.addEventListener("click", (event) => {
@@ -162,6 +157,13 @@ clickPageDeletedClasses(
 let sporty4Cost = 2549;
 let cowboy4STCost = 3424;
 let agileRide3Cost = 2249;
+let firstBikeScore = 0;
+let lastBikeScore = 0;
+
+let selectedFirstBike = {};
+let selectedLastBike = {};
+let weightsFirstBike = {};
+let weightsLastBike = {};
 
 const sporty4 = {
   id: "1",
@@ -224,7 +226,7 @@ const agileRide3 = {
   version: 3,
   cost: `$ ${agileRide3Cost}`,
   color: ["grey"],
-  material: "titan",
+  material: "Titan",
   height: 637,
   lengt: 1625,
   width: 760,
@@ -244,15 +246,114 @@ const agileRide3 = {
   headLight: "Halogen",
   releaseYear: 2024,
 };
-
-let selectedFirstBike = {};
-let selectedLastBike = {};
-
 const products = {
   "sporty-4": sporty4,
   "cowboy-4-st": cowboy4ST,
   "agile-ride-3": agileRide3,
 };
+const weights = {
+  Titan: 3,
+  Aluminum: 2,
+  "Stainless steel": 1,
+  Steel: 0,
+  Yes: 1,
+  No: 0,
+  Halogen: 1,
+  LED: 2,
+  Xenon: 3,
+  "---": 0,
+};
+
+function whoWin() {
+  if (
+    Object.entries(weightsFirstBike).length === 0 ||
+    Object.entries(weightsLastBike).length === 0
+  ) {
+    console.log("NO Weights for bike");
+    return;
+  }
+
+  if (selectedFirstBike[name] === selectedFirstBike[name]) {
+    compareCardFirst.style.backgroundImage = `linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.5) 100%
+    )`;
+    compareCardLast.style.backgroundImage = `linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.5) 100%
+    )`;
+  }
+
+  for (const key in weightsFirstBike) {
+    if (
+      typeof weightsFirstBike[key] === "string" ||
+      key === "cost" ||
+      key === "color" ||
+      key === "height" ||
+      key === "lengt" ||
+      key === "width"
+    ) {
+      continue;
+    }
+
+    if (key === "weight") {
+      if (weightsFirstBike[key] < weightsLastBike[key]) {
+        firstBikeScore += 1;
+      } else if (weightsFirstBike[key] > weightsLastBike[key]) {
+        lastBikeScore += 1;
+      }
+      continue;
+    }
+
+    if (weightsFirstBike[key] > weightsLastBike[key]) {
+      firstBikeScore += 1;
+    } else if (weightsFirstBike[key] < weightsLastBike[key]) {
+      lastBikeScore += 1;
+    }
+  }
+
+  if (firstBikeScore > lastBikeScore) {
+    compareCardFirst.style.backgroundImage = `linear-gradient(
+      0deg,
+      rgba(42, 123, 155, 0) 0%,
+      rgba(87, 199, 133, 0.25) 50%,
+      rgba(23, 120, 76, 1) 100%
+    )`;
+    compareCardLast.style.backgroundImage = `linear-gradient(
+      0deg,
+      rgba(155, 42, 42, 0) 0%,
+      rgba(199, 87, 87, 0.25) 50%,
+      rgba(120, 23, 23, 1) 100%
+    )`;
+  } else if (firstBikeScore < lastBikeScore) {
+    compareCardFirst.style.backgroundImage = `linear-gradient(
+      0deg,
+      rgba(155, 42, 42, 0) 0%,
+      rgba(199, 87, 87, 0.25) 50%,
+      rgba(120, 23, 23, 1) 100%
+    )`;
+    compareCardLast.style.backgroundImage = `linear-gradient(
+      0deg,
+      rgba(42, 123, 155, 0) 0%,
+      rgba(87, 199, 133, 0.25) 50%,
+      rgba(23, 120, 76, 1) 100%
+    )`;
+  }
+
+  console.log(`Бали First: ${firstBikeScore}`);
+  console.log(`Бали Last: ${lastBikeScore}`);
+  console.log(Object.values(weightsFirstBike));
+  console.log(Object.values(weightsLastBike));
+
+  firstBikeScore = 0;
+  lastBikeScore = 0;
+  weightsFirstBike = {};
+  weightsLastBike = {};
+}
 
 function renderCompareTable() {
   if (selectedFirstBike.name) {
@@ -482,17 +583,37 @@ compareLists.addEventListener("click", (event) => {
 
   if (slot === "first") {
     selectedFirstBike = { ...bikeData };
+    weightsFirstBike = { ...bikeData };
     compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
     compareDropdownListFirst.classList.toggle("compare__dropdown__list--open");
     compareDropdownTopFirst.classList.toggle("compare__dropdown__top--open");
+
+    for (const key in weightsFirstBike) {
+      for (const i in weights) {
+        if (i === selectedFirstBike[key]) {
+          weightsFirstBike[key] = weights[i];
+        }
+      }
+    }
+    whoWin();
   } else if (slot === "last") {
     selectedLastBike = { ...bikeData };
+    weightsLastBike = { ...bikeData };
     compareDropdownButtonLast.classList.toggle("dropdown-button--open");
     compareDropdownListLast.classList.toggle("compare__dropdown__list--open");
     compareDropdownTopLast.classList.toggle("compare__dropdown__top--open");
+
+    for (const key in weightsLastBike) {
+      for (const i in weights) {
+        if (i === selectedLastBike[key]) {
+          weightsLastBike[key] = weights[i];
+        }
+      }
+    }
+    whoWin();
   }
 
   renderCompareTable();
 });
 
-document.addEventListener("DOMContentLoaded", renderCompareTable);
+// document.addEventListener("DOMContentLoaded", renderCompareTable);

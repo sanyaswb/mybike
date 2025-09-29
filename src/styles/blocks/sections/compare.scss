@@ -88,22 +88,20 @@
     border-radius: 10px;
     margin-bottom: 30px;
 
-    &::before {
-      content: "";
-      display: block;
+    &--first {
       height: 100%;
       width: 50%;
-      background-color: rgba($color: red, $alpha: 0.4);
+      background-color: rgba($color: $secondary-font-color, $alpha: 0.1);
       border-radius: 10px 0 0 10px;
+      border-right: 1px solid $secondary-font-color;
     }
 
-    &::after {
-      content: "";
-      display: block;
+    &--last {
       height: 100%;
       width: 50%;
-      background-color: rgba($color: green, $alpha: 0.4);
+      background-color: rgba($color: $secondary-font-color, $alpha: 0.1);
       border-radius: 0 10px 10px 0;
+      border-left: 1px solid $secondary-font-color;
     }
   }
 

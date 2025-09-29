@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="./index.js" defer></script>
+    <script type="module" src="./index.js" defer></script>
   </head>
   <body class="body">
     <header class="header">
@@ -206,11 +206,14 @@
       <div class="main__sticky"></div>
       <div class="main__wrapper">
         <div class="main__content">
-          <section class="compare compare--open" id="compare">
+          <section class="compare" id="compare">
             <div class="compare__container">
               <div class="compare__button--close" id="compare-button"></div>
               <h2 class="section__title">compare bikes</h2>
-              <div class="compare__bar"></div>
+              <div class="compare__bar">
+                <div class="compare__bar--first"></div>
+                <div class="compare__bar--last"></div>
+              </div>
               <div class="compare__cards" id="compare-lists">
                 <div class="compare__top">
                   <div class="compare__dropdown compare__dropdown--first">
@@ -222,7 +225,7 @@
                         class="compare__dropdown__top-bike"
                         id="compare-chose-bike-first"
                       >
-                        Chose
+                        Chose bike
                       </p>
                       <a
                         href="#"
@@ -276,7 +279,7 @@
                         class="compare__dropdown__top-bike"
                         id="compare-chose-bike-last"
                       >
-                        Chose
+                        Chose bike
                       </p>
                       <a
                         href="#"
