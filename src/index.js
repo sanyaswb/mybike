@@ -47,113 +47,6 @@ const compareCardLast = document.querySelector(".compare__card--last");
 const compareBarFirst = document.querySelector(".compare__bar--first");
 const compareBarLast = document.querySelector(".compare__bar--last");
 
-menuOpen.addEventListener("click", () => {
-  menu.classList.toggle("menu--open");
-});
-
-menuClose.addEventListener("click", () => {
-  menu.classList.remove("menu--open");
-});
-
-detailImages.forEach((section) => {
-  const links = section.querySelectorAll(".detail__link");
-
-  links.forEach((link) => {
-    link.addEventListener("mouseenter", () => {
-      if (link.classList.contains("detail__link--wide")) return;
-      links.forEach((l) => l.classList.toggle("detail__link--wide"));
-    });
-  });
-});
-
-detailImage.forEach((image) => {
-  image.addEventListener("click", () => {
-    image.classList.toggle("detail__image--scale");
-  });
-});
-
-const getMaxWidth = () => {
-  const navListWidth = navList.clientWidth;
-  return `${navListWidth}px`;
-};
-dropdown.style.maxWidth = getMaxWidth();
-
-detailsDropdownButton.addEventListener("click", (event) => {
-  event.stopPropagation();
-
-  detailsDropdownButton.classList.toggle("dropdown-button--open");
-  detailsDropdownTop.classList.toggle("header__nav__details__top--open");
-  detailsNavLink.classList.toggle("header__nav__details__top-link--open");
-  detailsDropdown.classList.toggle("header__nav__details__dropdown--open");
-});
-
-detailsDropdownLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    detailsDropdownButton.classList.remove("dropdown-button--open");
-    detailsDropdownTop.classList.remove("header__nav__details__top--open");
-    detailsNavLink.classList.remove("header__nav__details__top-link--open");
-    detailsDropdown.classList.remove("header__nav__details__dropdown--open");
-  });
-});
-
-compareNavLink.addEventListener("click", () => {
-  page.classList.add("page--overflow");
-  compare.classList.add("compare--open");
-});
-
-compareButton.addEventListener("click", () => {
-  page.classList.remove("page--overflow");
-  compare.classList.remove("compare--open");
-  compareDropdownListFirst.classList.remove("compare__dropdown__list--open");
-  compareDropdownListLast.classList.remove("compare__dropdown__list--open");
-  compareDropdownTopFirst.classList.remove("compare__dropdown__top--open");
-  compareDropdownTopLast.classList.remove("compare__dropdown__top--open");
-  compareDropdownButtonFirst.classList.remove("dropdown-button--open");
-  compareDropdownButtonLast.classList.remove("dropdown-button--open");
-});
-
-compareDropdownButtonFirst.addEventListener("click", (event) => {
-  compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
-  compareDropdownListFirst.classList.toggle("compare__dropdown__list--open");
-  compareDropdownTopFirst.classList.toggle("compare__dropdown__top--open");
-});
-
-compareDropdownButtonLast.addEventListener("click", (event) => {
-  compareDropdownButtonLast.classList.toggle("dropdown-button--open");
-  compareDropdownListLast.classList.toggle("compare__dropdown__list--open");
-  compareDropdownTopLast.classList.toggle("compare__dropdown__top--open");
-});
-
-const clickPageDeletedClasses = (...targets) => {
-  page.addEventListener("click", (event) => {
-    const clickedInside = targets.some(({ el }) => {
-      el.contains(event.target);
-    });
-
-    if (clickedInside) return;
-
-    for (const { el, className } of targets) {
-      el.classList.remove(className);
-    }
-  });
-};
-
-clickPageDeletedClasses(
-  {
-    el: detailsDropdownButton,
-    className: "dropdown-button--open",
-  },
-  {
-    el: detailsDropdownTop,
-    className: "header__nav__details__top--open",
-  },
-  {
-    el: detailsNavLink,
-    className: "header__nav__details__top-link--open",
-  },
-  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
-);
-
 let sporty4Cost = 2549;
 let cowboy4STCost = 3424;
 let agileRide3Cost = 2249;
@@ -192,6 +85,7 @@ const sporty4 = {
   headLight: "Xenon",
   releaseYear: 2025,
 };
+
 const cowboy4ST = {
   id: "3",
   type: "electric",
@@ -219,6 +113,7 @@ const cowboy4ST = {
   headLight: "LED",
   releaseYear: 2025,
 };
+
 const agileRide3 = {
   id: "2",
   type: "electric",
@@ -246,11 +141,13 @@ const agileRide3 = {
   headLight: "Halogen",
   releaseYear: 2024,
 };
+
 const products = {
   "sporty-4": sporty4,
   "cowboy-4-st": cowboy4ST,
   "agile-ride-3": agileRide3,
 };
+
 const weights = {
   Titan: 3,
   Aluminum: 2,
@@ -263,6 +160,139 @@ const weights = {
   Xenon: 3,
   "---": 0,
 };
+
+const getMaxWidth = () => {
+  const navListWidth = navList.clientWidth;
+  return `${navListWidth}px`;
+};
+
+menuOpen.addEventListener("click", () => {
+  menu.classList.toggle("menu--open");
+});
+
+menuClose.addEventListener("click", () => {
+  menu.classList.remove("menu--open");
+});
+
+detailImages.forEach((section) => {
+  const links = section.querySelectorAll(".detail__link");
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      if (link.classList.contains("detail__link--wide")) return;
+      links.forEach((l) => l.classList.toggle("detail__link--wide"));
+    });
+  });
+});
+
+detailImage.forEach((image) => {
+  image.addEventListener("click", () => {
+    image.classList.toggle("detail__image--scale");
+  });
+});
+
+dropdown.style.maxWidth = getMaxWidth();
+
+detailsDropdownButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+
+  detailsDropdownButton.classList.toggle("dropdown-button--open");
+  detailsDropdownTop.classList.toggle("header__nav__details__top--open");
+  detailsNavLink.classList.toggle("header__nav__details__top-link--open");
+  detailsDropdown.classList.toggle("header__nav__details__dropdown--open");
+});
+
+detailsDropdownLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    detailsDropdownButton.classList.remove("dropdown-button--open");
+    detailsDropdownTop.classList.remove("header__nav__details__top--open");
+    detailsNavLink.classList.remove("header__nav__details__top-link--open");
+    detailsDropdown.classList.remove("header__nav__details__dropdown--open");
+  });
+});
+
+compareNavLink.addEventListener("click", () => {
+  page.classList.add("page--overflow");
+  compare.classList.add("compare--open");
+});
+
+compareButton.addEventListener("click", () => {
+  page.classList.remove("page--overflow");
+  compare.classList.remove("compare--open");
+  compareDropdownListFirst.classList.remove("compare__dropdown__list--open");
+  compareDropdownListLast.classList.remove("compare__dropdown__list--open");
+  compareDropdownTopFirst.classList.remove("compare__dropdown-top--open");
+  compareDropdownTopLast.classList.remove("compare__dropdown-top--open");
+  compareDropdownButtonFirst.classList.remove("dropdown-button--open");
+  compareDropdownButtonLast.classList.remove("dropdown-button--open");
+});
+
+compareDropdownButtonFirst.addEventListener("click", (event) => {
+  compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
+  compareDropdownListFirst.classList.toggle("compare__dropdown__list--open");
+  compareDropdownTopFirst.classList.toggle("compare__dropdown-top--open");
+});
+
+compareDropdownButtonLast.addEventListener("click", (event) => {
+  compareDropdownButtonLast.classList.toggle("dropdown-button--open");
+  compareDropdownListLast.classList.toggle("compare__dropdown__list--open");
+  compareDropdownTopLast.classList.toggle("compare__dropdown-top--open");
+});
+
+const clickPageDeletedClasses = (...targets) => {
+  page.addEventListener("click", (event) => {
+    const clickedInside = targets.some(({ el }) => {
+      el.contains(event.target);
+    });
+
+    if (clickedInside) return;
+
+    for (const { el, className } of targets) {
+      el.classList.remove(className);
+    }
+  });
+};
+
+clickPageDeletedClasses(
+  {
+    el: detailsDropdownButton,
+    className: "dropdown-button--open",
+  },
+  {
+    el: detailsDropdownTop,
+    className: "header__nav__details__top--open",
+  },
+  {
+    el: detailsNavLink,
+    className: "header__nav__details__top-link--open",
+  },
+  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
+);
+
+function valuesTopBar() {
+  let allProcent = firstBikeScore + lastBikeScore;
+  let procentFirstBar = Math.ceil(+((firstBikeScore / allProcent) * 100));
+  let procentLastBar = Math.ceil(+((lastBikeScore / allProcent) * 100));
+
+  compareBarFirst.style.width = `${procentFirstBar}%`;
+  compareBarLast.style.width = `${procentLastBar}%`;
+
+  if (procentFirstBar > 50) {
+    compareBarFirst.style.backgroundColor = `rgba(23, 120, 76, 1)`;
+    compareBarLast.style.backgroundColor = `rgba(120, 23, 23, 1)`;
+  } else if (procentFirstBar < 50) {
+    compareBarFirst.style.backgroundColor = `rgba(120, 23, 23, 1)`;
+    compareBarLast.style.backgroundColor = `rgba(23, 120, 76, 1)`;
+  } else {
+    compareBarFirst.style.backgroundColor = `rgba(255, 255, 255, 0.5)`;
+    compareBarLast.style.backgroundColor = `rgba(255, 255, 255, 0.5)`;
+  }
+
+  firstBikeScore = 0;
+  lastBikeScore = 0;
+  weightsFirstBike = {};
+  weightsLastBike = {};
+}
 
 function whoWin() {
   if (
@@ -344,15 +374,7 @@ function whoWin() {
     )`;
   }
 
-  console.log(`Бали First: ${firstBikeScore}`);
-  console.log(`Бали Last: ${lastBikeScore}`);
-  console.log(Object.values(weightsFirstBike));
-  console.log(Object.values(weightsLastBike));
-
-  firstBikeScore = 0;
-  lastBikeScore = 0;
-  weightsFirstBike = {};
-  weightsLastBike = {};
+  valuesTopBar();
 }
 
 function renderCompareTable() {
@@ -586,7 +608,7 @@ compareLists.addEventListener("click", (event) => {
     weightsFirstBike = { ...bikeData };
     compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
     compareDropdownListFirst.classList.toggle("compare__dropdown__list--open");
-    compareDropdownTopFirst.classList.toggle("compare__dropdown__top--open");
+    compareDropdownTopFirst.classList.toggle("compare__dropdown-top--open");
 
     for (const key in weightsFirstBike) {
       for (const i in weights) {
@@ -601,7 +623,7 @@ compareLists.addEventListener("click", (event) => {
     weightsLastBike = { ...bikeData };
     compareDropdownButtonLast.classList.toggle("dropdown-button--open");
     compareDropdownListLast.classList.toggle("compare__dropdown__list--open");
-    compareDropdownTopLast.classList.toggle("compare__dropdown__top--open");
+    compareDropdownTopLast.classList.toggle("compare__dropdown-top--open");
 
     for (const key in weightsLastBike) {
       for (const i in weights) {
