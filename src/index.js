@@ -1,8 +1,10 @@
 const page = document.querySelector(".page");
 const navList = document.querySelector(".nav__list");
+
 const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon--menu");
 const menuClose = document.querySelector(".icon--close");
+
 const detailImages = document.querySelectorAll(".detail__images");
 const detailImage = document.querySelectorAll(".detail__image");
 const dropdown = document.querySelector(".dropdown");
@@ -16,6 +18,7 @@ const detailsDropdown = document.getElementById("details-dropdown");
 const detailsDropdownLinks = document.querySelectorAll(
   ".dropdown__details__link"
 );
+
 const compareNavLink = document.getElementById("compare-nav-link");
 const compare = document.getElementById("compare");
 const compareButton = document.getElementById("compare-button");
@@ -46,6 +49,8 @@ const compareCardFirst = document.querySelector(".compare__card--first");
 const compareCardLast = document.querySelector(".compare__card--last");
 const compareBarFirst = document.querySelector(".compare__bar--first");
 const compareBarLast = document.querySelector(".compare__bar--last");
+const firstBarProcent = document.getElementById("first-bar-procent");
+const lastBarProcent = document.getElementById("last-bar-procent");
 
 let sporty4Cost = 2549;
 let cowboy4STCost = 3424;
@@ -57,6 +62,7 @@ let selectedFirstBike = {};
 let selectedLastBike = {};
 let weightsFirstBike = {};
 let weightsLastBike = {};
+let maxWeights = {};
 
 const sporty4 = {
   id: "1",
@@ -161,6 +167,23 @@ const weights = {
   "---": 0,
 };
 
+for (const product in products) {
+  let poductsWithWeight = [];
+
+  const productKeys = Object.keys(products[product]);
+  const productValues = Object.values(products[product]);
+
+  for (const key in weightsFirstBike) {
+    for (const i in weights) {
+      if (i === selectedFirstBike[key]) {
+        weightsFirstBike[key] = weights[i];
+      }
+    }
+  }
+
+  // console.log(productKeys);
+}
+
 const getMaxWidth = () => {
   const navListWidth = navList.clientWidth;
   return `${navListWidth}px`;
@@ -253,29 +276,33 @@ const clickPageDeletedClasses = (...targets) => {
   });
 };
 
-clickPageDeletedClasses(
-  {
-    el: detailsDropdownButton,
-    className: "dropdown-button--open",
-  },
-  {
-    el: detailsDropdownTop,
-    className: "header__nav__details__top--open",
-  },
-  {
-    el: detailsNavLink,
-    className: "header__nav__details__top-link--open",
-  },
-  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
-);
-
 function valuesTopBar() {
   let allProcent = firstBikeScore + lastBikeScore;
-  let procentFirstBar = Math.ceil(+((firstBikeScore / allProcent) * 100));
-  let procentLastBar = Math.ceil(+((lastBikeScore / allProcent) * 100));
+  let procentFirstBar = Math.round(+((firstBikeScore / allProcent) * 100));
+  let procentLastBar = Math.round(+((lastBikeScore / allProcent) * 100));
+
+  if (procentFirstBar === 100) {
+    firstBarProcent.innerHTML = `
+      <p>${procentFirstBar}%</p>`;
+    lastBarProcent.innerHTML = `
+      <p></p>`;
+  } else if (procentLastBar === 100) {
+    lastBarProcent.innerHTML = `
+      <p>${procentLastBar}%</p>`;
+    firstBarProcent.innerHTML = `
+      <p></p>`;
+  } else {
+    firstBarProcent.innerHTML = `
+      <p>${procentFirstBar}%</p>`;
+    lastBarProcent.innerHTML = `
+      <p>${procentLastBar}%</p>`;
+  }
 
   compareBarFirst.style.width = `${procentFirstBar}%`;
   compareBarLast.style.width = `${procentLastBar}%`;
+
+  console.log(procentFirstBar);
+  console.log(procentLastBar);
 
   if (procentFirstBar > 50) {
     compareBarFirst.style.backgroundColor = `rgba(23, 120, 76, 1)`;
@@ -303,7 +330,9 @@ function whoWin() {
     return;
   }
 
-  if (selectedFirstBike[name] === selectedFirstBike[name]) {
+  debugger;
+
+  if (selectedFirstBike.name === selectedLastBike.name) {
     compareCardFirst.style.backgroundImage = `linear-gradient(
       0deg,
       rgba(255, 255, 255, 0) 0%,
@@ -316,6 +345,8 @@ function whoWin() {
       rgba(255, 255, 255, 0.2) 50%,
       rgba(255, 255, 255, 0.5) 100%
     )`;
+
+    return (firstBikeScore = 1), (lastBikeScore = 1), valuesTopBar();
   }
 
   for (const key in weightsFirstBike) {
@@ -637,5 +668,21 @@ compareLists.addEventListener("click", (event) => {
 
   renderCompareTable();
 });
+
+clickPageDeletedClasses(
+  {
+    el: detailsDropdownButton,
+    className: "dropdown-button--open",
+  },
+  {
+    el: detailsDropdownTop,
+    className: "header__nav__details__top--open",
+  },
+  {
+    el: detailsNavLink,
+    className: "header__nav__details__top-link--open",
+  },
+  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
+);
 
 // document.addEventListener("DOMContentLoaded", renderCompareTable);
