@@ -21,26 +21,19 @@
 
   &__card--img {
     height: 228px;
-
-    @include onTablet {
-      height: 316px;
-    }
-
-    @include onDesktop {
-      height: 256px;
-    }
+    background-position: bottom;
   }
 
   &__card--img--1 {
-    background-image: url(../images/bikes/sporty_4.png);
+    background-image: url(../images/bikes/bike_3.webp);
   }
 
   &__card--img--2 {
-    background-image: url(../images/bikes/ride_in_town_ST.png);
+    background-image: url(../images/bikes/bike_4.webp);
   }
 
   &__card--img--3 {
-    background-image: url(../images/bikes/agile_ride_3.png);
+    background-image: url(../images/bikes/bike_2.webp);
   }
 
   &__button {

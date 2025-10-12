@@ -159,14 +159,23 @@
       &-bike {
         align-content: center;
         margin-inline: auto;
-        font-size: 20px;
+        font-size: 10px;
         color: $primary-font-color;
         font-weight: 800;
+
+        @include onTablet {
+          font-size: 20px;
+        }
       }
 
       &-button {
         position: relative;
         right: 0;
+        transform: scale(0.5);
+
+        @include onTablet {
+          transform: scale(1);
+        }
       }
     }
 
@@ -241,7 +250,7 @@
     &-img {
       background-repeat: no-repeat;
       background-position: bottom;
-      background-size: cover;
+      background-size: contain;
       aspect-ratio: 1.5 / 1;
 
       &--last {

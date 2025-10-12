@@ -215,7 +215,7 @@
     align-items: center;
     transition: all 0.2s ease-in-out;
     background-color: rgba($color: $menu-background, $alpha: 0);
-    width: 36px;
+    min-width: 36px;
     height: 36px;
     border-radius: 5px;
 
@@ -293,19 +293,20 @@
 
   &__img {
     height: 100%;
-    background-size: cover;
+    background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
     aspect-ratio: 1.5 / 1;
+    background-color: $page-background-night;
 
     &--1 {
-      background-image: url(../images/bikes/sporty_4.png);
+      background-image: url(../images/bikes/bike_3.webp);
     }
     &--2 {
-      background-image: url(../images/bikes/agile_ride_3.png);
+      background-image: url(../images/bikes/bike_4.webp);
     }
     &--3 {
-      background-image: url(../images/bikes/ride_in_town_ST.png);
+      background-image: url(../images/bikes/bike_2.webp);
     }
   }
 

@@ -62,7 +62,7 @@ let selectedFirstBike = {};
 let selectedLastBike = {};
 let weightsFirstBike = {};
 let weightsLastBike = {};
-let maxWeights = {};
+const maxValues = {};
 
 const sporty4 = {
   id: "1",
@@ -167,27 +167,39 @@ const weights = {
   "---": 0,
 };
 
-for (const product in products) {
-  let poductsWithWeight = [];
+for (const productName in products) {
+  const product = products[productName];
 
-  const productKeys = Object.keys(products[product]);
-  const productValues = Object.values(products[product]);
+  for (const key in product) {
+    const value = product[key];
+    let numericValue;
 
-  for (const key in weightsFirstBike) {
-    for (const i in weights) {
-      if (i === selectedFirstBike[key]) {
-        weightsFirstBike[key] = weights[i];
+    if (typeof value === "number") {
+      numericValue = value;
+    } else if (weights[value] !== undefined) {
+      numericValue = weights[value];
+    } else {
+      continue;
+    }
+
+    if (key === "weight") {
+      if (maxValues[key] === undefined || numericValue < maxValues[key]) {
+        maxValues[key] = numericValue;
+      }
+    } else {
+      if (maxValues[key] === undefined || numericValue > maxValues[key]) {
+        maxValues[key] = numericValue;
       }
     }
   }
-
-  // console.log(productKeys);
 }
 
 const getMaxWidth = () => {
   const navListWidth = navList.clientWidth;
   return `${navListWidth}px`;
 };
+
+dropdown.style.maxWidth = getMaxWidth();
 
 menuOpen.addEventListener("click", () => {
   menu.classList.toggle("menu--open");
@@ -213,8 +225,6 @@ detailImage.forEach((image) => {
     image.classList.toggle("detail__image--scale");
   });
 });
-
-dropdown.style.maxWidth = getMaxWidth();
 
 detailsDropdownButton.addEventListener("click", (event) => {
   event.stopPropagation();
@@ -322,15 +332,13 @@ function valuesTopBar() {
 }
 
 function whoWin() {
-  if (
-    Object.entries(weightsFirstBike).length === 0 ||
-    Object.entries(weightsLastBike).length === 0
-  ) {
-    console.log("NO Weights for bike");
+  if (Object.entries(weightsFirstBike).length === 0) {
+    console.log("NO chosed first bike!");
+    return;
+  } else if (Object.entries(weightsLastBike).length === 0) {
+    console.log("NO chosed last bike!");
     return;
   }
-
-  debugger;
 
   if (selectedFirstBike.name === selectedLastBike.name) {
     compareCardFirst.style.backgroundImage = `linear-gradient(
@@ -435,7 +443,7 @@ function renderCompareTable() {
     <h3 class="compare__card-title">${getProp(selectedFirstBike, "name")}</h3>
     <div class="compare__card-tth">
       <ul class="tth tth__list">
-        <li class="tth__item">
+        <li class="tth__item tth__weight--first tth__weight--last">
           <p class="tth__first">${getProp(selectedFirstBike, "cost")}</p>
           <p class="tth__value">Cost</p><p class="tth__last">${getProp(
             selectedLastBike,
