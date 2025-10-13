@@ -40,8 +40,7 @@
 }
 
 .detail {
-  &__images {
-    // @include pageGrid;
+  &__container {
     position: relative;
     display: flex;
     gap: 20px;
@@ -53,41 +52,26 @@
   }
 
   &__link {
-    // height: 100%;
     width: 100%;
     transition: width 0.2s ease, aspect-ratio 0.3s ease;
-    // overflow: hidden;
     aspect-ratio: 1 / 1;
 
     &--wide {
       @include onTablet {
         width: 166%;
         aspect-ratio: 3 / 1;
-        // grid-column: span 4;
-      }
-
-      @include onDesktop {
-        // grid-column: span 8;
       }
     }
-
-    // &--square {
-    //   aspect-ratio: 1 / 1;
-    //   @include onTablet {
-    //     width: 30%;
-    //     // grid-column: span 2;
-    //   }
-
-    //   @include onDesktop {
-    //     // grid-column: span 4;
-    //   }
-    // }
   }
 
   &__image {
     width: 100%;
     object-fit: cover;
     transition: all 0.5s ease;
+
+    @include onDesktop {
+      min-height: 284px;
+    }
 
     &--reverse {
       transform: scaleX(-1);

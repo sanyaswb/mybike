@@ -40,6 +40,8 @@
 
 @mixin mainPadding {
   @include contentPaddingInline;
+  max-width: 1260px;
+  margin-inline: auto;
 
   padding-top: 60px;
   padding-bottom: 120px;
@@ -50,8 +52,6 @@
 
   @include onDesktop {
     padding-bottom: 182px;
-    max-width: 1020px;
-    margin-inline: auto;
   }
 }
 

@@ -5,7 +5,7 @@ const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon--menu");
 const menuClose = document.querySelector(".icon--close");
 
-const detailImages = document.querySelectorAll(".detail__images");
+const detailContainer = document.querySelectorAll(".detail__container");
 const detailImage = document.querySelectorAll(".detail__image");
 const dropdown = document.querySelector(".dropdown");
 const dropdownItems = document.querySelectorAll(".dropdown__item");
@@ -209,7 +209,7 @@ menuClose.addEventListener("click", () => {
   menu.classList.remove("menu--open");
 });
 
-detailImages.forEach((section) => {
+detailContainer.forEach((section) => {
   const links = section.querySelectorAll(".detail__link");
 
   links.forEach((link) => {
