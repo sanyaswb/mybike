@@ -2,22 +2,19 @@
   @include headerPadding;
 
   position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   height: 480px;
 
-  background-image: url("../images/backgrounds/header_bike-fhd-1.webp"),
-    url("../images/backgrounds/header_bk-fhd.webp");
-
-  background-size: cover, cover;
-  background-repeat: no-repeat, no-repeat;
-  background-position: 90%, right;
+  background-image: url("../images/backgrounds/header_bk-fhd.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
 
   @include onTablet {
     height: 628px;
-    background-size: contain, cover;
-    background-position: center, center;
   }
 
   @include onDesktop {
@@ -26,6 +23,74 @@
     .icon--menu {
       display: none;
     }
+  }
+
+  &__slider-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  &__slider-track {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    will-change: transform, background-position;
+    transition: transform 1.5s ease-out, background-position 1.5s ease-out;
+
+    &--current {
+      transform: translateX(0);
+      background-position: right center;
+    }
+    &--next {
+      transform: translateX(-100%);
+      background-position: right center;
+    }
+
+    .is-animating &--current {
+      transform: translateX(-100%);
+    }
+    .is-animating &--next {
+      transform: translateX(0);
+    }
+
+    @include onTablet {
+      background-size: contain;
+      background-position: center;
+
+      &--current {
+        transform: translateX(0);
+      }
+      &--next {
+        transform: translateX(-100%);
+      }
+
+      .is-animating &--current {
+        transform: translateX(100%);
+      }
+      .is-animating &--next {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__image--1 {
+    background-image: url("../images/backgrounds/header_bike-fhd-1.webp");
+  }
+  &__image--2 {
+    background-image: url("../images/backgrounds/header_bike-fhd-2.webp");
+  }
+  &__image--3 {
+    background-image: url("../images/backgrounds/header_bike-fhd-3.webp");
+  }
+  &__image--4 {
+    background-image: url("../images/backgrounds/header_bike-fhd-4.webp");
   }
 
   &__top {
@@ -130,6 +195,7 @@
   }
 
   &__title {
+    z-index: 1;
     width: 100%;
     text-align: center;
     line-height: 100%;

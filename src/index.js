@@ -1,4 +1,60 @@
 const page = document.querySelector(".page");
+
+const detailsBtn = document.querySelector(".button--double__left");
+const buyBtn = document.querySelector(".button--double__right");
+const sliderTrack = document.getElementById("slider-track");
+let currentIndex = 0;
+let nextIndex = 1;
+const changeInterval = 5000;
+const animationDuration = 1500;
+
+const slidesData = [
+  { class: "header__image--1", details: "#details-bike1", buy: "#buy-bike1" },
+  { class: "header__image--2", details: "#details-bike2", buy: "#buy-bike2" },
+  { class: "header__image--3", details: "#details-bike3", buy: "#buy-bike3" },
+  { class: "header__image--4", details: "#details-bike4", buy: "#buy-bike4" },
+];
+let currentSlide = sliderTrack.querySelector(".header__image--current");
+let nextSlide = sliderTrack.querySelector(".header__image--next");
+
+function updateHeaderLinks(slide) {
+  detailsBtn.href = slide.dataset.details;
+  buyBtn.href = slide.dataset.buy;
+}
+
+function doSlide() {
+  sliderTrack.classList.add("is-animating");
+
+  setTimeout(() => {
+    sliderTrack.classList.remove("is-animating");
+    currentSlide.className = `header__image ${slidesData[currentIndex].class}`;
+    nextSlide.className = `header__image ${slidesData[nextIndex].class} header__image--current`;
+
+    updateHeaderLinks(nextSlide);
+
+    currentIndex = nextIndex;
+    nextIndex = (nextIndex + 1) % slidesData.length;
+
+    const newNextSlide = document.createElement("div");
+
+    newNextSlide.className = `header__image ${slidesData[nextIndex].class} header__image--next`;
+    newNextSlide.dataset.details = slidesData[nextIndex].details;
+    newNextSlide.dataset.buy = slidesData[nextIndex].buy;
+
+    sliderTrack.innerHTML = "";
+    sliderTrack.appendChild(nextSlide);
+    sliderTrack.appendChild(newNextSlide);
+
+    currentSlide = nextSlide;
+    nextSlide = newNextSlide;
+  }, animationDuration);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateHeaderLinks(currentSlide);
+  setInterval(doSlide, changeInterval);
+});
+
 const navList = document.querySelector(".nav__list");
 
 const menu = document.querySelector(".menu");

@@ -70,7 +70,7 @@
     transition: all 0.5s ease;
 
     @include onDesktop {
-      min-height: 284px;
+      min-height: 375px;
     }
 
     &--reverse {
