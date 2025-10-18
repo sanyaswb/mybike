@@ -1,7 +1,38 @@
 const page = document.querySelector(".page");
+const header = document.getElementById("header");
+const mainSticky = document.querySelector(".main__sticky");
 
-const detailsBtn = document.querySelector(".button--double__left");
-const buyBtn = document.querySelector(".button--double__right");
+const logoImg = document.getElementById("logo-img");
+const iconPhone = document.querySelector(".icon-phone");
+const iconMenu = document.querySelector(".icon-menu");
+const whiteLogoPath = logoImg.getAttribute("data-logo-white");
+const blackLogoPath = logoImg.getAttribute("data-logo-black");
+
+const switcher = document.querySelector(".switcher");
+const switcherIcon = document.querySelector(".switcher__icon");
+const switcherImg = document.querySelector(".switcher__img");
+
+switcher.addEventListener("click", () => {
+  switcher.classList.toggle("switcher--day");
+  switcherIcon.classList.toggle("switcher__icon--day");
+  switcherImg.classList.toggle("switcher__img--day");
+
+  const currentLogoPath = logoImg.getAttribute("src");
+  console.log(currentLogoPath);
+
+  if (currentLogoPath === whiteLogoPath) {
+    logoImg.setAttribute("src", blackLogoPath);
+  } else {
+    logoImg.setAttribute("src", whiteLogoPath);
+  }
+
+  iconPhone.classList.toggle("icon-phone--black");
+  iconMenu.classList.toggle("icon-menu--black");
+  page.classList.toggle("theme-switcher");
+});
+
+const detailsBtn = document.querySelector(".button-double__left");
+const buyBtn = document.querySelector(".button-double__right");
 const sliderTrack = document.getElementById("slider-track");
 let currentIndex = 0;
 let nextIndex = 1;
@@ -58,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const navList = document.querySelector(".nav__list");
 
 const menu = document.querySelector(".menu");
-const menuOpen = document.querySelector(".icon--menu");
+const menuOpen = document.querySelector(".icon-menu");
 const menuClose = document.querySelector(".icon--close");
 
 const detailContainer = document.querySelectorAll(".detail__container");

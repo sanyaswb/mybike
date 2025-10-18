@@ -3,6 +3,7 @@
   color: $secondary-font-color;
   scroll-behavior: smooth;
   background-color: $primary-font-color;
+  transition: all 0.3s;
 
   &--overflow {
     overflow: hidden;

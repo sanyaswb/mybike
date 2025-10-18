@@ -1,0 +1,169 @@
+.theme-switcher {
+  color: $primary-font-color;
+  background-color: $page-background-day;
+
+  .header {
+    background-image: none;
+    background-color: $menu-background;
+
+    &__title {
+      background-color: rgba($color: $menu-background, $alpha: 0.5);
+      border-radius: 20px;
+      // -webkit-text-stroke: 2px $secondary-font-color;
+      color: $primary-font-color;
+    }
+  }
+
+  .main {
+    &__sticky {
+      &::before {
+        background-color: $page-background-day;
+      }
+    }
+  }
+
+  .button {
+    background-color: $primary-font-color;
+    color: $secondary-font-color;
+    border: 1px solid $primary-font-color;
+
+    &:hover {
+      -webkit-box-shadow: 1px 4px 16px 0px rgba(29, 29, 29, 0.4);
+      box-shadow: 1px 4px 16px 0px rgba(29, 29, 29, 0.4);
+    }
+
+    &:active {
+      -webkit-box-shadow: 1px 4px 16px 0px rgba(29, 29, 29, 0.64);
+      box-shadow: 1px 4px 16px 0px rgba(29, 29, 29, 0.64);
+    }
+
+    &-double__left {
+      border-right: 1px solid $secondary-font-color;
+
+      &:hover {
+        color: $primary-font-color;
+        background-color: transparent;
+        border-right: 1px solid $primary-font-color;
+      }
+    }
+
+    &-double__right {
+      border-left: 1px solid $secondary-font-color;
+
+      &:hover {
+        color: $primary-font-color;
+        background-color: transparent;
+        border-left: 1px solid $primary-font-color;
+      }
+    }
+  }
+
+  .nav {
+    &__link::after {
+      background-color: $primary-font-color;
+    }
+  }
+
+  .contacts__info p {
+    color: #545454;
+  }
+
+  .header__nav__details__top--open {
+    background-color: rgba($color: $page-background-night, $alpha: 0.5);
+  }
+
+  .dropdown {
+    background-color: rgba($color: $page-background-night, $alpha: 0.5);
+
+    &-button::after,
+    &-button::before {
+      background-color: $primary-font-color;
+    }
+
+    &__link {
+      color: $secondary-font-color;
+
+      &:hover {
+        background: linear-gradient(
+          90deg,
+          rgba(182, 181, 174, 1) 0%,
+          rgba(182, 181, 174, 1) 50%,
+          rgba(182, 181, 174, 0) 100%
+        );
+
+        color: $primary-font-color;
+      }
+    }
+
+    &__img {
+      background-color: $page-background-day;
+    }
+  }
+
+  .compare__card {
+    background-color: rgba($color: $menu-background, $alpha: 0.5);
+  }
+
+  .form {
+    &__label {
+      background-color: $placeholder-color;
+
+      &:hover {
+        border: 1px solid $primary-font-color;
+      }
+    }
+
+    &__input {
+      &::placeholder {
+        color: $primary-font-color;
+      }
+    }
+  }
+
+  .tth {
+    &__item {
+      color: $secondary-font-color;
+    }
+  }
+}
+
+.switcher {
+  display: flex;
+  height: 24px;
+  width: 48px;
+  border: 2px solid $secondary-font-color;
+  border-radius: 50px;
+
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &--day {
+    border: 2px solid $page-background-night;
+  }
+
+  @include onTablet {
+    height: 32px;
+    width: 64px;
+  }
+
+  &__icon {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+
+    &--day {
+      transform: translateX(calc(50% + 2px));
+    }
+  }
+
+  &__img {
+    display: block;
+    transition: transform 0.3s ease;
+    rotate: 180deg;
+
+    &--day {
+      transform: rotate(180deg);
+    }
+  }
+}

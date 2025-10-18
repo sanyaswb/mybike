@@ -6,12 +6,20 @@
 
   @include hover(transform, scale(1.2));
 
-  &--phone {
+  &-phone {
     background-image: url(../images/icons/icon-phone.svg);
+
+    &--black {
+      background-image: url(../images/icons/icon-phone-black.svg);
+    }
   }
 
-  &--menu {
+  &-menu {
     background-image: url(../images/icons/icon-menu.svg);
+
+    &--black {
+      background-image: url(../images/icons/icon-menu-black.svg);
+    }
 
     &:hover {
       background-image: url(../images/icons/icon-menu-hover.svg);

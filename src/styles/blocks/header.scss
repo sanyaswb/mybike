@@ -8,10 +8,12 @@
   flex-direction: column;
   height: 480px;
 
+  background-color: $page-background-night;
   background-image: url("../images/backgrounds/header_bk-fhd.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
+  transition: background-color 0.3s;
 
   @include onTablet {
     height: 628px;
@@ -20,7 +22,7 @@
   @include onDesktop {
     height: 100vh;
 
-    .icon--menu {
+    .icon-menu {
       display: none;
     }
   }
@@ -131,10 +133,6 @@
       grid-area: center;
     }
 
-    &__list {
-      flex-direction: row;
-    }
-
     &__details {
       display: flex;
       flex-direction: column;
@@ -181,6 +179,10 @@
         color: $primary-font-color;
       }
     }
+  }
+
+  &__list {
+    flex-direction: row;
   }
 
   &__icons {
