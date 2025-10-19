@@ -349,17 +349,15 @@ detailsDropdownButton.addEventListener("click", (event) => {
   event.stopPropagation();
 
   detailsDropdownButton.classList.toggle("dropdown-button--open");
-  detailsDropdownTop.classList.toggle("header__nav__details__top--open");
-  detailsNavLink.classList.toggle("header__nav__details__top-link--open");
-  detailsDropdown.classList.toggle("header__nav__details__dropdown--open");
+  detailsDropdownTop.classList.toggle("header__details-top--open");
+  detailsDropdown.classList.toggle("header__details-dropdown--open");
 });
 
 detailsDropdownLinks.forEach((link) => {
   link.addEventListener("click", () => {
     detailsDropdownButton.classList.remove("dropdown-button--open");
-    detailsDropdownTop.classList.remove("header__nav__details__top--open");
-    detailsNavLink.classList.remove("header__nav__details__top-link--open");
-    detailsDropdown.classList.remove("header__nav__details__dropdown--open");
+    detailsDropdownTop.classList.remove("header__details-top--open");
+    detailsDropdown.classList.remove("header__details-dropdown--open");
   });
 });
 
@@ -851,13 +849,9 @@ clickPageDeletedClasses(
   },
   {
     el: detailsDropdownTop,
-    className: "header__nav__details__top--open",
+    className: "header__details-top--open",
   },
-  {
-    el: detailsNavLink,
-    className: "header__nav__details__top-link--open",
-  },
-  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
+  { el: detailsDropdown, className: "header__details-dropdown--open" }
 );
 
 // document.addEventListener("DOMContentLoaded", renderCompareTable);
