@@ -281,12 +281,12 @@ for (const productName in products) {
   }
 }
 
-const getMaxWidth = () => {
-  const navListWidth = navList.clientWidth;
-  return `${navListWidth}px`;
-};
+// const getMaxWidth = () => {
+//   const navListWidth = navList.clientWidth;
+//   return `${navListWidth}px`;
+// };
 
-dropdown.style.maxWidth = getMaxWidth();
+// dropdown.style.maxWidth = getMaxWidth();
 
 menuOpen.addEventListener("click", () => {
   menu.classList.toggle("menu--open");

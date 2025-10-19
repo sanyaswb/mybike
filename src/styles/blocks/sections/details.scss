@@ -96,6 +96,30 @@
     }
   }
 
+  // &__image-2 {
+  //   width: 850px;
+  //   height: 480px;
+
+  //   &--1 {
+  //     background-image: url(../images/bikes/details-bike-4-1.webp);
+  //   }
+  //   &--2 {
+  //     background-image: url(../images/bikes/details-bike-4-2.webp);
+  //   }
+  //   &--3 {
+  //     background-image: url(../images/bikes/details-bike-4-3.webp);
+  //   }
+  //   &--4 {
+  //     background-image: url(../images/bikes/details-bike-4-4.webp);
+  //   }
+  //   &--5 {
+  //     background-image: url(../images/bikes/details-bike-4-5.webp);
+  //   }
+  //   &--6 {
+  //     background-image: url(../images/bikes/details-bike-4-6.webp);
+  //   }
+  // }
+
   &__title {
     @include contentTitleFonts;
   }
