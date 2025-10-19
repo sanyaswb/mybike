@@ -35,3 +35,17 @@
     width: 32px;
   }
 }
+
+.logo {
+  display: flex;
+
+  &__img {
+    height: 38px;
+
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      height: 56px;
+    }
+  }
+}

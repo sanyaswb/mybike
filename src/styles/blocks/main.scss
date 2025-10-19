@@ -38,20 +38,6 @@
   }
 }
 
-.logo {
-  display: flex;
-
-  &__img {
-    height: 38px;
-
-    @include hover(transform, scale(1.2));
-
-    @include onTablet {
-      height: 56px;
-    }
-  }
-}
-
 .section {
   &__title {
     text-align: center;
@@ -268,7 +254,6 @@
   &__item {
     font-size: 12px;
     font-weight: 800;
-    // color: $secondary-font-color;
     background-color: $primary-font-color;
 
     @include onDesktop {
@@ -311,13 +296,16 @@
     background-color: $page-background-night;
 
     &--1 {
-      background-image: url(../images/bikes/bike_3.webp);
+      background-image: url(../images/bikes/bike_1.webp);
     }
     &--2 {
-      background-image: url(../images/bikes/bike_4.webp);
+      background-image: url(../images/bikes/bike_2.webp);
     }
     &--3 {
-      background-image: url(../images/bikes/bike_2.webp);
+      background-image: url(../images/bikes/bike_3.webp);
+    }
+    &--4 {
+      background-image: url(../images/bikes/bike_4.webp);
     }
   }
 

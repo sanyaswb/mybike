@@ -43,40 +43,42 @@
     }
   }
 
-  &__button--close {
-    display: flex;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border: 1px solid $secondary-font-color;
-    border-radius: 10px;
-    background-color: rgba($color: $secondary-font-color, $alpha: 0.2);
-    top: 0;
-    right: 0px;
-    margin: 20px 20px 0 0;
-    justify-content: center;
-    align-items: center;
+  &__button {
+    &--close {
+      display: flex;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border: 1px solid $secondary-font-color;
+      border-radius: 10px;
+      background-color: rgba($color: $secondary-font-color, $alpha: 0.2);
+      top: 0;
+      right: 0px;
+      margin: 20px 20px 0 0;
+      justify-content: center;
+      align-items: center;
 
-    &:hover {
-      cursor: pointer;
-      background-color: rgba($color: red, $alpha: 0.4);
-    }
+      &:hover {
+        cursor: pointer;
+        background-color: rgba($color: red, $alpha: 0.4);
+      }
 
-    &::after {
-      content: "";
-      display: block;
-      height: 30px;
-      width: 6px;
-      background-color: $secondary-font-color;
-      transform: translateX(-50%) rotate(-45deg);
-    }
-    &::before {
-      content: "";
-      display: block;
-      height: 30px;
-      width: 6px;
-      background-color: $secondary-font-color;
-      transform: translateX(50%) rotate(45deg);
+      &::after {
+        content: "";
+        display: block;
+        height: 30px;
+        width: 6px;
+        background-color: $secondary-font-color;
+        transform: translateX(-50%) rotate(-45deg);
+      }
+      &::before {
+        content: "";
+        display: block;
+        height: 30px;
+        width: 6px;
+        background-color: $secondary-font-color;
+        transform: translateX(50%) rotate(45deg);
+      }
     }
   }
 
@@ -108,9 +110,9 @@
     }
   }
 
-  &__cards {
-    column-gap: $compare-column-gap;
+  &__grid {
     display: grid;
+    column-gap: $compare-column-gap;
     grid-template-columns: 1fr 1fr;
     left: 0;
     right: 0;
@@ -182,11 +184,12 @@
     &--first {
       grid-area: first;
     }
+
     &--last {
       grid-area: last;
     }
 
-    &__list {
+    &-list {
       width: 100%;
       max-width: 80%;
       display: none;
@@ -196,7 +199,7 @@
       }
     }
 
-    &__item {
+    &-item {
       &--last {
         @include onDesktop {
           &:hover {
@@ -211,22 +214,16 @@
       }
     }
 
-    &__link {
+    &-link {
       &--last {
         grid-template-columns: 1fr 162px;
       }
     }
 
-    &__img {
+    &-img {
       &--last {
         grid-area: last;
         transform: scaleX(-1);
-      }
-    }
-
-    &__text {
-      &--last {
-        grid-area: first;
       }
     }
   }
@@ -272,35 +269,80 @@
         font-size: 32px;
       }
     }
-  }
 
-  &__card-tth {
-    text-align: center;
-    justify-items: center;
-    width: calc(200% + $compare-column-gap);
-    border-radius: 20px;
+    &-tth {
+      text-align: center;
+      justify-items: center;
+      width: calc(200% + $compare-column-gap);
+      border-radius: 20px;
 
-    @include onDesktop {
-      width: calc(200% + ($compare-column-gap * 9));
+      @include onDesktop {
+        width: calc(200% + ($compare-column-gap * 9));
+      }
     }
   }
-}
 
-.tth {
-  width: 100%;
+  &__tth {
+    width: 100%;
 
-  &__list {
-    display: grid;
-    row-gap: 5px;
-    text-align: center;
+    &-list {
+      display: grid;
+      row-gap: 5px;
+      text-align: center;
 
-    &:nth-child(1) {
-      &::before {
+      &:nth-child(1) {
+        &::before {
+          content: "";
+          grid-column: 1 / -1;
+          display: block;
+          position: relative;
+          top: 4px;
+          height: 1px;
+          width: 100%;
+          background: #fff;
+          background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.6) 25%,
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 0.6) 75%,
+            rgba(255, 255, 255, 0) 100%
+          );
+        }
+      }
+    }
+
+    &-item {
+      display: grid;
+      grid-template-columns: 1fr 0.5fr 1fr;
+      grid-template-areas: "first value last";
+      font-size: 12px;
+
+      @include onTablet {
+        font-size: 18px;
+      }
+
+      @include onDesktop {
+        font-size: 24px;
+      }
+
+      padding-block: 5px;
+      background: #000;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.6) 25%,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0.6) 75%,
+        rgba(0, 0, 0, 0) 100%
+      );
+
+      &::after {
         content: "";
-        grid-column: 1 / -1;
         display: block;
         position: relative;
-        top: 4px;
+        grid-column: 1 / -1;
+        bottom: -4px;
         height: 1px;
         width: 100%;
         background: #fff;
@@ -314,62 +356,17 @@
         );
       }
     }
-  }
 
-  &__item {
-    display: grid;
-    grid-template-columns: 1fr 0.5fr 1fr;
-    grid-template-areas: "first value last";
-    font-size: 12px;
-
-    @include onTablet {
-      font-size: 18px;
+    &--first {
+      grid-area: first;
     }
 
-    @include onDesktop {
-      font-size: 24px;
+    &--value {
+      grid-area: value;
     }
 
-    padding-block: 5px;
-    background: #000;
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.6) 25%,
-      rgba(0, 0, 0, 1) 50%,
-      rgba(0, 0, 0, 0.6) 75%,
-      rgba(0, 0, 0, 0) 100%
-    );
-
-    &::after {
-      content: "";
-      display: block;
-      position: relative;
-      grid-column: 1 / -1;
-      bottom: -4px;
-      height: 1px;
-      width: 100%;
-      background: #fff;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.6) 25%,
-        rgba(255, 255, 255, 1) 50%,
-        rgba(255, 255, 255, 0.6) 75%,
-        rgba(255, 255, 255, 0) 100%
-      );
+    &--last {
+      grid-area: last;
     }
-  }
-
-  &__first {
-    grid-area: first;
-  }
-
-  &__value {
-    grid-area: value;
-  }
-
-  &__last {
-    grid-area: last;
   }
 }

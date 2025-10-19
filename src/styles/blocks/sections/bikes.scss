@@ -17,27 +17,27 @@
     @include onDesktop {
       grid-column: span 4;
     }
-  }
 
-  &__card--img {
-    height: 228px;
-    background-position: bottom;
-  }
+    &-img {
+      height: 228px;
+      background-position: bottom;
 
-  &__card--img--1 {
-    background-image: url(../images/bikes/bike_3.webp);
-  }
+      &--1 {
+        background-image: url(../images/bikes/bike_1.webp);
+      }
 
-  &__card--img--2 {
-    background-image: url(../images/bikes/bike_4.webp);
-  }
+      &--2 {
+        background-image: url(../images/bikes/bike_2.webp);
+      }
 
-  &__card--img--3 {
-    background-image: url(../images/bikes/bike_2.webp);
-  }
+      &--3 {
+        background-image: url(../images/bikes/bike_3.webp);
+      }
 
-  &__card--img--4 {
-    background-image: url(../images/bikes/bike_1.webp);
+      &--4 {
+        background-image: url(../images/bikes/bike_4.webp);
+      }
+    }
   }
 
   &__button {

@@ -1,12 +1,18 @@
 .details {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
   margin-bottom: 80px;
 
   @include onTablet {
     margin-bottom: 120px;
+    gap: 120px;
   }
 
   @include onDesktop {
     margin-bottom: 180px;
+    gap: 180px;
   }
 
   &__wrapper {
@@ -67,6 +73,8 @@
   &__image {
     width: 100%;
     object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
     transition: all 0.5s ease;
 
     @include onDesktop {
@@ -94,31 +102,26 @@
         transform: scale(1.1);
       }
     }
+
+    &--1 {
+      background-image: url(../images/bikes/details-bike-4-1.webp);
+    }
+    &--2 {
+      background-image: url(../images/bikes/details-bike-4-2.webp);
+    }
+    &--3 {
+      background-image: url(../images/bikes/details-bike-4-3.webp);
+    }
+    &--4 {
+      background-image: url(../images/bikes/details-bike-4-4.webp);
+    }
+    &--5 {
+      background-image: url(../images/bikes/details-bike-4-5.webp);
+    }
+    &--6 {
+      background-image: url(../images/bikes/details-bike-4-6.webp);
+    }
   }
-
-  // &__image-2 {
-  //   width: 850px;
-  //   height: 480px;
-
-  //   &--1 {
-  //     background-image: url(../images/bikes/details-bike-4-1.webp);
-  //   }
-  //   &--2 {
-  //     background-image: url(../images/bikes/details-bike-4-2.webp);
-  //   }
-  //   &--3 {
-  //     background-image: url(../images/bikes/details-bike-4-3.webp);
-  //   }
-  //   &--4 {
-  //     background-image: url(../images/bikes/details-bike-4-4.webp);
-  //   }
-  //   &--5 {
-  //     background-image: url(../images/bikes/details-bike-4-5.webp);
-  //   }
-  //   &--6 {
-  //     background-image: url(../images/bikes/details-bike-4-6.webp);
-  //   }
-  // }
 
   &__title {
     @include contentTitleFonts;
