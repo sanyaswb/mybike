@@ -31,8 +31,9 @@ switcher.addEventListener("click", () => {
   page.classList.toggle("theme-switcher");
 });
 
-const detailsBtn = document.querySelector(".button-double__left");
-const buyBtn = document.querySelector(".button-double__right");
+const detailsBtn = document.querySelector(".button--double-left");
+const buyBtn = document.querySelector(".button--double-right");
+
 const sliderTrack = document.getElementById("slider-track");
 let currentIndex = 0;
 let nextIndex = 1;

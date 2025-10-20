@@ -3,9 +3,6 @@
 @import "./utils/reset";
 @import "./utils/components";
 
-@import "./blocks/menu";
-@import "./blocks/compare";
-
 @import "./blocks/body";
 @import "./blocks/main";
 @import "./blocks/nav";
@@ -21,6 +18,8 @@
 @import "./blocks/sections/details";
 @import "./blocks/sections/contacts";
 
+@import "./blocks/menu";
+@import "./blocks/compare";
 @import "./blocks/form";
 @import "./blocks/footer";
 
