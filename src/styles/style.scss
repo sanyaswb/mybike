@@ -1,20 +1,27 @@
 @import "./utils/variables";
 @import "./utils/mixins";
 @import "./utils/reset";
+@import "./utils/components";
 
-@import "./blocks/main";
 @import "./blocks/menu";
+@import "./blocks/compare";
+
+@import "./blocks/body";
+@import "./blocks/main";
 @import "./blocks/nav";
+@import "./blocks/dropdown";
 @import "./blocks/header";
 @import "./blocks/icon";
 @import "./blocks/card";
 @import "./blocks/page";
 
+@import "./blocks/sections/section";
 @import "./blocks/sections/free";
 @import "./blocks/sections/bikes";
 @import "./blocks/sections/details";
 @import "./blocks/sections/contacts";
-@import "./blocks/compare";
+
+@import "./blocks/form";
 @import "./blocks/footer";
 
 @import "./blocks/theme-switcher";

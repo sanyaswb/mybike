@@ -1,0 +1,83 @@
+.button {
+  width: 100%;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 27px;
+  background-color: $secondary-font-color;
+  color: $primary-font-color;
+  border-radius: 40px;
+  border: 1px solid $secondary-font-color;
+  transition: all 0.2s ease;
+
+  &:hover {
+    -webkit-box-shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.4);
+  }
+
+  &:active {
+    -webkit-box-shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.64);
+    box-shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.64);
+  }
+
+  &--double {
+    grid-column: span 2;
+
+    @include onTablet {
+      grid-column: 2 / -2;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / -5;
+    }
+
+    display: flex;
+
+    &-link {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    &-left {
+      border-right: 1px solid $primary-font-color;
+      border-radius: 40px 0 0 40px;
+      font-size: 10px;
+
+      @include onTablet {
+        font-size: 16px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        transform-origin: right;
+        color: $secondary-font-color;
+        background-color: transparent;
+        border-right: 1px solid $secondary-font-color;
+      }
+    }
+
+    &-right {
+      border-left: 1px solid $primary-font-color;
+      border-radius: 0 40px 40px 0;
+      font-size: 10px;
+
+      @include onTablet {
+        font-size: 16px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        transform-origin: left;
+        color: $secondary-font-color;
+        background-color: transparent;
+        border-left: 1px solid $secondary-font-color;
+      }
+    }
+  }
+}
+
+.no-wrap-text {
+  white-space: nowrap;
+}

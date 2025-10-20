@@ -36,7 +36,7 @@
       box-shadow: 1px 4px 16px 0px rgba(29, 29, 29, 0.64);
     }
 
-    &-double__left {
+    &--double-left {
       border-right: 1px solid $secondary-font-color;
 
       &:hover {
@@ -46,7 +46,7 @@
       }
     }
 
-    &-double__right {
+    &--double-right {
       border-left: 1px solid $secondary-font-color;
 
       &:hover {
@@ -124,8 +124,8 @@
     }
   }
 
-  .tth {
-    &__item {
+  .compare__tth {
+    &-item {
       color: $secondary-font-color;
     }
   }
