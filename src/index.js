@@ -1,5 +1,6 @@
 const page = document.querySelector(".page");
 const header = document.getElementById("header");
+const headerDetails = document.getElementById("header-details");
 const mainSticky = document.querySelector(".main__sticky");
 
 const logoImg = document.getElementById("logo-img");
@@ -7,6 +8,9 @@ const iconPhone = document.querySelector(".icon-phone");
 const iconMenu = document.querySelector(".icon-menu");
 const whiteLogoPath = logoImg.getAttribute("data-logo-white");
 const blackLogoPath = logoImg.getAttribute("data-logo-black");
+
+const dropdown = document.querySelector(".dropdown");
+const dropdownItems = document.querySelectorAll(".dropdown__item");
 
 const switcher = document.querySelector(".switcher");
 const switcherIcon = document.querySelector(".switcher__icon");
@@ -93,19 +97,63 @@ const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon-menu");
 const menuClose = document.querySelector(".icon--close");
 
+menuOpen.addEventListener("click", () => {
+  menu.classList.toggle("menu--open");
+});
+
+menuClose.addEventListener("click", () => {
+  menu.classList.remove("menu--open");
+});
+
 const detailContainer = document.querySelectorAll(".detail__container");
 const detailImage = document.querySelectorAll(".detail__image");
-const dropdown = document.querySelector(".dropdown");
-const dropdownItems = document.querySelectorAll(".dropdown__item");
 const detailsDropdownTop = document.getElementById("details-dropdown-top");
 const detailsNavLink = document.getElementById("details-nav-link");
 const detailsDropdownButton = document.getElementById(
   "details-dropdown-button"
 );
+const detailsButtonEvent = document.querySelectorAll(
+  '[data-dropdown-button="add-event"]'
+);
 const detailsDropdown = document.getElementById("details-dropdown");
 const detailsDropdownLinks = document.querySelectorAll(
-  ".dropdown__details__link"
+  ".dropdown__details-link"
 );
+
+detailContainer.forEach((section) => {
+  const links = section.querySelectorAll(".detail__link");
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      if (link.classList.contains("detail__link--wide")) return;
+      links.forEach((l) => l.classList.toggle("detail__link--wide"));
+    });
+  });
+});
+
+detailImage.forEach((image) => {
+  image.addEventListener("click", () => {
+    image.classList.toggle("detail__image--scale");
+  });
+});
+
+detailsButtonEvent.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    detailsDropdownButton.classList.toggle("dropdown-button--open");
+    detailsDropdownTop.classList.toggle("header__details-top--open");
+    detailsDropdown.classList.toggle("header__details-dropdown--open");
+  });
+});
+
+detailsDropdownLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    detailsDropdownButton.classList.remove("dropdown-button--open");
+    detailsDropdownTop.classList.remove("header__details-top--open");
+    detailsDropdown.classList.remove("header__details-dropdown--open");
+  });
+});
 
 const compareNavLink = document.getElementById("compare-nav-link");
 const compare = document.getElementById("compare");
@@ -137,6 +185,37 @@ const compareCardFirst = document.querySelector(".compare__card--first");
 const compareCardLast = document.querySelector(".compare__card--last");
 const compareBarFirst = document.querySelector(".compare__bar--first");
 const compareBarLast = document.querySelector(".compare__bar--last");
+
+compareNavLink.addEventListener("click", () => {
+  page.classList.add("page--overflow");
+  compare.classList.add("compare--open");
+});
+
+compareButton.addEventListener("click", () => {
+  page.classList.remove("page--overflow");
+  compare.classList.remove("compare--open");
+  compareDropdownListFirst.classList.remove("compare__dropdown-list--open");
+  compareDropdownListLast.classList.remove("compare__dropdown-list--open");
+  compareDropdownTopFirst.classList.remove("compare__dropdown-top--open");
+  compareDropdownTopLast.classList.remove("compare__dropdown-top--open");
+  compareDropdownButtonFirst.classList.remove("dropdown-button--open");
+  compareDropdownButtonLast.classList.remove("dropdown-button--open");
+});
+
+compareDropdownButtonFirst.addEventListener("click", (event) => {
+  event.stopPropagation();
+  compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
+  compareDropdownListFirst.classList.toggle("compare__dropdown-list--open");
+  compareDropdownTopFirst.classList.toggle("compare__dropdown-top--open");
+});
+
+compareDropdownButtonLast.addEventListener("click", (event) => {
+  event.stopPropagation();
+  compareDropdownButtonLast.classList.toggle("dropdown-button--open");
+  compareDropdownListLast.classList.toggle("compare__dropdown-list--open");
+  compareDropdownTopLast.classList.toggle("compare__dropdown-top--open");
+});
+
 const firstBarProcent = document.getElementById("first-bar-procent");
 const lastBarProcent = document.getElementById("last-bar-procent");
 
@@ -152,7 +231,6 @@ let selectedFirstBike = {};
 let selectedLastBike = {};
 let weightsFirstBike = {};
 let weightsLastBike = {};
-const maxValues = {};
 
 const sporty4 = {
   id: "1",
@@ -287,6 +365,8 @@ const weights = {
   "---": 0,
 };
 
+const maxValues = {};
+
 for (const productName in products) {
   const product = products[productName];
 
@@ -320,91 +400,6 @@ for (const productName in products) {
 // };
 
 // dropdown.style.maxWidth = getMaxWidth();
-
-menuOpen.addEventListener("click", () => {
-  menu.classList.toggle("menu--open");
-});
-
-menuClose.addEventListener("click", () => {
-  menu.classList.remove("menu--open");
-});
-
-detailContainer.forEach((section) => {
-  const links = section.querySelectorAll(".detail__link");
-
-  links.forEach((link) => {
-    link.addEventListener("mouseenter", () => {
-      if (link.classList.contains("detail__link--wide")) return;
-      links.forEach((l) => l.classList.toggle("detail__link--wide"));
-    });
-  });
-});
-
-detailImage.forEach((image) => {
-  image.addEventListener("click", () => {
-    image.classList.toggle("detail__image--scale");
-  });
-});
-
-detailsDropdownButton.addEventListener("click", (event) => {
-  event.stopPropagation();
-
-  detailsDropdownButton.classList.toggle("dropdown-button--open");
-  detailsDropdownTop.classList.toggle("header__details-top--open");
-  // detailsNavLink.classList.toggle("header__details-top-link--open");
-  detailsDropdown.classList.toggle("header__details-dropdown--open");
-});
-
-detailsDropdownLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    detailsDropdownButton.classList.remove("dropdown-button--open");
-    detailsDropdownTop.classList.remove("header__details-top--open");
-    // detailsNavLink.classList.remove("header__details-top-link--open");
-    detailsDropdown.classList.remove("header__details-dropdown--open");
-  });
-});
-
-compareNavLink.addEventListener("click", () => {
-  page.classList.add("page--overflow");
-  compare.classList.add("compare--open");
-});
-
-compareButton.addEventListener("click", () => {
-  page.classList.remove("page--overflow");
-  compare.classList.remove("compare--open");
-  compareDropdownListFirst.classList.remove("compare__dropdown-list--open");
-  compareDropdownListLast.classList.remove("compare__dropdown-list--open");
-  compareDropdownTopFirst.classList.remove("compare__dropdown-top--open");
-  compareDropdownTopLast.classList.remove("compare__dropdown-top--open");
-  compareDropdownButtonFirst.classList.remove("dropdown-button--open");
-  compareDropdownButtonLast.classList.remove("dropdown-button--open");
-});
-
-compareDropdownButtonFirst.addEventListener("click", (event) => {
-  compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
-  compareDropdownListFirst.classList.toggle("compare__dropdown-list--open");
-  compareDropdownTopFirst.classList.toggle("compare__dropdown-top--open");
-});
-
-compareDropdownButtonLast.addEventListener("click", (event) => {
-  compareDropdownButtonLast.classList.toggle("dropdown-button--open");
-  compareDropdownListLast.classList.toggle("compare__dropdown-list--open");
-  compareDropdownTopLast.classList.toggle("compare__dropdown-top--open");
-});
-
-const clickPageDeletedClasses = (...targets) => {
-  page.addEventListener("click", (event) => {
-    const clickedInside = targets.some(({ el }) => {
-      el.contains(event.target);
-    });
-
-    if (clickedInside) return;
-
-    for (const { el, className } of targets) {
-      el.classList.remove(className);
-    }
-  });
-};
 
 function valuesTopBar() {
   let allProcent = firstBikeScore + lastBikeScore;
@@ -845,6 +840,20 @@ compareLists.addEventListener("click", (event) => {
   renderCompareTable();
 });
 
+const clickPageDeletedClasses = (...targets) => {
+  page.addEventListener("click", (event) => {
+    const clickedInside = targets.some(({ el }) => {
+      el.contains(event.target);
+    });
+
+    if (clickedInside) return;
+
+    for (const { el, className } of targets) {
+      el.classList.remove(className);
+    }
+  });
+};
+
 clickPageDeletedClasses(
   {
     el: detailsDropdownButton,
@@ -854,11 +863,7 @@ clickPageDeletedClasses(
     el: detailsDropdownTop,
     className: "header__details-top--open",
   },
-  // {
-  //   el: detailsNavLink,
-  //   className: "header__details-top-link--open",
-  // },
-  { el: detailsDropdown, className: "header__nav__details__dropdown--open" }
+  { el: detailsDropdown, className: "header__details-dropdown--open" }
 );
 
 // document.addEventListener("DOMContentLoaded", renderCompareTable);
