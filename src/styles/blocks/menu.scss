@@ -41,13 +41,13 @@
 
   &__nav {
     margin-bottom: 40px;
+  }
 
-    &-link::after {
+  &__link {
+    color: $primary-font-color;
+
+    &::after {
       margin-bottom: -8px;
-    }
-
-    &-link {
-      color: $primary-font-color;
     }
   }
 

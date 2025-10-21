@@ -95,14 +95,16 @@ const navList = document.querySelector(".nav__list");
 
 const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon-menu");
-const menuClose = document.querySelector(".icon--close");
+const menuClose = document.querySelectorAll('[data-menu-close="add-event"]');
 
 menuOpen.addEventListener("click", () => {
   menu.classList.toggle("menu--open");
 });
 
-menuClose.addEventListener("click", () => {
-  menu.classList.remove("menu--open");
+menuClose.forEach((link) => {
+  link.addEventListener("click", () => {
+    menu.classList.toggle("menu--open");
+  });
 });
 
 const detailContainer = document.querySelectorAll(".detail__container");
@@ -154,8 +156,10 @@ detailsDropdownLinks.forEach((link) => {
     detailsDropdown.classList.remove("header__details-dropdown--open");
   });
 });
+const compareOpen = document.querySelectorAll(
+  '[data-compare-open="add-event"]'
+);
 
-const compareNavLink = document.getElementById("compare-nav-link");
 const compare = document.getElementById("compare");
 const compareButton = document.getElementById("compare-button");
 const compareDropdownButtonFirst = document.getElementById(
@@ -194,9 +198,15 @@ const compareCardLast = document.querySelector(".compare__card--last");
 const compareBarFirst = document.querySelector(".compare__bar--first");
 const compareBarLast = document.querySelector(".compare__bar--last");
 
-compareNavLink.addEventListener("click", () => {
-  page.classList.add("page--overflow");
-  compare.classList.add("compare--open");
+compareOpen.forEach((link) => {
+  link.addEventListener("click", () => {
+    page.classList.add("page--overflow");
+    compare.classList.add("compare--open");
+
+    // if (menu.classList.contains("menu--open")) {
+    //   menu.classList.remove("menu--open");
+    // }
+  });
 });
 
 compareButton.addEventListener("click", () => {
