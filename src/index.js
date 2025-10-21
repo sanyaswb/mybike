@@ -203,9 +203,9 @@ compareOpen.forEach((link) => {
     page.classList.add("page--overflow");
     compare.classList.add("compare--open");
 
-    // if (menu.classList.contains("menu--open")) {
-    //   menu.classList.remove("menu--open");
-    // }
+    if (menu.classList.contains("menu--open")) {
+      menu.classList.remove("menu--open");
+    }
   });
 });
 
