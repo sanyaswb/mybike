@@ -153,6 +153,7 @@
       background-color: rgba($color: $menu-background, $alpha: 0.5);
       border-radius: 10px;
       padding: 10px;
+      cursor: pointer;
 
       &--open {
         border-radius: 10px 10px 0 0;
