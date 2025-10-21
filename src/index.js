@@ -859,6 +859,20 @@ const clickPageDeletedClasses = (...targets) => {
   });
 };
 
+const clickCompareDeletedClasses = (...targets) => {
+  compare.addEventListener("click", (event) => {
+    const clickedInside = targets.some(({ el }) => {
+      el.contains(event.target);
+    });
+
+    if (clickedInside) return;
+
+    for (const { el, className } of targets) {
+      el.classList.remove(className);
+    }
+  });
+};
+
 clickPageDeletedClasses(
   {
     el: detailsDropdownButton,
@@ -869,6 +883,27 @@ clickPageDeletedClasses(
     className: "header__details-top--open",
   },
   { el: detailsDropdown, className: "header__details-dropdown--open" }
+);
+
+clickCompareDeletedClasses(
+  {
+    el: compareDropdownButtonFirst,
+    className: "dropdown-button--open",
+  },
+  {
+    el: compareDropdownListFirst,
+    className: "compare__dropdown-list--open",
+  },
+  { el: compareDropdownTopFirst, className: "compare__dropdown-top--open" },
+  {
+    el: compareDropdownButtonLast,
+    className: "dropdown-button--open",
+  },
+  {
+    el: compareDropdownListLast,
+    className: "compare__dropdown-list--open",
+  },
+  { el: compareDropdownTopLast, className: "compare__dropdown-top--open" }
 );
 
 // const getMaxWidth = () => {
