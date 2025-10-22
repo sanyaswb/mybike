@@ -28,7 +28,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
-    max-height: calc(100vh - 40px);
+    max-height: calc(100vh - 80px);
 
     @include resetScrollBar;
 
@@ -292,12 +292,8 @@
       grid-column: 1 / -1;
       text-align: center;
       justify-items: center;
-      // width: calc(200% + $compare-column-gap);
       border-radius: 20px;
-
-      // @include onDesktop {
-      //   width: calc(200% + ($compare-column-gap * 9));
-      // }
+      padding-bottom: 20px;
     }
   }
 

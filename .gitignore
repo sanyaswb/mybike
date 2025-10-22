@@ -16,3 +16,6 @@ raw_reports
 cypress/screenshots
 cypress/videos
 reports
+
+# Ignor the files
+local-bridge.js
