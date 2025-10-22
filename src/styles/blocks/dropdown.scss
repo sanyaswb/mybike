@@ -11,7 +11,7 @@
   row-gap: 20px;
   top: 56px;
   background-color: rgba($color: $menu-background, $alpha: 0.5);
-  padding-inline: 10px;
+  // padding-inline: 10px;
   padding-block: 56px;
   border-radius: 0 0 10px 10px;
 
@@ -71,6 +71,7 @@
     font-size: 12px;
     font-weight: 800;
     background-color: $primary-font-color;
+    color: $secondary-font-color;
 
     @include onDesktop {
       background-color: transparent;

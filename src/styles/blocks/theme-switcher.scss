@@ -11,6 +11,12 @@
       border-radius: 20px;
       color: $primary-font-color;
     }
+
+    &__details {
+      &-dropdown {
+        background-color: rgba($color: $page-background-night, $alpha: 0.5);
+      }
+    }
   }
 
   .main {
@@ -72,13 +78,12 @@
   }
 
   .dropdown {
-    background-color: rgba($color: $page-background-night, $alpha: 0.5);
-
     &-button {
       &:hover {
         background-color: rgba($color: $page-background-night, $alpha: 0.5);
       }
     }
+
     &-button::after,
     &-button::before {
       background-color: $primary-font-color;
@@ -147,6 +152,10 @@
             background-color: rgba($color: $menu-background, $alpha: 0.5);
           }
         }
+      }
+
+      &-list {
+        background-color: rgba($color: $page-background-night, $alpha: 0.5);
       }
 
       &-link--last {

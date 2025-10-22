@@ -60,15 +60,21 @@
       display: flex;
       gap: 10px;
     }
+
+    &-dropdown {
+      padding-block: 0;
+    }
   }
 
-  &__dropdown-button {
-    &:hover {
-      background-color: rgba($color: $page-background-night, $alpha: 0.5);
-    }
-    &::after,
-    &::before {
-      background-color: $primary-font-color;
+  &__dropdown {
+    &-button {
+      &:hover {
+        background-color: rgba($color: $page-background-night, $alpha: 0.5);
+      }
+      &::after,
+      &::before {
+        background-color: $primary-font-color;
+      }
     }
   }
 
