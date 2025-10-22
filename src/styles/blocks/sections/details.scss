@@ -76,9 +76,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     transition: all 0.5s ease;
+    height: 100%;
 
     @include onDesktop {
-      min-height: 375px;
+      min-height: $details-min-height;
     }
 
     &--reverse {
@@ -96,10 +97,7 @@
 
       @include onTablet {
         transform: scale(1.1);
-      }
-
-      @include onDesktop {
-        transform: scale(1.1);
+        min-height: $details-min-height * 1.2;
       }
     }
 
