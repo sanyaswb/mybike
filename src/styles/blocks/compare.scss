@@ -7,7 +7,6 @@
   height: 100vh;
   width: 100%;
   background-color: rgba($color: $page-background-night, $alpha: 0.5);
-  min-width: 320px;
 
   &--open {
     display: block;
@@ -26,11 +25,10 @@
     border: 1px solid $secondary-font-color;
     border-radius: 20px;
     justify-content: center;
-    overflow-x: none;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100%;
     max-height: calc(100vh - 40px);
-    min-width: 280px;
 
     @include resetScrollBar;
 
@@ -154,6 +152,12 @@
       border-radius: 10px;
       padding: 10px;
       cursor: pointer;
+      height: 36px;
+      align-items: center;
+
+      @include onTablet {
+        height: auto;
+      }
 
       &--open {
         border-radius: 10px 10px 0 0;
@@ -229,20 +233,32 @@
     }
   }
 
+  &__cards {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "card-first card-last";
+    column-gap: $compare-column-gap;
+
+    @include onDesktop {
+      column-gap: calc($compare-column-gap * 9);
+    }
+  }
+
   &__card {
     position: relative;
     left: 0;
     width: 100%;
-    padding-block: 112px;
+    padding-top: 56px;
     background-color: rgba($color: $page-background-night, $alpha: 0.9);
     border-radius: 20px;
 
     &--first {
-      z-index: 1;
+      grid-area: card-first;
     }
 
     &--last {
-      grid-column: 2 / -1;
+      grid-area: card-last;
     }
 
     &-img {
@@ -272,24 +288,25 @@
     }
 
     &-tth {
+      grid-column: 1 / -1;
       text-align: center;
       justify-items: center;
-      width: calc(200% + $compare-column-gap);
+      // width: calc(200% + $compare-column-gap);
       border-radius: 20px;
 
-      @include onDesktop {
-        width: calc(200% + ($compare-column-gap * 9));
-      }
+      // @include onDesktop {
+      //   width: calc(200% + ($compare-column-gap * 9));
+      // }
     }
   }
 
   &__tth {
-    width: 100%;
-
     &-list {
+      width: 100%;
       display: grid;
       row-gap: 5px;
       text-align: center;
+      min-width: 320px;
 
       &:nth-child(1) {
         &::before {

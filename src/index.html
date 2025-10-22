@@ -183,13 +183,14 @@
       </div>
     </header>
 
-    <aside class="menu" id="menu">
+    <aside class="menu menu--open" id="menu">
       <div class="menu__top">
         <a href="#" class="menu__logo logo">
           <img
             src="./images/icons/logo-my-bike-black.svg"
             alt="logo my bike"
             class="logo__img"
+            data-menu-close="add-event"
           />
         </a>
         <button
@@ -228,14 +229,78 @@
                 compare-bikes
               </a>
             </li>
-            <li class="nav__item">
-              <a class="menu__link nav__link" href="#details">details</a>
-              <a
-                href="##"
-                class="dropdown-button"
-                data-dropdown-button="add-event"
-              >
-              </a>
+            <li class="menu__details nav__item">
+              <div class="menu__details-link">
+                <a class="menu__link nav__link" href="#details">details</a>
+                <a
+                  href="##"
+                  class="menu__dropdown-button dropdown-button"
+                  data-dropdown-button="add-event"
+                >
+                </a>
+              </div>
+              <ul class="menu__details-dropdown dropdown">
+                <li class="dropdown__item">
+                  <a
+                    href="#details-bike4"
+                    class="dropdown__link dropdown__details-link"
+                    id="amira-sl-4"
+                  >
+                    <div class="dropdown__img dropdown__img--4"></div>
+                    <span class="dropdown__text">Amira SL4</span>
+                  </a>
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#details-bike2"
+                    class="dropdown__link dropdown__details-link"
+                    id="ride-in-town"
+                  >
+                    <div class="dropdown__img dropdown__img--2"></div>
+                    <span class="dropdown__text">Cowboy 4 ST</span>
+                  </a>
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__link dropdown__details-link"
+                    id="cowboy-c-3"
+                  >
+                    <div class="dropdown__img dropdown__img--3"></div>
+                    <span class="dropdown__text">Agile ride 3</span>
+                  </a>
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__link dropdown__details-link"
+                    id="sporty-4"
+                  >
+                    <div class="dropdown__img dropdown__img--1"></div>
+                    <span class="dropdown__text">Sporty 4</span>
+                  </a>
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__link dropdown__details-link"
+                    id="ride-in-town"
+                  >
+                    <div class="dropdown__img dropdown__img--2"></div>
+                    <span class="dropdown__text">Ride in town</span>
+                  </a>
+                </li>
+                <li class="dropdown__item">
+                  <a
+                    href="#"
+                    class="dropdown__link dropdown__details-link"
+                    id="cowboy-c-3"
+                  >
+                    <div class="dropdown__img dropdown__img--3"></div>
+                    <span class="dropdown__text">Agile ride 3</span>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav__item">
               <a
@@ -408,8 +473,11 @@
               </ul>
             </div>
           </div>
-          <article class="compare__card compare__card--first"></article>
-          <article class="compare__card compare__card--last"></article>
+          <div class="compare__cards">
+            <article class="compare__card compare__card--first"></article>
+            <article class="compare__card compare__card--last"></article>
+            <div class="compare__card-tth"></div>
+          </div>
         </div>
       </div>
     </aside>

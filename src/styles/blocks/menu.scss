@@ -8,6 +8,7 @@
   font-weight: 600;
 
   position: fixed;
+  overflow-y: scroll;
   top: 0;
   left: 0;
   right: 0;
@@ -48,6 +49,26 @@
 
     &::after {
       margin-bottom: -8px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+
+    &-link {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+  &__dropdown-button {
+    &:hover {
+      background-color: rgba($color: $page-background-night, $alpha: 0.5);
+    }
+    &::after,
+    &::before {
+      background-color: $primary-font-color;
     }
   }
 
