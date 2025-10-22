@@ -3,13 +3,11 @@
   @include headerPadding;
 
   height: 100vh;
-
   background-color: $menu-background;
   font-weight: 600;
-
   position: fixed;
   overflow-y: scroll;
-
+  scroll-behavior: smooth;
   top: 0;
   left: 0;
   right: 0;
@@ -60,6 +58,10 @@
     &-link {
       display: flex;
       gap: 10px;
+
+      &--open {
+        margin-bottom: 24px;
+      }
     }
 
     &-dropdown {
@@ -68,6 +70,25 @@
 
       &--open {
         height: 100%;
+        .dropdown__img {
+          aspect-ratio: 3 / 1;
+          @include onTablet {
+            aspect-ratio: 1.5 / 1;
+          }
+        }
+
+        .dropdown__link {
+          padding-top: 20px;
+
+          @include onTablet {
+            padding-block: 20px;
+          }
+
+          @include onDesktop {
+            grid-template-columns: 260px 1fr;
+            padding-block: 0;
+          }
+        }
       }
     }
   }

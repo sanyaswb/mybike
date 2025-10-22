@@ -96,18 +96,22 @@ const navList = document.querySelector(".nav__list");
 const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon-menu");
 const menuClose = document.querySelectorAll('[data-menu-close="add-event"]');
+const menuDetailsLink = document.querySelector(".menu__details-link");
 const menuDetailsDropdown = document.querySelector(".menu__details-dropdown");
 const menuDropdownButton = document.getElementById("menu-dropdown-button");
 
 menuOpen.addEventListener("click", () => {
-  // page.classList.toggle("page--overflow");
+  page.classList.toggle("page--overflow");
   menu.classList.toggle("menu--open");
 });
 
 menuClose.forEach((link) => {
   link.addEventListener("click", () => {
-    // page.classList.toggle("page--overflow");
-    menu.classList.toggle("menu--open");
+    page.classList.remove("page--overflow");
+    menu.classList.remove("menu--open");
+    menuDetailsLink.classList.remove("menu__details-link--open");
+    menuDetailsDropdown.classList.remove("menu__details-dropdown--open");
+    menuDropdownButton.classList.remove("dropdown-button--open");
   });
 });
 
@@ -150,6 +154,7 @@ detailsButtonEvent.forEach((button) => {
     detailsDropdown.classList.toggle("header__details-dropdown--open");
     menuDropdownButton.classList.toggle("dropdown-button--open");
     menuDetailsDropdown.classList.toggle("menu__details-dropdown--open");
+    menuDetailsLink.classList.toggle("menu__details-link--open");
   });
 });
 
@@ -163,6 +168,7 @@ detailsDropdownLinks.forEach((link) => {
     menuDropdownButton.classList.remove("dropdown-button--open");
     menuDetailsDropdown.classList.remove("menu__details-dropdown--open");
     menu.classList.remove("menu--open");
+    menuDetailsLink.classList.remove("menu__details-link--open");
   });
 });
 
