@@ -84,6 +84,26 @@
       background-color: $primary-font-color;
     }
 
+    &__item {
+      background-color: $page-background-day;
+      @include onDesktop {
+        background-color: transparent;
+
+        &:hover {
+          .dropdown__text {
+            color: $primary-font-color;
+          }
+        }
+      }
+    }
+
+    &__text {
+      color: $primary-font-color;
+      @include onDesktop {
+        color: $secondary-font-color;
+      }
+    }
+
     &__link {
       color: $secondary-font-color;
 
@@ -104,8 +124,29 @@
     }
   }
 
-  .compare__card {
-    background-color: rgba($color: $menu-background, $alpha: 0.5);
+  .compare {
+    &__card {
+      background-color: rgba($color: $menu-background, $alpha: 0.5);
+    }
+    &__dropdown {
+      &-top {
+        background-color: rgba($color: $page-background-night, $alpha: 0.5);
+        &-bike {
+          color: $secondary-font-color;
+        }
+      }
+
+      &-link--last {
+        &:hover {
+          background: linear-gradient(
+            -90deg,
+            rgba(182, 181, 174, 1) 0%,
+            rgba(182, 181, 174, 1) 50%,
+            rgba(182, 181, 174, 0) 100%
+          );
+        }
+      }
+    }
   }
 
   .form {
