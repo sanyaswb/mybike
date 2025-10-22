@@ -128,11 +128,24 @@
     &__card {
       background-color: rgba($color: $menu-background, $alpha: 0.5);
     }
+
     &__dropdown {
       &-top {
         background-color: rgba($color: $page-background-night, $alpha: 0.5);
+
         &-bike {
           color: $secondary-font-color;
+        }
+
+        &-button {
+          &::before,
+          &::after {
+            background-color: $secondary-font-color;
+          }
+
+          &:hover {
+            background-color: rgba($color: $menu-background, $alpha: 0.5);
+          }
         }
       }
 
@@ -145,6 +158,23 @@
             rgba(182, 181, 174, 0) 100%
           );
         }
+      }
+    }
+
+    &__tth {
+      &-item {
+        background: linear-gradient(
+          90deg,
+          rgba(182, 181, 174, 0) 0%,
+          rgba(182, 181, 174, 0.6) 25%,
+          rgba(182, 181, 174, 1) 50%,
+          rgba(182, 181, 174, 0.6) 75%,
+          rgba(182, 181, 174, 0) 100%
+        );
+      }
+
+      &-text {
+        color: $primary-font-color;
       }
     }
   }
