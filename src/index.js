@@ -402,35 +402,54 @@ const weights = {
   LED: 2,
   Xenon: 3,
   "---": 0,
+  "Super MX1000": 1,
+  "Super MX2000": 2,
+  "Super MX3000": 3,
 };
 
-const maxValues = {};
+const notWeighed = {
+  id: "",
+  type: "",
+  name: "",
+};
 
-for (const productName in products) {
-  const product = products[productName];
+function getProductsMaxWeights() {
+  const maxValues = {};
 
-  for (const key in product) {
-    const value = product[key];
-    let numericValue;
+  for (const productName in products) {
+    const product = products[productName];
 
-    if (typeof value === "number") {
-      numericValue = value;
-    } else if (weights[value] !== undefined) {
-      numericValue = weights[value];
-    } else {
-      continue;
-    }
+    debugger;
 
-    if (key === "weight") {
-      if (maxValues[key] === undefined || numericValue < maxValues[key]) {
-        maxValues[key] = numericValue;
+    for (const key in product) {
+      const value = product[key];
+      let numericValue;
+
+      if (Object.hasOwn(notWeighed, key)) {
+        console.log(`${key} це не зважується`);
+        continue;
       }
-    } else {
-      if (maxValues[key] === undefined || numericValue > maxValues[key]) {
-        maxValues[key] = numericValue;
+
+      if (typeof value === "number") {
+        numericValue = value;
+      } else if (weights[value] !== undefined) {
+        numericValue = weights[value];
+      } else {
+        continue;
+      }
+
+      if (key === "weight") {
+        if (maxValues[key] === undefined || numericValue < maxValues[key]) {
+          maxValues[key] = numericValue;
+        }
+      } else {
+        if (maxValues[key] === undefined || numericValue > maxValues[key]) {
+          maxValues[key] = numericValue;
+        }
       }
     }
   }
+  return maxValues;
 }
 
 function valuesTopBar() {
