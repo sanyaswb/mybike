@@ -67,7 +67,7 @@
                 <a
                   href="#123"
                   class="header__details-top-button dropdown-button"
-                  id="details-dropdown-button"
+                  id="header-dropdown-button"
                   data-dropdown-button="add-event"
                 >
                 </a>
@@ -183,7 +183,7 @@
       </div>
     </header>
 
-    <aside class="menu menu--open" id="menu">
+    <aside class="menu" id="menu">
       <div class="menu__top">
         <a href="#" class="menu__logo logo">
           <img
@@ -231,11 +231,17 @@
             </li>
             <li class="menu__details nav__item">
               <div class="menu__details-link">
-                <a class="menu__link nav__link" href="#details">details</a>
+                <a
+                  class="menu__link nav__link"
+                  href="#details"
+                  data-dropdown-button="add-event"
+                  >details</a
+                >
                 <a
                   href="##"
                   class="menu__dropdown-button dropdown-button"
                   data-dropdown-button="add-event"
+                  id="menu-dropdown-button"
                 >
                 </a>
               </div>

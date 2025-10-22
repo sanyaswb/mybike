@@ -96,6 +96,8 @@ const navList = document.querySelector(".nav__list");
 const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon-menu");
 const menuClose = document.querySelectorAll('[data-menu-close="add-event"]');
+const menuDetailsDropdown = document.querySelector(".menu__details-dropdown");
+const menuDropdownButton = document.getElementById("menu-dropdown-button");
 
 menuOpen.addEventListener("click", () => {
   // page.classList.toggle("page--overflow");
@@ -113,9 +115,7 @@ const detailContainer = document.querySelectorAll(".detail__container");
 const detailImage = document.querySelectorAll(".detail__image");
 const detailsDropdownTop = document.getElementById("details-dropdown-top");
 const detailsNavLink = document.getElementById("details-nav-link");
-const detailsDropdownButton = document.getElementById(
-  "details-dropdown-button"
-);
+const detailsDropdownButton = document.getElementById("header-dropdown-button");
 const detailsButtonEvent = document.querySelectorAll(
   '[data-dropdown-button="add-event"]'
 );
@@ -148,16 +148,24 @@ detailsButtonEvent.forEach((button) => {
     detailsDropdownButton.classList.toggle("dropdown-button--open");
     detailsDropdownTop.classList.toggle("header__details-top--open");
     detailsDropdown.classList.toggle("header__details-dropdown--open");
+    menuDropdownButton.classList.toggle("dropdown-button--open");
+    menuDetailsDropdown.classList.toggle("menu__details-dropdown--open");
   });
 });
 
 detailsDropdownLinks.forEach((link) => {
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (event) => {
+    event.stopPropagation();
+
     detailsDropdownButton.classList.remove("dropdown-button--open");
     detailsDropdownTop.classList.remove("header__details-top--open");
     detailsDropdown.classList.remove("header__details-dropdown--open");
+    menuDropdownButton.classList.remove("dropdown-button--open");
+    menuDetailsDropdown.classList.remove("menu__details-dropdown--open");
+    menu.classList.remove("menu--open");
   });
 });
+
 const compareOpen = document.querySelectorAll(
   '[data-compare-open="add-event"]'
 );
