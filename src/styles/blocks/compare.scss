@@ -299,6 +299,37 @@
   }
 
   &__tth {
+    &-weights {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "left right";
+
+      &--left {
+        &::before {
+          content: "";
+          position: absolute;
+          right: 0;
+          height: calc(100% - 1px);
+          background-color: rgba($color: red, $alpha: 0.5);
+          grid-area: left;
+          width: var(--left-width, 0%);
+        }
+      }
+
+      &--right {
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          height: calc(100% - 1px);
+          background-color: rgba($color: green, $alpha: 0.5);
+          grid-area: right;
+          width: var(--right-width, 0%);
+        }
+      }
+    }
+
     &-list {
       width: 100%;
       display: grid;
@@ -312,7 +343,7 @@
           grid-column: 1 / -1;
           display: block;
           position: relative;
-          top: 4px;
+          top: 5px;
           height: 1px;
           width: 100%;
           background: #fff;
@@ -329,10 +360,12 @@
     }
 
     &-item {
+      grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1fr 0.5fr 1fr;
       grid-template-areas: "first value last";
       font-size: 12px;
+      padding-block: 5px;
 
       @include onTablet {
         font-size: 18px;
@@ -342,7 +375,6 @@
         font-size: 24px;
       }
 
-      padding-block: 5px;
       background: #000;
       background: linear-gradient(
         90deg,
@@ -358,7 +390,7 @@
         display: block;
         position: relative;
         grid-column: 1 / -1;
-        bottom: -4px;
+        bottom: -5px;
         height: 1px;
         width: 100%;
         background: #fff;
@@ -371,6 +403,10 @@
           rgba(255, 255, 255, 0) 100%
         );
       }
+    }
+
+    &-text {
+      z-index: 1;
     }
 
     &--first {
