@@ -582,267 +582,72 @@ function whoWin() {
   valuesTopBar();
 }
 
-function renderCompareTable() {
-  if (selectedFirstBike.name) {
-    compareChoseBikeFirst.textContent = `${selectedFirstBike.name} ${selectedFirstBike.version}`;
-  } else {
-    compareChoseBikeFirst.textContent = "Choose bike";
-  }
+// Характеристики для порівняння
+const propertiesToCompare = [
+  { key: "cost", label: "Cost" },
+  { key: "material", label: "Frame Material" },
+  { key: "weight", label: "Weight (kg)" },
+  { key: "diameterWheels", label: "Wheel Diameter" },
+  { key: "widthFrontWheel", label: "Front Wheel Width" },
+  { key: "widthBackWheel", label: "Back Wheel Width" },
+  { key: "speedometer", label: "Speedometer" },
+  { key: "numberSpeedGears", label: "Speed Gears" },
+  { key: "electricEngine", label: "Engine Type" },
+  { key: "enginePower", label: "Engine Power" },
+  { key: "gyroscope", label: "Gyroscope" },
+  { key: "batteryCapacity", label: "Battery (Ah)" },
+  { key: "travelRange", label: "Travel Range (km)" },
+  { key: "maxSpeed", label: "Max Speed (km/h)" },
+  { key: "maxLoad", label: "Max Load (kg)" },
+  { key: "headLight", label: "Head Light Type" },
+  { key: "releaseYear", label: "Release Year" },
+];
 
-  if (selectedLastBike.name) {
-    compareChoseBikeLast.textContent = `${selectedLastBike.name} ${selectedLastBike.version}`;
-  } else {
-    compareChoseBikeLast.textContent = "Choose bike";
-  }
+function renderCompareTable() {
+  compareChoseBikeFirst.textContent = selectedFirstBike.name
+    ? `${selectedFirstBike.name} ${selectedFirstBike.version}`
+    : "Choose bike";
+  compareChoseBikeLast.textContent = selectedLastBike.name
+    ? `${selectedLastBike.name} ${selectedLastBike.version}`
+    : "Choose bike";
 
   function getProp(bike, prop) {
     return bike[prop] ?? "---";
   }
 
-  compareCardTth.innerHTML = `
-    <ul class="compare__tth-list">
-      <li class="compare__tth-item">
+  let tthHTML = '<ul class="compare__tth-list">';
+  for (const prop of propertiesToCompare) {
+    tthHTML += `
+      <li class="compare__tth-item compare__tth-weights compare__tth-weights--left compare__tth-weights--right">
         <p class="compare__tth-text compare__tth--first">${getProp(
           selectedFirstBike,
-          "cost"
+          prop.key
         )}</p>
-        <p class="compare__tth-text compare__tth--value">Cost</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "cost"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "type"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Type</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "type"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "version"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Version</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "version"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "material"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Material</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "material"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "lengt"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Lengt</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "lengt"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "height"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Height</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "height"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "width"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Width</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "width"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "weight"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Weight</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "weight"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "diameterWheels"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Diameter wheels</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "diameterWheels"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "widthFrontWheel"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Width front wheel</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "widthFrontWheel"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "widthBackWheel"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Width back wheel</p>
+        <p class="compare__tth-text compare__tth--value">${prop.label}</p>
         <p class="compare__tth-text compare__tth--last">${getProp(
           selectedLastBike,
-          "widthBackWheel"
+          prop.key
         )}</p>
       </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "speedometer"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Speedometer</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "speedometer"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "numberSpeedGears"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Number speed gears</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "numberSpeedGears"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "electricEngine"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Engine</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "electricEngine"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "enginePower"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Engine power</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "enginePower"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "gyroscope"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Gyroscope</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "gyroscope"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "batteryCapacity"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Battery capacity</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "batteryCapacity"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "travelRange"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Travel range</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "travelRange"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "maxSpeed"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Max speed</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "maxSpeed"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "maxLoad"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Max load</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "maxLoad"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "headLight"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Head light</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "headLight"
-        )}</p>
-      </li>
-      <li class="compare__tth-item">
-        <p class="compare__tth-text compare__tth--first">${getProp(
-          selectedFirstBike,
-          "releaseYear"
-        )}</p>
-        <p class="compare__tth-text compare__tth--value">Release year</p><p class="compare__tth-text compare__tth--last">${getProp(
-          selectedLastBike,
-          "releaseYear"
-        )}</p>
-      </li>
-    </ul>
-  `;
+    `;
+  }
+  tthHTML += "</ul>";
+  compareCardTth.innerHTML = tthHTML;
 
   compareCardFirst.innerHTML = `
-    <div
-      class="compare__card-img compare__card-img--first bikes__card-img--${getProp(
-        selectedFirstBike,
-        "id"
-      )}"
-    ></div>
+    <div class="compare__card-img compare__card-img--first bikes__card-img--${getProp(
+      selectedFirstBike,
+      "id"
+    )}"></div>
     <h3 class="compare__card-title">${getProp(selectedFirstBike, "name")}</h3>
   `;
 
   compareCardLast.innerHTML = `
-      <div
-        class="compare__card-img compare__card-img--last bikes__card-img--${getProp(
-          selectedLastBike,
-          "id"
-        )}"
-      ></div>
-      <h3 class="compare__card-title">${getProp(selectedLastBike, "name")}</h3>
+    <div class="compare__card-img compare__card-img--last bikes__card-img--${getProp(
+      selectedLastBike,
+      "id"
+    )}"></div>
+    <h3 class="compare__card-title">${getProp(selectedLastBike, "name")}</h3>
   `;
 }
 
@@ -952,12 +757,3 @@ clickCompareDeletedClasses(
   },
   { el: compareDropdownTopLast, className: "compare__dropdown-top--open" }
 );
-
-// const getMaxWidth = () => {
-//   const navListWidth = navList.clientWidth;
-//   return `${navListWidth}px`;
-// };
-
-// dropdown.style.maxWidth = getMaxWidth();
-
-// document.addEventListener("DOMContentLoaded", renderCompareTable);
