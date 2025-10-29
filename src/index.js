@@ -413,6 +413,26 @@ const notWeighed = {
   name: "",
 };
 
+const propertiesToCompare = [
+  { key: "cost", label: "Cost" },
+  { key: "material", label: "Frame Material" },
+  { key: "weight", label: "Weight (kg)" },
+  { key: "diameterWheels", label: "Wheel Diameter" },
+  { key: "widthFrontWheel", label: "Front Wheel Width" },
+  { key: "widthBackWheel", label: "Back Wheel Width" },
+  { key: "speedometer", label: "Speedometer" },
+  { key: "numberSpeedGears", label: "Speed Gears" },
+  { key: "electricEngine", label: "Engine Type" },
+  { key: "enginePower", label: "Engine Power" },
+  { key: "gyroscope", label: "Gyroscope" },
+  { key: "batteryCapacity", label: "Battery (Ah)" },
+  { key: "travelRange", label: "Travel Range (km)" },
+  { key: "maxSpeed", label: "Max Speed (km/h)" },
+  { key: "maxLoad", label: "Max Load (kg)" },
+  { key: "headLight", label: "Head Light Type" },
+  { key: "releaseYear", label: "Release Year" },
+];
+
 function getProductsMaxWeights() {
   const maxValues = {};
 
@@ -498,110 +518,75 @@ function valuesTopBar() {
 }
 
 function whoWin() {
-  if (Object.entries(weightsFirstBike).length === 0) {
-    console.log("NO chosed first bike!");
-    return;
-  } else if (Object.entries(weightsLastBike).length === 0) {
-    console.log("NO chosed last bike!");
-    return;
-  }
+  if (!selectedFirstBike.name || !selectedLastBike.name) return;
 
   if (selectedFirstBike.name === selectedLastBike.name) {
-    compareCardFirst.style.backgroundImage = `linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0.5) 100%
-    )`;
-    compareCardLast.style.backgroundImage = `linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0.5) 100%
-    )`;
-
-    return (firstBikeScore = 1), (lastBikeScore = 1), valuesTopBar();
+    const tieGradient = `linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.5) 100%)`;
+    compareCardFirst.style.backgroundImage = tieGradient;
+    compareCardLast.style.backgroundImage = tieGradient;
+    firstBikeScore = lastBikeScore = 1;
+    valuesTopBar();
+    return;
   }
 
-  for (const key in weightsFirstBike) {
-    if (
-      typeof weightsFirstBike[key] === "string" ||
-      key === "cost" ||
-      key === "color" ||
-      key === "height" ||
-      key === "lengt" ||
-      key === "width"
-    ) {
-      continue;
-    }
+  firstBikeScore = lastBikeScore = 0;
+
+  for (const prop of propertiesToCompare) {
+    const key = prop.key;
+    const valFirst = weightsFirstBike[key];
+    const valLast = weightsLastBike[key];
+
+    if (typeof valFirst !== "number" || typeof valLast !== "number") continue;
 
     if (key === "weight") {
-      if (weightsFirstBike[key] < weightsLastBike[key]) {
-        firstBikeScore += 1;
-      } else if (weightsFirstBike[key] > weightsLastBike[key]) {
-        lastBikeScore += 1;
-      }
-      continue;
-    }
-
-    if (weightsFirstBike[key] > weightsLastBike[key]) {
-      firstBikeScore += 1;
-    } else if (weightsFirstBike[key] < weightsLastBike[key]) {
-      lastBikeScore += 1;
+      if (valFirst < valLast) firstBikeScore++;
+      else if (valFirst > valLast) lastBikeScore++;
+    } else {
+      if (valFirst > valLast) firstBikeScore++;
+      else if (valFirst < valLast) lastBikeScore++;
     }
   }
 
+  const gradients = {
+    firstWin: [
+      "rgba(42, 123, 155, 0) 0%",
+      "rgba(87, 199, 133, 0.25) 50%",
+      "rgba(23, 120, 76, 1) 100%",
+    ],
+    lastWin: [
+      "rgba(155, 42, 42, 0) 0%",
+      "rgba(199, 87, 87, 0.25) 50%",
+      "rgba(120, 23, 23, 1) 100%",
+    ],
+    tie: [
+      "rgba(255,255,255,0) 0%",
+      "rgba(255,255,255,0.2) 50%",
+      "rgba(255,255,255,0.5) 100%",
+    ],
+  };
+
   if (firstBikeScore > lastBikeScore) {
-    compareCardFirst.style.backgroundImage = `linear-gradient(
-      0deg,
-      rgba(42, 123, 155, 0) 0%,
-      rgba(87, 199, 133, 0.25) 50%,
-      rgba(23, 120, 76, 1) 100%
-    )`;
-    compareCardLast.style.backgroundImage = `linear-gradient(
-      0deg,
-      rgba(155, 42, 42, 0) 0%,
-      rgba(199, 87, 87, 0.25) 50%,
-      rgba(120, 23, 23, 1) 100%
-    )`;
+    compareCardFirst.style.backgroundImage = `linear-gradient(0deg, ${gradients.firstWin.join(
+      ","
+    )})`;
+    compareCardLast.style.backgroundImage = `linear-gradient(0deg, ${gradients.lastWin.join(
+      ","
+    )})`;
   } else if (firstBikeScore < lastBikeScore) {
-    compareCardFirst.style.backgroundImage = `linear-gradient(
-      0deg,
-      rgba(155, 42, 42, 0) 0%,
-      rgba(199, 87, 87, 0.25) 50%,
-      rgba(120, 23, 23, 1) 100%
-    )`;
-    compareCardLast.style.backgroundImage = `linear-gradient(
-      0deg,
-      rgba(42, 123, 155, 0) 0%,
-      rgba(87, 199, 133, 0.25) 50%,
-      rgba(23, 120, 76, 1) 100%
-    )`;
+    compareCardFirst.style.backgroundImage = `linear-gradient(0deg, ${gradients.lastWin.join(
+      ","
+    )})`;
+    compareCardLast.style.backgroundImage = `linear-gradient(0deg, ${gradients.firstWin.join(
+      ","
+    )})`;
+  } else {
+    const tieGradient = `linear-gradient(0deg, ${gradients.tie.join(",")})`;
+    compareCardFirst.style.backgroundImage = tieGradient;
+    compareCardLast.style.backgroundImage = tieGradient;
   }
 
   valuesTopBar();
 }
-
-// Характеристики для порівняння
-const propertiesToCompare = [
-  { key: "cost", label: "Cost" },
-  { key: "material", label: "Frame Material" },
-  { key: "weight", label: "Weight (kg)" },
-  { key: "diameterWheels", label: "Wheel Diameter" },
-  { key: "widthFrontWheel", label: "Front Wheel Width" },
-  { key: "widthBackWheel", label: "Back Wheel Width" },
-  { key: "speedometer", label: "Speedometer" },
-  { key: "numberSpeedGears", label: "Speed Gears" },
-  { key: "electricEngine", label: "Engine Type" },
-  { key: "enginePower", label: "Engine Power" },
-  { key: "gyroscope", label: "Gyroscope" },
-  { key: "batteryCapacity", label: "Battery (Ah)" },
-  { key: "travelRange", label: "Travel Range (km)" },
-  { key: "maxSpeed", label: "Max Speed (km/h)" },
-  { key: "maxLoad", label: "Max Load (kg)" },
-  { key: "headLight", label: "Head Light Type" },
-  { key: "releaseYear", label: "Release Year" },
-];
 
 function renderCompareTable() {
   compareChoseBikeFirst.textContent = selectedFirstBike.name
@@ -757,3 +742,88 @@ clickCompareDeletedClasses(
   },
   { el: compareDropdownTopLast, className: "compare__dropdown-top--open" }
 );
+
+// function whoWin() {
+//   if (Object.entries(weightsFirstBike).length === 0) {
+//     console.log("NO chosed first bike!");
+//     return;
+//   } else if (Object.entries(weightsLastBike).length === 0) {
+//     console.log("NO chosed last bike!");
+//     return;
+//   }
+
+//   if (selectedFirstBike.name === selectedLastBike.name) {
+//     compareCardFirst.style.backgroundImage = `linear-gradient(
+//       0deg,
+//       rgba(255, 255, 255, 0) 0%,
+//       rgba(255, 255, 255, 0.2) 50%,
+//       rgba(255, 255, 255, 0.5) 100%
+//     )`;
+//     compareCardLast.style.backgroundImage = `linear-gradient(
+//       0deg,
+//       rgba(255, 255, 255, 0) 0%,
+//       rgba(255, 255, 255, 0.2) 50%,
+//       rgba(255, 255, 255, 0.5) 100%
+//     )`;
+
+//     return (firstBikeScore = 1), (lastBikeScore = 1), valuesTopBar();
+//   }
+
+//   for (const key in weightsFirstBike) {
+//     if (
+//       typeof weightsFirstBike[key] === "string" ||
+//       key === "cost" ||
+//       key === "color" ||
+//       key === "height" ||
+//       key === "lengt" ||
+//       key === "width"
+//     ) {
+//       continue;
+//     }
+
+//     if (key === "weight") {
+//       if (weightsFirstBike[key] < weightsLastBike[key]) {
+//         firstBikeScore += 1;
+//       } else if (weightsFirstBike[key] > weightsLastBike[key]) {
+//         lastBikeScore += 1;
+//       }
+//       continue;
+//     }
+
+//     if (weightsFirstBike[key] > weightsLastBike[key]) {
+//       firstBikeScore += 1;
+//     } else if (weightsFirstBike[key] < weightsLastBike[key]) {
+//       lastBikeScore += 1;
+//     }
+//   }
+
+//   if (firstBikeScore > lastBikeScore) {
+//     compareCardFirst.style.backgroundImage = `linear-gradient(
+//       0deg,
+//       rgba(42, 123, 155, 0) 0%,
+//       rgba(87, 199, 133, 0.25) 50%,
+//       rgba(23, 120, 76, 1) 100%
+//     )`;
+//     compareCardLast.style.backgroundImage = `linear-gradient(
+//       0deg,
+//       rgba(155, 42, 42, 0) 0%,
+//       rgba(199, 87, 87, 0.25) 50%,
+//       rgba(120, 23, 23, 1) 100%
+//     )`;
+//   } else if (firstBikeScore < lastBikeScore) {
+//     compareCardFirst.style.backgroundImage = `linear-gradient(
+//       0deg,
+//       rgba(155, 42, 42, 0) 0%,
+//       rgba(199, 87, 87, 0.25) 50%,
+//       rgba(120, 23, 23, 1) 100%
+//     )`;
+//     compareCardLast.style.backgroundImage = `linear-gradient(
+//       0deg,
+//       rgba(42, 123, 155, 0) 0%,
+//       rgba(87, 199, 133, 0.25) 50%,
+//       rgba(23, 120, 76, 1) 100%
+//     )`;
+//   }
+
+//   valuesTopBar();
+// }
