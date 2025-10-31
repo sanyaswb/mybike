@@ -13,6 +13,7 @@ const page = document.querySelector(".page");
 const logoImg = document.getElementById("logo-img");
 const iconPhone = document.querySelector(".icon-phone");
 const iconMenu = document.querySelector(".icon-menu");
+const iconShop = document.getElementById("icon-shop");
 const whiteLogoPath = logoImg.getAttribute("data-logo-white");
 const blackLogoPath = logoImg.getAttribute("data-logo-black");
 
@@ -30,14 +31,15 @@ const switcherIcon = document.querySelector(".switcher__icon");
 const switcherImg = document.querySelector(".switcher__img");
 
 const detailsBtn = document.querySelector(".button--double-left");
-const buyBtn = document.querySelector(".button--double-right");
+const buyBtnRight = document.querySelectorAll(".button--double-right");
+const buyBtn = document.querySelectorAll('[data-buy="buy-button"]');
 
 const sliderTrack = document.getElementById("slider-track");
 let currentSlide = sliderTrack.querySelector(".header__image--current");
 let nextSlide = sliderTrack.querySelector(".header__image--next");
 
 const menu = document.querySelector(".menu");
-const menuOpen = document.querySelector(".icon-menu");
+const menuIcon = document.querySelector(".icon-menu");
 const menuClose = document.querySelectorAll('[data-menu-close="add-event"]');
 const menuDetailsLink = document.querySelector(".menu__details-link");
 const menuDetailsDropdown = document.querySelector(".menu__details-dropdown");
@@ -121,6 +123,8 @@ let weightsLastBike = {};
 
 let currentSlideIndex = 0;
 let nextSlideIndex = 1;
+
+let currentShopCount = 0;
 
 // 04. Data Models
 
@@ -665,7 +669,7 @@ function renderCompareTable() {
 
 function updateHeaderLinks(slide) {
   detailsBtn.href = slide.dataset.details;
-  buyBtn.href = slide.dataset.buy;
+  buyBtnRight.href = slide.dataset.buy;
 }
 
 function doSlide() {
@@ -696,7 +700,29 @@ function doSlide() {
   }, animationDuration);
 }
 
+function updateShopCounter(elementId, newCount) {
+  const contentValue = `"${newCount}"`;
+  iconShop.style.setProperty("--shop-count", contentValue);
+  menuIcon.style.setProperty("--shop-count", contentValue);
+}
+
 // 10. Event Handlers / Bindings
+
+buyBtn.forEach((button) => {
+  button.addEventListener("click", () => {
+    currentShopCount += 1;
+
+    if (currentShopCount != 0) {
+      iconShop.classList.add("counter--open");
+      menuIcon.classList.add("counter--open");
+    } else {
+      iconShop.classList.remove("counter--open");
+      menuIcon.classList.remove("counter--open");
+    }
+
+    updateShopCounter(iconShop, currentShopCount);
+  });
+});
 
 switcher.addEventListener("click", () => {
   switcher.classList.toggle("switcher--day");
@@ -713,6 +739,7 @@ switcher.addEventListener("click", () => {
 
   iconPhone.classList.toggle("icon-phone--black");
   iconMenu.classList.toggle("icon-menu--black");
+  iconShop.classList.toggle("icon-shop--black");
   page.classList.toggle("theme-switcher");
 });
 
@@ -721,7 +748,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(doSlide, changeInterval);
 });
 
-menuOpen.addEventListener("click", () => {
+menuIcon.addEventListener("click", () => {
   page.classList.toggle("page--overflow");
   menu.classList.toggle("menu--open");
 });

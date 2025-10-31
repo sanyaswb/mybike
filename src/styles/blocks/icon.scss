@@ -17,12 +17,29 @@
   &-menu {
     background-image: url(../images/icons/icon-menu.svg);
 
-    &--black {
-      background-image: url(../images/icons/icon-menu-black.svg);
-    }
-
     &:hover {
       background-image: url(../images/icons/icon-menu-hover.svg);
+    }
+
+    &--black {
+      background-image: url(../images/icons/icon-menu-black.svg);
+
+      &:hover {
+        background-image: url(../images/icons/icon-menu-hover-black.svg);
+      }
+    }
+  }
+
+  &-shop {
+    display: none;
+    background-image: url(../images/icons/icon-shop-white.svg);
+
+    &--black {
+      background-image: url(../images/icons/icon-shop-black.svg);
+    }
+
+    @include onDesktop {
+      display: block;
     }
   }
 
@@ -46,6 +63,30 @@
 
     @include onTablet {
       height: 56px;
+    }
+  }
+}
+
+.counter {
+  --shop-count: "";
+
+  &::after {
+    content: var(--shop-count);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 12px;
+    width: 12px;
+    background-color: red;
+    border-radius: 50%;
+    left: calc(100% - 10px);
+    font-size: 8px;
+  }
+
+  &--open {
+    &::after {
+      display: flex;
     }
   }
 }

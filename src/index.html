@@ -11,6 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="shortcut icon"
+      href="images/icons/favicon.svg"
+      type="image/x-icon"
+    />
     <script type="module" src="./index.js" defer></script>
   </head>
   <body class="body">
@@ -160,8 +165,9 @@
               />
             </div>
           </a>
-          <a href="#" class="icon icon-phone"></a>
-          <a href="#menu" class="icon icon-menu"></a>
+          <a href="#phone" class="icon icon-phone"></a>
+          <a href="#menu" class="icon icon-menu counter"></a>
+          <a href="#shop" class="icon icon-shop counter" id="icon-shop"></a>
         </div>
       </div>
       <div class="header__bottom">
@@ -174,8 +180,9 @@
               >Details</a
             >
             <a
-              href="#buy"
+              href="##"
               class="header__button--size button button--double-right button--double-link"
+              data-buy="buy-button"
               >Buy</a
             >
           </div>
@@ -519,8 +526,9 @@
                       >Details</a
                     >
                     <a
-                      href="#buy"
+                      href="##"
                       class="button button--double-right button--double-link"
+                      data-buy="buy-button"
                       >Buy</a
                     >
                   </div>
@@ -542,8 +550,9 @@
                       >Details</a
                     >
                     <a
-                      href="#buy"
+                      href="##"
                       class="button button--double-right button--double-link"
+                      data-buy="buy-button"
                       >Buy</a
                     >
                   </div>
@@ -565,8 +574,9 @@
                       >Details</a
                     >
                     <a
-                      href="#buy"
+                      href="##"
                       class="button button--double-right button--double-link"
+                      data-buy="buy-button"
                       >Buy</a
                     >
                   </div>
@@ -590,8 +600,9 @@
                       >Details</a
                     >
                     <a
-                      href="#buy"
+                      href="##"
                       class="button button--double-right button--double-link"
+                      data-buy="buy-button"
                       >Buy</a
                     >
                   </div>
@@ -689,8 +700,10 @@
                 </article>
               </div>
               <div class="details__button">
-                <a href="#buy" class="details__button-link">
-                  <button class="button" type="button">Buy</button>
+                <a href="##" class="details__button-link">
+                  <button class="button" type="button" data-buy="buy-button">
+                    Buy
+                  </button>
                 </a>
               </div>
             </div>
@@ -764,8 +777,10 @@
                 </article>
               </div>
               <div class="details__button">
-                <a href="#buy" class="details__button-link">
-                  <button class="button" type="button">Buy</button>
+                <a href="##" class="details__button-link">
+                  <button class="button" type="button" data-buy="buy-button">
+                    Buy
+                  </button>
                 </a>
               </div>
             </div>
