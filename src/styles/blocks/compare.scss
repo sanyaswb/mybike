@@ -311,21 +311,10 @@
         right: 0;
         top: 0;
         height: calc(100% - 1px);
-        background-color: var(
-          --left-color,
-          rgba(155, 42, 42, 0)
-        ); /* fallback transparent */
+        background-color: var(--left-color, rgba(155, 42, 42, 0));
         width: var(--left-width, 0%);
         grid-area: left;
         transition: width 0.25s ease, background-color 0.25s ease;
-
-        // content: "";
-        // position: absolute;
-        // right: 0;
-        // height: calc(100% - 1px);
-        // background-color: rgba($color: red, $alpha: 0.5);
-        // grid-area: left;
-        // width: var(--left-width, 0%)
       }
 
       &::after {
@@ -334,21 +323,10 @@
         left: 0;
         top: 0;
         height: calc(100% - 1px);
-        background-color: var(
-          --right-color,
-          rgba(23, 120, 76, 0)
-        ); /* fallback transparent */
+        background-color: var(--right-color, rgba(23, 120, 76, 0));
         width: var(--right-width, 0%);
         grid-area: right;
         transition: width 0.25s ease, background-color 0.25s ease;
-
-        // content: "";
-        // position: absolute;
-        // left: 0;
-        // height: calc(100% - 1px);
-        // background-color: rgba($color: green, $alpha: 0.5);
-        // grid-area: right;
-        // width: var(--right-width, 0%);
       }
     }
 

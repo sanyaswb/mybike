@@ -287,10 +287,10 @@ const propertiesToCompare = [
 ];
 
 const slidesData = [
-  { class: "header__image--1", details: "#details-bike1", buy: "#buy-bike1" },
-  { class: "header__image--2", details: "#details-bike2", buy: "#buy-bike2" },
-  { class: "header__image--3", details: "#details-bike3", buy: "#buy-bike3" },
-  { class: "header__image--4", details: "#details-bike4", buy: "#buy-bike4" },
+  { class: "header__image--1", details: "#details-bike4", buy: "#buy-bike1" },
+  { class: "header__image--2", details: "#details-bike3", buy: "#buy-bike2" },
+  { class: "header__image--3", details: "#details-bike1", buy: "#buy-bike3" },
+  { class: "header__image--4", details: "#details-bike2", buy: "#buy-bike4" },
 ];
 
 // 05. Utilities (pure helpers)
