@@ -1,120 +1,39 @@
+// 01. CONFIG / CONSTANTS
+const COLOR_GREEN = "rgba(23,120,76,0.5)";
+const COLOR_RED = "rgba(155,42,42,0.5)";
+const COLOR_TRANSPARENT = "rgba(0,0,0,0)";
+
+const changeInterval = 5000;
+const animationDuration = 1500;
+
+// 02. DOM ELEMENTS
+
 const page = document.querySelector(".page");
 const header = document.getElementById("header");
 const headerDetails = document.getElementById("header-details");
 const mainSticky = document.querySelector(".main__sticky");
-
 const logoImg = document.getElementById("logo-img");
 const iconPhone = document.querySelector(".icon-phone");
 const iconMenu = document.querySelector(".icon-menu");
 const whiteLogoPath = logoImg.getAttribute("data-logo-white");
 const blackLogoPath = logoImg.getAttribute("data-logo-black");
-
 const dropdown = document.querySelector(".dropdown");
 const dropdownItems = document.querySelectorAll(".dropdown__item");
-
 const switcher = document.querySelector(".switcher");
 const switcherIcon = document.querySelector(".switcher__icon");
 const switcherImg = document.querySelector(".switcher__img");
-
-switcher.addEventListener("click", () => {
-  switcher.classList.toggle("switcher--day");
-  switcherIcon.classList.toggle("switcher__icon--day");
-  switcherImg.classList.toggle("switcher__img--day");
-
-  const currentLogoPath = logoImg.getAttribute("src");
-  console.log(currentLogoPath);
-
-  if (currentLogoPath === whiteLogoPath) {
-    logoImg.setAttribute("src", blackLogoPath);
-  } else {
-    logoImg.setAttribute("src", whiteLogoPath);
-  }
-
-  iconPhone.classList.toggle("icon-phone--black");
-  iconMenu.classList.toggle("icon-menu--black");
-  page.classList.toggle("theme-switcher");
-});
-
 const detailsBtn = document.querySelector(".button--double-left");
 const buyBtn = document.querySelector(".button--double-right");
-
 const sliderTrack = document.getElementById("slider-track");
-let currentIndex = 0;
-let nextIndex = 1;
-const changeInterval = 5000;
-const animationDuration = 1500;
-
-const slidesData = [
-  { class: "header__image--1", details: "#details-bike1", buy: "#buy-bike1" },
-  { class: "header__image--2", details: "#details-bike2", buy: "#buy-bike2" },
-  { class: "header__image--3", details: "#details-bike3", buy: "#buy-bike3" },
-  { class: "header__image--4", details: "#details-bike4", buy: "#buy-bike4" },
-];
 let currentSlide = sliderTrack.querySelector(".header__image--current");
 let nextSlide = sliderTrack.querySelector(".header__image--next");
-
-function updateHeaderLinks(slide) {
-  detailsBtn.href = slide.dataset.details;
-  buyBtn.href = slide.dataset.buy;
-}
-
-function doSlide() {
-  sliderTrack.classList.add("is-animating");
-
-  setTimeout(() => {
-    sliderTrack.classList.remove("is-animating");
-    currentSlide.className = `header__image ${slidesData[currentIndex].class}`;
-    nextSlide.className = `header__image ${slidesData[nextIndex].class} header__image--current`;
-
-    updateHeaderLinks(nextSlide);
-
-    currentIndex = nextIndex;
-    nextIndex = (nextIndex + 1) % slidesData.length;
-
-    const newNextSlide = document.createElement("div");
-
-    newNextSlide.className = `header__image ${slidesData[nextIndex].class} header__image--next`;
-    newNextSlide.dataset.details = slidesData[nextIndex].details;
-    newNextSlide.dataset.buy = slidesData[nextIndex].buy;
-
-    sliderTrack.innerHTML = "";
-    sliderTrack.appendChild(nextSlide);
-    sliderTrack.appendChild(newNextSlide);
-
-    currentSlide = nextSlide;
-    nextSlide = newNextSlide;
-  }, animationDuration);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  updateHeaderLinks(currentSlide);
-  setInterval(doSlide, changeInterval);
-});
-
 const navList = document.querySelector(".nav__list");
-
 const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon-menu");
 const menuClose = document.querySelectorAll('[data-menu-close="add-event"]');
 const menuDetailsLink = document.querySelector(".menu__details-link");
 const menuDetailsDropdown = document.querySelector(".menu__details-dropdown");
 const menuDropdownButton = document.getElementById("menu-dropdown-button");
-
-menuOpen.addEventListener("click", () => {
-  page.classList.toggle("page--overflow");
-  menu.classList.toggle("menu--open");
-});
-
-menuClose.forEach((link) => {
-  link.addEventListener("click", () => {
-    page.classList.remove("page--overflow");
-    menu.classList.remove("menu--open");
-    menuDetailsLink.classList.remove("menu__details-link--open");
-    menuDetailsDropdown.classList.remove("menu__details-dropdown--open");
-    menuDropdownButton.classList.remove("dropdown-button--open");
-  });
-});
-
 const detailContainer = document.querySelectorAll(".detail__container");
 const detailImage = document.querySelectorAll(".detail__image");
 const detailsDropdownTop = document.getElementById("details-dropdown-top");
@@ -127,56 +46,10 @@ const detailsDropdown = document.getElementById("details-dropdown");
 const detailsDropdownLinks = document.querySelectorAll(
   ".dropdown__details-link"
 );
-
-detailContainer.forEach((section) => {
-  const links = section.querySelectorAll(".detail__link");
-
-  links.forEach((link) => {
-    link.addEventListener("mouseenter", () => {
-      if (link.classList.contains("detail__link--wide")) return;
-      links.forEach((l) => l.classList.toggle("detail__link--wide"));
-    });
-  });
-});
-
-detailImage.forEach((image) => {
-  image.addEventListener("click", () => {
-    image.classList.toggle("detail__image--scale");
-  });
-});
-
-detailsButtonEvent.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-
-    detailsDropdownButton.classList.toggle("dropdown-button--open");
-    detailsDropdownTop.classList.toggle("header__details-top--open");
-    detailsDropdown.classList.toggle("header__details-dropdown--open");
-    menuDropdownButton.classList.toggle("dropdown-button--open");
-    menuDetailsDropdown.classList.toggle("menu__details-dropdown--open");
-    menuDetailsLink.classList.toggle("menu__details-link--open");
-  });
-});
-
-detailsDropdownLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.stopPropagation();
-
-    detailsDropdownButton.classList.remove("dropdown-button--open");
-    detailsDropdownTop.classList.remove("header__details-top--open");
-    detailsDropdown.classList.remove("header__details-dropdown--open");
-    menuDropdownButton.classList.remove("dropdown-button--open");
-    menuDetailsDropdown.classList.remove("menu__details-dropdown--open");
-    menu.classList.remove("menu--open");
-    menuDetailsLink.classList.remove("menu__details-link--open");
-  });
-});
-
+const compare = document.getElementById("compare");
 const compareOpen = document.querySelectorAll(
   '[data-compare-open="add-event"]'
 );
-
-const compare = document.getElementById("compare");
 const compareButton = document.getElementById("compare-button");
 const compareDropdownButtonFirst = document.getElementById(
   "compare-dropdown-button-first"
@@ -214,49 +87,14 @@ const compareCardFirst = document.querySelector(".compare__card--first");
 const compareCardLast = document.querySelector(".compare__card--last");
 const compareBarFirst = document.querySelector(".compare__bar--first");
 const compareBarLast = document.querySelector(".compare__bar--last");
-
-compareOpen.forEach((link) => {
-  link.addEventListener("click", () => {
-    page.classList.add("page--overflow");
-    compare.classList.add("compare--open");
-
-    if (menu.classList.contains("menu--open")) {
-      menu.classList.remove("menu--open");
-    }
-  });
-});
-
-compareButton.addEventListener("click", () => {
-  page.classList.remove("page--overflow");
-  compare.classList.remove("compare--open");
-  compareDropdownListFirst.classList.remove("compare__dropdown-list--open");
-  compareDropdownListLast.classList.remove("compare__dropdown-list--open");
-  compareDropdownTopFirst.classList.remove("compare__dropdown-top--open");
-  compareDropdownTopLast.classList.remove("compare__dropdown-top--open");
-  compareDropdownButtonFirst.classList.remove("dropdown-button--open");
-  compareDropdownButtonLast.classList.remove("dropdown-button--open");
-});
-
-compareDropdownEventFirst.forEach((firstButton) => {
-  firstButton.addEventListener("click", (event) => {
-    event.stopPropagation();
-    compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
-    compareDropdownListFirst.classList.toggle("compare__dropdown-list--open");
-    compareDropdownTopFirst.classList.toggle("compare__dropdown-top--open");
-  });
-});
-
-compareDropdowEventLast.forEach((lastButton) => {
-  lastButton.addEventListener("click", (event) => {
-    event.stopPropagation();
-    compareDropdownButtonLast.classList.toggle("dropdown-button--open");
-    compareDropdownListLast.classList.toggle("compare__dropdown-list--open");
-    compareDropdownTopLast.classList.toggle("compare__dropdown-top--open");
-  });
-});
-
 const firstBarProcent = document.getElementById("first-bar-procent");
 const lastBarProcent = document.getElementById("last-bar-procent");
+const compareWeightLeft = document.querySelector(".compare__tth-weights--left");
+const compareWeightRight = document.querySelector(
+  ".compare__tth-weights--right"
+);
+
+// 03. App State
 
 let sporty4Cost = 2549;
 let cowboy4STCost = 3424;
@@ -270,6 +108,11 @@ let selectedFirstBike = {};
 let selectedLastBike = {};
 let weightsFirstBike = {};
 let weightsLastBike = {};
+
+let currentSlideIndex = 0;
+let nextSlideIndex = 1;
+
+// 04. Data Models
 
 const sporty4 = {
   id: "1",
@@ -433,20 +276,32 @@ const propertiesToCompare = [
   { key: "releaseYear", label: "Release Year" },
 ];
 
+const slidesData = [
+  { class: "header__image--1", details: "#details-bike1", buy: "#buy-bike1" },
+  { class: "header__image--2", details: "#details-bike2", buy: "#buy-bike2" },
+  { class: "header__image--3", details: "#details-bike3", buy: "#buy-bike3" },
+  { class: "header__image--4", details: "#details-bike4", buy: "#buy-bike4" },
+];
+
+// 05. Utilities (pure helpers)
+
+function getProp(bike, prop) {
+  return bike?.[prop] ?? "---";
+}
+
+// 06. Ranges / normalization
+
 function getProductsMaxWeights() {
   const maxValues = {};
 
   for (const productName in products) {
     const product = products[productName];
 
-    debugger;
-
     for (const key in product) {
       const value = product[key];
       let numericValue;
 
       if (Object.hasOwn(notWeighed, key)) {
-        console.log(`${key} це не зважується`);
         continue;
       }
 
@@ -472,53 +327,121 @@ function getProductsMaxWeights() {
   return maxValues;
 }
 
-function valuesTopBar() {
-  let allProcent = firstBikeScore + lastBikeScore;
-  let procentFirstBar = Math.round(+((firstBikeScore / allProcent) * 100));
-  let procentLastBar = Math.round(+((lastBikeScore / allProcent) * 100));
+// 07. Percent / Color logic
 
-  if (procentFirstBar === 100) {
-    firstBarProcent.innerHTML = `
-      <p>${procentFirstBar}%</p>`;
-    lastBarProcent.innerHTML = `
-      <p></p>`;
-  } else if (procentLastBar === 100) {
-    lastBarProcent.innerHTML = `
-      <p>${procentLastBar}%</p>`;
-    firstBarProcent.innerHTML = `
-      <p></p>`;
-  } else {
-    firstBarProcent.innerHTML = `
-      <p>${procentFirstBar}%</p>`;
-    lastBarProcent.innerHTML = `
-      <p>${procentLastBar}%</p>`;
+function calculatePercentages(key, valFirst, valLast) {
+  if (
+    typeof valFirst !== "number" ||
+    typeof valLast !== "number" ||
+    isNaN(valFirst) ||
+    isNaN(valLast)
+  ) {
+    return { leftPercent: 0, rightPercent: 0 };
   }
 
-  compareBarFirst.style.width = `${procentFirstBar}%`;
-  compareBarLast.style.width = `${procentLastBar}%`;
+  const maxVal = Math.max(valFirst, valLast);
 
-  console.log(procentFirstBar);
-  console.log(procentLastBar);
+  let leftPercent = (valFirst / maxVal) * 100;
+  let rightPercent = (valLast / maxVal) * 100;
 
-  if (procentFirstBar > 50) {
-    compareBarFirst.style.backgroundColor = `rgba(23, 120, 76, 1)`;
-    compareBarLast.style.backgroundColor = `rgba(120, 23, 23, 1)`;
-  } else if (procentFirstBar < 50) {
-    compareBarFirst.style.backgroundColor = `rgba(120, 23, 23, 1)`;
-    compareBarLast.style.backgroundColor = `rgba(23, 120, 76, 1)`;
-  } else {
-    compareBarFirst.style.backgroundColor = `rgba(255, 255, 255, 0.5)`;
-    compareBarLast.style.backgroundColor = `rgba(255, 255, 255, 0.5)`;
+  const lessIsBetter = ["weight", "price", "cost"].includes(key);
+  if (lessIsBetter) {
+    leftPercent = (1 - valFirst / maxVal) * 100;
+    rightPercent = (1 - valLast / maxVal) * 100;
   }
 
-  firstBikeScore = 0;
-  lastBikeScore = 0;
-  weightsFirstBike = {};
-  weightsLastBike = {};
+  leftPercent = Math.round(leftPercent);
+  rightPercent = Math.round(rightPercent);
+
+  let leftColor = "rgba(0,0,0,0)";
+  let rightColor = "rgba(0,0,0,0)";
+  let decision = "none";
+
+  if (leftPercent > rightPercent) {
+    leftColor = "rgba(23,120,76,0.5)";
+    rightColor = "rgba(155,42,42,0.5)";
+    decision = "left-better";
+  } else if (leftPercent < rightPercent) {
+    leftColor = "rgba(155,42,42,0.5)";
+    rightColor = "rgba(23,120,76,0.5)";
+    decision = "right-better";
+  } else {
+    decision = "tie";
+  }
+
+  return { leftPercent, rightPercent, leftColor, rightColor, decision };
 }
 
+function decideColors(key, valFirst, valLast) {
+  const hasFirst = typeof valFirst === "number";
+  const hasLast = typeof valLast === "number";
+
+  if (!hasFirst && !hasLast) {
+    return {
+      leftColor: COLOR_TRANSPARENT,
+      rightColor: COLOR_TRANSPARENT,
+      note: "none",
+    };
+  }
+
+  if (hasFirst && !hasLast) {
+    return {
+      leftColor: COLOR_GREEN,
+      rightColor: COLOR_TRANSPARENT,
+      note: "only-left",
+    };
+  }
+  if (!hasFirst && hasLast) {
+    return {
+      leftColor: COLOR_TRANSPARENT,
+      rightColor: COLOR_GREEN,
+      note: "only-right",
+    };
+  }
+
+  if (key === "weight") {
+    if (valFirst < valLast)
+      return {
+        leftColor: COLOR_GREEN,
+        rightColor: COLOR_RED,
+        note: "left-better",
+      };
+    if (valFirst > valLast)
+      return {
+        leftColor: COLOR_RED,
+        rightColor: COLOR_GREEN,
+        note: "right-better",
+      };
+    return {
+      leftColor: COLOR_TRANSPARENT,
+      rightColor: COLOR_TRANSPARENT,
+      note: "tie",
+    };
+  } else {
+    if (valFirst > valLast)
+      return {
+        leftColor: COLOR_GREEN,
+        rightColor: COLOR_RED,
+        note: "left-better",
+      };
+    if (valFirst < valLast)
+      return {
+        leftColor: COLOR_RED,
+        rightColor: COLOR_GREEN,
+        note: "right-better",
+      };
+    return {
+      leftColor: COLOR_TRANSPARENT,
+      rightColor: COLOR_TRANSPARENT,
+      note: "tie",
+    };
+  }
+}
+
+// 08. Comparison logic
+
 function whoWin() {
-  if (!selectedFirstBike.name || !selectedLastBike.name) return;
+  if (!selectedFirstBike?.id || !selectedLastBike?.id) return;
 
   if (selectedFirstBike.name === selectedLastBike.name) {
     const tieGradient = `linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.5) 100%)`;
@@ -529,22 +452,40 @@ function whoWin() {
     return;
   }
 
-  firstBikeScore = lastBikeScore = 0;
+  firstBikeScore = 0;
+  lastBikeScore = 0;
+
+  const maxValues = getProductsMaxWeights();
+  let count = 0;
 
   for (const prop of propertiesToCompare) {
     const key = prop.key;
     const valFirst = weightsFirstBike[key];
     const valLast = weightsLastBike[key];
+    const maxVal = maxValues[key];
 
-    if (typeof valFirst !== "number" || typeof valLast !== "number") continue;
+    if (typeof valFirst !== "number" || typeof valLast !== "number" || !maxVal)
+      continue;
+    count++;
+
+    let normFirst = valFirst / maxVal;
+    let normLast = valLast / maxVal;
 
     if (key === "weight") {
-      if (valFirst < valLast) firstBikeScore++;
-      else if (valFirst > valLast) lastBikeScore++;
-    } else {
-      if (valFirst > valLast) firstBikeScore++;
-      else if (valFirst < valLast) lastBikeScore++;
+      normFirst = 1 - normFirst;
+      normLast = 1 - normLast;
     }
+
+    normFirst = Math.max(normFirst, 0);
+    normLast = Math.max(normLast, 0);
+
+    firstBikeScore += normFirst;
+    lastBikeScore += normLast;
+  }
+
+  if (count > 0) {
+    firstBikeScore = (firstBikeScore / count) * 100;
+    lastBikeScore = (lastBikeScore / count) * 100;
   }
 
   const gradients = {
@@ -588,37 +529,84 @@ function whoWin() {
   valuesTopBar();
 }
 
+function valuesTopBar() {
+  const total = firstBikeScore + lastBikeScore;
+  const percentFirst =
+    total > 0 ? Math.round((firstBikeScore / total) * 100) : 50;
+  const percentLast = 100 - percentFirst;
+
+  firstBarProcent.innerHTML = `<p>${percentFirst}%</p>`;
+  lastBarProcent.innerHTML = `<p>${percentLast}%</p>`;
+
+  compareBarFirst.style.width = `${percentFirst}%`;
+  compareBarLast.style.width = `${percentLast}%`;
+
+  if (percentFirst > percentLast) {
+    compareBarFirst.style.backgroundColor = `rgba(23, 120, 76, 1)`;
+    compareBarLast.style.backgroundColor = `rgba(120, 23, 23, 1)`;
+  } else if (percentFirst < percentLast) {
+    compareBarFirst.style.backgroundColor = `rgba(120, 23, 23, 1)`;
+    compareBarLast.style.backgroundColor = `rgba(23, 120, 76, 1)`;
+  } else {
+    compareBarFirst.style.backgroundColor =
+      compareBarLast.style.backgroundColor = `rgba(255,255,255,0.5)`;
+  }
+}
+
+// 09. Renderers
+
 function renderCompareTable() {
-  compareChoseBikeFirst.textContent = selectedFirstBike.name
+  const nameFirst = selectedFirstBike?.name
     ? `${selectedFirstBike.name} ${selectedFirstBike.version}`
     : "Choose bike";
-  compareChoseBikeLast.textContent = selectedLastBike.name
+  const nameLast = selectedLastBike?.name
     ? `${selectedLastBike.name} ${selectedLastBike.version}`
     : "Choose bike";
 
-  function getProp(bike, prop) {
-    return bike[prop] ?? "---";
-  }
+  compareChoseBikeFirst.textContent = nameFirst;
+  compareChoseBikeLast.textContent = nameLast;
+
+  const maxValues = getProductsMaxWeights();
 
   let tthHTML = '<ul class="compare__tth-list">';
   for (const prop of propertiesToCompare) {
+    const key = prop.key;
+    const valFirst = weightsFirstBike?.[key];
+    const valLast = weightsLastBike?.[key];
+    const maxVal = maxValues?.[key] ?? 1;
+
+    const { leftPercent, rightPercent } = calculatePercentages(
+      key,
+      valFirst,
+      valLast,
+      maxVal
+    );
+    const { leftColor, rightColor, note } = decideColors(
+      key,
+      valFirst,
+      valLast
+    );
+
     tthHTML += `
-      <div class="compare__tth-weights compare__tth-weights--left compare__tth-weights--right">
+      <div class="compare__tth-weights"
+           style="--left-width:${leftPercent}%; --right-width:${rightPercent}%; --left-color:${leftColor}; --right-color:${rightColor};"
+           data-key="${key}">
         <li class="compare__tth-item">
           <p class="compare__tth-text compare__tth--first">${getProp(
             selectedFirstBike,
-            prop.key
+            key
           )}</p>
           <p class="compare__tth-text compare__tth--value">${prop.label}</p>
           <p class="compare__tth-text compare__tth--last">${getProp(
             selectedLastBike,
-            prop.key
+            key
           )}</p>
         </li>
       </div>
     `;
   }
   tthHTML += "</ul>";
+
   compareCardTth.innerHTML = tthHTML;
 
   compareCardFirst.innerHTML = `
@@ -628,7 +616,6 @@ function renderCompareTable() {
     )}"></div>
     <h3 class="compare__card-title">${getProp(selectedFirstBike, "name")}</h3>
   `;
-
   compareCardLast.innerHTML = `
     <div class="compare__card-img compare__card-img--last bikes__card-img--${getProp(
       selectedLastBike,
@@ -637,6 +624,163 @@ function renderCompareTable() {
     <h3 class="compare__card-title">${getProp(selectedLastBike, "name")}</h3>
   `;
 }
+
+function updateHeaderLinks(slide) {
+  detailsBtn.href = slide.dataset.details;
+  buyBtn.href = slide.dataset.buy;
+}
+
+function doSlide() {
+  sliderTrack.classList.add("is-animating");
+
+  setTimeout(() => {
+    sliderTrack.classList.remove("is-animating");
+    currentSlide.className = `header__image ${slidesData[currentSlideIndex].class}`;
+    nextSlide.className = `header__image ${slidesData[nextSlideIndex].class} header__image--current`;
+
+    updateHeaderLinks(nextSlide);
+
+    currentSlideIndex = nextSlideIndex;
+    nextSlideIndex = (nextSlideIndex + 1) % slidesData.length;
+
+    const newNextSlide = document.createElement("div");
+
+    newNextSlide.className = `header__image ${slidesData[nextSlideIndex].class} header__image--next`;
+    newNextSlide.dataset.details = slidesData[nextSlideIndex].details;
+    newNextSlide.dataset.buy = slidesData[nextSlideIndex].buy;
+
+    sliderTrack.innerHTML = "";
+    sliderTrack.appendChild(nextSlide);
+    sliderTrack.appendChild(newNextSlide);
+
+    currentSlide = nextSlide;
+    nextSlide = newNextSlide;
+  }, animationDuration);
+}
+
+// 10. Event Handlers / Bindings
+
+switcher.addEventListener("click", () => {
+  switcher.classList.toggle("switcher--day");
+  switcherIcon.classList.toggle("switcher__icon--day");
+  switcherImg.classList.toggle("switcher__img--day");
+
+  const currentLogoPath = logoImg.getAttribute("src");
+
+  if (currentLogoPath === whiteLogoPath) {
+    logoImg.setAttribute("src", blackLogoPath);
+  } else {
+    logoImg.setAttribute("src", whiteLogoPath);
+  }
+
+  iconPhone.classList.toggle("icon-phone--black");
+  iconMenu.classList.toggle("icon-menu--black");
+  page.classList.toggle("theme-switcher");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateHeaderLinks(currentSlide);
+  setInterval(doSlide, changeInterval);
+});
+
+menuOpen.addEventListener("click", () => {
+  page.classList.toggle("page--overflow");
+  menu.classList.toggle("menu--open");
+});
+
+menuClose.forEach((link) => {
+  link.addEventListener("click", () => {
+    page.classList.remove("page--overflow");
+    menu.classList.remove("menu--open");
+    menuDetailsLink.classList.remove("menu__details-link--open");
+    menuDetailsDropdown.classList.remove("menu__details-dropdown--open");
+    menuDropdownButton.classList.remove("dropdown-button--open");
+  });
+});
+
+compareOpen.forEach((link) => {
+  link.addEventListener("click", () => {
+    page.classList.add("page--overflow");
+    compare.classList.add("compare--open");
+
+    if (menu.classList.contains("menu--open")) {
+      menu.classList.remove("menu--open");
+    }
+  });
+});
+
+detailContainer.forEach((section) => {
+  const links = section.querySelectorAll(".detail__link");
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => {
+      if (link.classList.contains("detail__link--wide")) return;
+      links.forEach((l) => l.classList.toggle("detail__link--wide"));
+    });
+  });
+});
+
+detailImage.forEach((image) => {
+  image.addEventListener("click", () => {
+    image.classList.toggle("detail__image--scale");
+  });
+});
+
+detailsButtonEvent.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    detailsDropdownButton.classList.toggle("dropdown-button--open");
+    detailsDropdownTop.classList.toggle("header__details-top--open");
+    detailsDropdown.classList.toggle("header__details-dropdown--open");
+    menuDropdownButton.classList.toggle("dropdown-button--open");
+    menuDetailsDropdown.classList.toggle("menu__details-dropdown--open");
+    menuDetailsLink.classList.toggle("menu__details-link--open");
+  });
+});
+
+detailsDropdownLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    detailsDropdownButton.classList.remove("dropdown-button--open");
+    detailsDropdownTop.classList.remove("header__details-top--open");
+    detailsDropdown.classList.remove("header__details-dropdown--open");
+    menuDropdownButton.classList.remove("dropdown-button--open");
+    menuDetailsDropdown.classList.remove("menu__details-dropdown--open");
+    menu.classList.remove("menu--open");
+    menuDetailsLink.classList.remove("menu__details-link--open");
+  });
+});
+
+compareButton.addEventListener("click", () => {
+  page.classList.remove("page--overflow");
+  compare.classList.remove("compare--open");
+  compareDropdownListFirst.classList.remove("compare__dropdown-list--open");
+  compareDropdownListLast.classList.remove("compare__dropdown-list--open");
+  compareDropdownTopFirst.classList.remove("compare__dropdown-top--open");
+  compareDropdownTopLast.classList.remove("compare__dropdown-top--open");
+  compareDropdownButtonFirst.classList.remove("dropdown-button--open");
+  compareDropdownButtonLast.classList.remove("dropdown-button--open");
+});
+
+compareDropdownEventFirst.forEach((firstButton) => {
+  firstButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    compareDropdownButtonFirst.classList.toggle("dropdown-button--open");
+    compareDropdownListFirst.classList.toggle("compare__dropdown-list--open");
+    compareDropdownTopFirst.classList.toggle("compare__dropdown-top--open");
+  });
+});
+
+compareDropdowEventLast.forEach((lastButton) => {
+  lastButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    compareDropdownButtonLast.classList.toggle("dropdown-button--open");
+    compareDropdownListLast.classList.toggle("compare__dropdown-list--open");
+    compareDropdownTopLast.classList.toggle("compare__dropdown-top--open");
+  });
+});
 
 compareLists.addEventListener("click", (event) => {
   const targetElement = event.target.closest("[data-product-id]");
