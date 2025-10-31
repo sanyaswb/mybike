@@ -9,31 +9,40 @@ const animationDuration = 1500;
 // 02. DOM ELEMENTS
 
 const page = document.querySelector(".page");
-const header = document.getElementById("header");
-const headerDetails = document.getElementById("header-details");
-const mainSticky = document.querySelector(".main__sticky");
+
 const logoImg = document.getElementById("logo-img");
 const iconPhone = document.querySelector(".icon-phone");
 const iconMenu = document.querySelector(".icon-menu");
 const whiteLogoPath = logoImg.getAttribute("data-logo-white");
 const blackLogoPath = logoImg.getAttribute("data-logo-black");
+
+const header = document.getElementById("header");
+const headerDetails = document.getElementById("header-details");
+const navList = document.querySelector(".nav__list");
+
+const mainSticky = document.querySelector(".main__sticky");
+
 const dropdown = document.querySelector(".dropdown");
 const dropdownItems = document.querySelectorAll(".dropdown__item");
+
 const switcher = document.querySelector(".switcher");
 const switcherIcon = document.querySelector(".switcher__icon");
 const switcherImg = document.querySelector(".switcher__img");
+
 const detailsBtn = document.querySelector(".button--double-left");
 const buyBtn = document.querySelector(".button--double-right");
+
 const sliderTrack = document.getElementById("slider-track");
 let currentSlide = sliderTrack.querySelector(".header__image--current");
 let nextSlide = sliderTrack.querySelector(".header__image--next");
-const navList = document.querySelector(".nav__list");
+
 const menu = document.querySelector(".menu");
 const menuOpen = document.querySelector(".icon-menu");
 const menuClose = document.querySelectorAll('[data-menu-close="add-event"]');
 const menuDetailsLink = document.querySelector(".menu__details-link");
 const menuDetailsDropdown = document.querySelector(".menu__details-dropdown");
 const menuDropdownButton = document.getElementById("menu-dropdown-button");
+
 const detailContainer = document.querySelectorAll(".detail__container");
 const detailImage = document.querySelectorAll(".detail__image");
 const detailsDropdownTop = document.getElementById("details-dropdown-top");
@@ -46,6 +55,7 @@ const detailsDropdown = document.getElementById("details-dropdown");
 const detailsDropdownLinks = document.querySelectorAll(
   ".dropdown__details-link"
 );
+
 const compare = document.getElementById("compare");
 const compareOpen = document.querySelectorAll(
   '[data-compare-open="add-event"]'
@@ -288,6 +298,34 @@ const slidesData = [
 function getProp(bike, prop) {
   return bike?.[prop] ?? "---";
 }
+
+const clickPageDeletedClasses = (...targets) => {
+  page.addEventListener("click", (event) => {
+    const clickedInside = targets.some(({ el }) => {
+      el.contains(event.target);
+    });
+
+    if (clickedInside) return;
+
+    for (const { el, className } of targets) {
+      el.classList.remove(className);
+    }
+  });
+};
+
+const clickCompareDeletedClasses = (...targets) => {
+  compare.addEventListener("click", (event) => {
+    const clickedInside = targets.some(({ el }) => {
+      el.contains(event.target);
+    });
+
+    if (clickedInside) return;
+
+    for (const { el, className } of targets) {
+      el.classList.remove(className);
+    }
+  });
+};
 
 // 06. Ranges / normalization
 
@@ -827,34 +865,6 @@ compareLists.addEventListener("click", (event) => {
 
   renderCompareTable();
 });
-
-const clickPageDeletedClasses = (...targets) => {
-  page.addEventListener("click", (event) => {
-    const clickedInside = targets.some(({ el }) => {
-      el.contains(event.target);
-    });
-
-    if (clickedInside) return;
-
-    for (const { el, className } of targets) {
-      el.classList.remove(className);
-    }
-  });
-};
-
-const clickCompareDeletedClasses = (...targets) => {
-  compare.addEventListener("click", (event) => {
-    const clickedInside = targets.some(({ el }) => {
-      el.contains(event.target);
-    });
-
-    if (clickedInside) return;
-
-    for (const { el, className } of targets) {
-      el.classList.remove(className);
-    }
-  });
-};
 
 clickPageDeletedClasses(
   {
