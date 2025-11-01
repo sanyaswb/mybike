@@ -23,6 +23,7 @@ const headerDetails = document.getElementById("header-details");
 const navList = document.querySelector(".nav__list");
 
 const mainSticky = document.querySelector(".main__sticky");
+const scrollTopBtn = document.querySelector(".scroll-top");
 
 const dropdown = document.querySelector(".dropdown");
 const dropdownItems = document.querySelectorAll(".dropdown__item");
@@ -719,6 +720,7 @@ window.addEventListener("scroll", () => {
   if (currentScroll <= headerBottom) {
     headerTop.classList.remove("hidden");
     mainSticky.classList.remove("hidden");
+    scrollTopBtn.classList.remove("visible");
     isHidden = false;
     return;
   }
@@ -726,6 +728,7 @@ window.addEventListener("scroll", () => {
   if (currentScroll > lastScrollY && !isHidden) {
     headerTop.classList.add("hidden");
     mainSticky.classList.add("hidden");
+    scrollTopBtn.classList.add("visible");
     isHidden = true;
   }
 
@@ -736,6 +739,10 @@ window.addEventListener("scroll", () => {
   }
 
   lastScrollY = currentScroll;
+});
+
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0 });
 });
 
 buyBtn.forEach((button) => {
