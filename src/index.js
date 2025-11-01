@@ -18,6 +18,7 @@ const whiteLogoPath = logoImg.getAttribute("data-logo-white");
 const blackLogoPath = logoImg.getAttribute("data-logo-black");
 
 const header = document.getElementById("header");
+const headerTop = document.querySelector(".header__top");
 const headerDetails = document.getElementById("header-details");
 const navList = document.querySelector(".nav__list");
 
@@ -125,6 +126,9 @@ let currentSlideIndex = 0;
 let nextSlideIndex = 1;
 
 let currentShopCount = 0;
+
+let lastScrollY = window.scrollY;
+let isHidden = false;
 
 // 04. Data Models
 
@@ -707,6 +711,32 @@ function updateShopCounter(elementId, newCount) {
 }
 
 // 10. Event Handlers / Bindings
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+  const headerBottom = header.offsetHeight;
+
+  if (currentScroll <= headerBottom) {
+    headerTop.classList.remove("hidden");
+    mainSticky.classList.remove("hidden");
+    isHidden = false;
+    return;
+  }
+
+  if (currentScroll > lastScrollY && !isHidden) {
+    headerTop.classList.add("hidden");
+    mainSticky.classList.add("hidden");
+    isHidden = true;
+  }
+
+  if (currentScroll < lastScrollY && isHidden) {
+    headerTop.classList.remove("hidden");
+    mainSticky.classList.remove("hidden");
+    isHidden = false;
+  }
+
+  lastScrollY = currentScroll;
+});
 
 buyBtn.forEach((button) => {
   button.addEventListener("click", () => {
