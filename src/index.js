@@ -1,4 +1,5 @@
 // 01. CONFIG / CONSTANTS
+
 const COLOR_GREEN = "rgba(23,120,76,0.5)";
 const COLOR_RED = "rgba(155,42,42,0.5)";
 const COLOR_TRANSPARENT = "rgba(0,0,0,0)";

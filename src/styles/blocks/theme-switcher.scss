@@ -209,4 +209,11 @@
       color: $secondary-font-color;
     }
   }
+
+  .scroll-top {
+    &::before,
+    &::after {
+      background-color: rgba($color: $page-background-night, $alpha: 1);
+    }
+  }
 }

@@ -35,20 +35,20 @@
       background-color: rgba($color: $menu-background, $alpha: 0.5);
     }
 
-    &::before {
+    &::before,
+    &::after {
       content: "";
-      height: 20px;
-      width: 8px;
+      height: 15px;
+      width: 4px;
       background-color: $secondary-font-color;
+    }
+
+    &::before {
       transform: rotate(45deg);
       transform-origin: bottom right;
     }
 
     &::after {
-      content: "";
-      height: 20px;
-      width: 8px;
-      background-color: $secondary-font-color;
       transform: rotate(-45deg);
       transform-origin: bottom left;
     }
