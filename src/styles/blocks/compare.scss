@@ -366,6 +366,7 @@
       grid-template-areas: "first value last";
       font-size: 12px;
       padding-block: 5px;
+      align-items: center;
 
       @include onTablet {
         font-size: 18px;
