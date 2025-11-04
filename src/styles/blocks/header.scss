@@ -101,7 +101,6 @@
 
   &__top {
     position: fixed;
-    top: 24px;
     left: 0;
     right: 0;
     z-index: 2;
@@ -127,11 +126,29 @@
     @include onTablet {
       top: 36px;
     }
+
+    &.top-bk {
+      background-color: rgba($color: $page-background-night, $alpha: 0.9);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 86px;
+
+      @include onTablet {
+        height: 128px;
+      }
+
+      @media (min-width: 1260px) and (max-width: 1450px) {
+        height: auto;
+        transform: translateY(-36px);
+        top: 36px;
+      }
+    }
   }
 
   &__logo {
     grid-area: logo;
-    margin-right: 20px;
   }
 
   &__nav {
@@ -143,6 +160,22 @@
 
     @media (max-width: 1450px) {
       grid-area: center;
+    }
+
+    &-home {
+      margin-right: 20px;
+    }
+
+    &-compare {
+      margin-right: 10px;
+    }
+
+    &-details {
+      margin-right: 10px;
+    }
+
+    &-contacts {
+      margin-right: 20px;
     }
 
     &-link {
@@ -163,9 +196,10 @@
     flex-direction: column;
 
     &-top {
+      position: relative;
       display: flex;
       align-items: center;
-      padding-inline: 20px;
+      padding-inline: 10px;
       gap: 10px;
       border-radius: 10px 10px 0 0;
       background: transparent;

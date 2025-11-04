@@ -43,6 +43,10 @@
     margin-bottom: 40px;
   }
 
+  &__list {
+    gap: 32px;
+  }
+
   &__link {
     color: $primary-font-color;
 

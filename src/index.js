@@ -305,6 +305,14 @@ const slidesData = [
 
 // 05. Utilities (pure helpers)
 
+if (
+  "ontouchstart" in window ||
+  navigator.maxTouchPoints > 0 ||
+  navigator.msMaxTouchPoints > 0
+) {
+  document.body.classList.add("touch-device");
+}
+
 function getProp(bike, prop) {
   return bike?.[prop] ?? "---";
 }
@@ -717,27 +725,30 @@ function updateShopCounter(elementId, newCount) {
 window.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
   const headerBottom = header.offsetHeight;
+  const headerTopHeight = headerTop.offsetHeight;
 
   if (currentScroll <= headerBottom) {
     headerTop.classList.remove("hidden");
-    mainSticky.classList.remove("hidden");
     scrollTopBtn.classList.remove("visible");
+    headerTop.classList.remove("top-bk");
     isHidden = false;
     return;
   }
 
   if (currentScroll > lastScrollY && !isHidden) {
     headerTop.classList.add("hidden");
-    mainSticky.classList.add("hidden");
     scrollTopBtn.classList.add("visible");
+    headerTop.classList.remove("top-bk");
     isHidden = true;
   }
 
   if (currentScroll < lastScrollY && isHidden) {
     headerTop.classList.remove("hidden");
-    mainSticky.classList.remove("hidden");
+    headerTop.classList.add("top-bk");
     isHidden = false;
   }
+
+  console.log(`${headerTopHeight}px`);
 
   lastScrollY = currentScroll;
 });

@@ -1,43 +1,5 @@
 .main {
   &__wrapper {
     @include mainPadding;
-
-    @media (min-width: 1260px) and (max-width: 1450px) {
-      padding-top: 150px;
-    }
-  }
-
-  &__sticky {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    height: 0;
-
-    &::before {
-      content: "";
-      display: block;
-      height: 62px;
-      background-color: $page-background-night;
-      opacity: 0.9;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      transform: translateY(0);
-    }
-
-    &.hidden::before {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-
-    @include onTablet {
-      &::before {
-        height: 92px;
-      }
-    }
-
-    @media (min-width: 1260px) and (max-width: 1450px) {
-      &::before {
-        height: 150px;
-      }
-    }
   }
 }

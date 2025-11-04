@@ -2,12 +2,9 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 32px;
     font-size: 22px;
     line-height: 22px;
     letter-spacing: 2px;
-    margin-right: 20px;
-
     @include onDesktop {
       &--header {
         flex-direction: row;

@@ -87,6 +87,8 @@
         background-color: $secondary-font-color;
         transform: translateX(50%) rotate(45deg);
       }
+
+      @include noHoverOnTouch;
     }
   }
 
@@ -228,6 +230,8 @@
           }
         }
       }
+
+      @include noHoverOnTouch;
     }
 
     &-link {
