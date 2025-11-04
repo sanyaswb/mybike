@@ -106,3 +106,28 @@
     border-radius: 5px;
   }
 }
+
+@mixin noHoverOnTouch {
+  @media (hover: none), (pointer: coarse) {
+    &:hover:not(:active) {
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      transform: none !important;
+      background-color: var(--secondary-font-color) !important;
+      color: var(--primary-font-color) !important;
+      border-color: inherit !important;
+    }
+  }
+
+  .touch-device & {
+    &:hover:not(:active) {
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      transform: none !important;
+      background-color: var(--secondary-font-color) !important;
+      color: var(--primary-font-color) !important;
+      border-color: inherit !important;
+      cursor: default !important;
+    }
+  }
+}

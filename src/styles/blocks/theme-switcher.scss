@@ -1,4 +1,12 @@
+:root {
+  --primary-font-color: #1d1d1d;
+  --secondary-font-color: #fff;
+}
+
 .theme-switcher {
+  --primary-font-color: #fff;
+  --secondary-font-color: #1d1d1d;
+
   color: $primary-font-color;
   background-color: $page-background-day;
 
