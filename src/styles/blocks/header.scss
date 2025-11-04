@@ -100,6 +100,7 @@
   }
 
   &__top {
+    z-index: 4;
     position: fixed;
     left: 0;
     right: 0;
@@ -127,7 +128,6 @@
     }
 
     &.top-bk {
-      z-index: 10;
       background-color: var(--bg-header-top);
       position: fixed;
       top: 0;

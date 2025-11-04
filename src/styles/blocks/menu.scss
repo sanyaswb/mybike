@@ -81,14 +81,28 @@
         height: 100%;
 
         .dropdown__img {
+          background-color: $color-light;
           aspect-ratio: 3 / 1;
           @include onTablet {
             aspect-ratio: 1.5 / 1;
           }
         }
 
+        .dropdown__item {
+          background-color: $color-light;
+
+          @include onDesktop {
+            background-color: transparent;
+          }
+        }
+
         .dropdown__link {
+          color: $color-dark;
           padding-top: 20px;
+
+          &:hover {
+            background-color: transparent;
+          }
 
           @include onTablet {
             padding-block: 20px;
@@ -97,7 +111,6 @@
           @include onDesktop {
             grid-template-columns: 260px 1fr;
             padding-block: 0;
-            color: $color-dark;
           }
         }
       }

@@ -84,6 +84,46 @@
   }
 }
 
+.button-close {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--font-primary);
+  border-radius: 10px;
+  background-color: rgba($color: var(--font-primary), $alpha: 0.2);
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.7);
+
+  @include onTablet {
+    transform: scale(1);
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba($color: red, $alpha: 0.4);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 6px;
+    background-color: var(--font-primary);
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  &::before {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 6px;
+    background-color: var(--font-primary);
+    transform: translateX(50%) rotate(45deg);
+  }
+
+  @include noHoverOnTouch;
+}
+
 .no-wrap-text {
   white-space: nowrap;
 }

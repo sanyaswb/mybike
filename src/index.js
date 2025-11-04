@@ -733,6 +733,8 @@ window.addEventListener("scroll", () => {
     headerTop.classList.remove("hidden");
     scrollTopBtn.classList.remove("visible");
     headerTop.classList.remove("top-bk");
+    dropdown.classList.remove("dropdown--croll");
+
     isHidden = false;
     return;
   }
@@ -740,13 +742,19 @@ window.addEventListener("scroll", () => {
   if (currentScroll > lastScrollY && !isHidden) {
     headerTop.classList.add("hidden");
     scrollTopBtn.classList.add("visible");
+    dropdown.classList.add("dropdown--croll");
     headerTop.classList.remove("top-bk");
+    detailsDropdownButton.classList.remove("dropdown-button--open");
+    detailsDropdownTop.classList.remove("header__details-top--open");
+    detailsDropdown.classList.remove("header__details-dropdown--open");
+
     isHidden = true;
   }
 
   if (currentScroll < lastScrollY && isHidden) {
     headerTop.classList.remove("hidden");
     headerTop.classList.add("top-bk");
+
     isHidden = false;
   }
 
