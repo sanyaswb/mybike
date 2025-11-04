@@ -1,4 +1,4 @@
-// ⚫ Dark theme
+// Dark theme
 :root {
   --bg-page: #1d1d1d;
   --bg-form: #f8f8fa;
@@ -46,7 +46,7 @@
   );
 }
 
-// 🟢 Light theme
+// Light theme
 html[data-theme="light"] {
   --bg-page: #b6b5ae;
   --bg-header-top: rgba(182, 181, 174, 0.9);
