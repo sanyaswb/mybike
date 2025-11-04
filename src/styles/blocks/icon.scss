@@ -5,6 +5,7 @@
   width: 24px;
 
   @include hover(transform, scale(1.2));
+  @include noHoverOnTouchIcons;
 
   &-phone {
     background-image: url(../images/icons/icon-phone.svg);
@@ -21,12 +22,16 @@
       background-image: url(../images/icons/icon-menu-hover.svg);
     }
 
+    @include noHoverOnTouchIcons;
+
     &--black {
       background-image: url(../images/icons/icon-menu-black.svg);
 
       &:hover {
         background-image: url(../images/icons/icon-menu-hover-black.svg);
       }
+
+      @include noHoverOnTouchIcons;
     }
   }
 
@@ -60,6 +65,7 @@
     height: 38px;
 
     @include hover(transform, scale(1.2));
+    @include noHoverOnTouchIcons;
 
     @include onTablet {
       height: 56px;

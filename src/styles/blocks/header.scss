@@ -8,7 +8,7 @@
   flex-direction: column;
   height: 480px;
 
-  background-color: $page-background-night;
+  background-color: $color-gray;
   background-image: url("../images/backgrounds/header_bk-fhd.webp");
   background-size: cover;
   background-repeat: no-repeat;
@@ -103,7 +103,6 @@
     position: fixed;
     left: 0;
     right: 0;
-    z-index: 2;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -114,7 +113,7 @@
     align-items: center;
     @include contentPaddingInline;
 
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     transform: translateY(0);
     opacity: 1;
 
@@ -128,7 +127,8 @@
     }
 
     &.top-bk {
-      background-color: rgba($color: $page-background-night, $alpha: 0.9);
+      z-index: 10;
+      background-color: var(--bg-header-top);
       position: fixed;
       top: 0;
       left: 0;
@@ -180,13 +180,14 @@
 
     &-link {
       height: 56px;
+      color: var(--font-primary);
 
       &::after {
-        background-color: $secondary-font-color;
+        background-color: var(--font-primary);
       }
 
       &__dropdown--open {
-        color: $primary-font-color;
+        color: var(--font-secondary);
       }
     }
   }
@@ -205,7 +206,7 @@
       background: transparent;
 
       &--open {
-        background-color: rgba($color: $menu-background, $alpha: 0.5);
+        background-color: var(--bg-dropdown);
       }
 
       &-button {

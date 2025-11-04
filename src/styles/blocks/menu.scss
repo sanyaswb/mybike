@@ -3,7 +3,7 @@
   @include headerPadding;
 
   height: 100vh;
-  background-color: $menu-background;
+  background-color: $color-gray;
   font-weight: 600;
   position: fixed;
   overflow-y: scroll;
@@ -39,6 +39,11 @@
     }
   }
 
+  &__content {
+    font-weight: 600;
+    color: $color-dark;
+  }
+
   &__nav {
     margin-bottom: 40px;
   }
@@ -48,10 +53,9 @@
   }
 
   &__link {
-    color: $primary-font-color;
-
     &::after {
       margin-bottom: -8px;
+      background-color: $color-dark;
     }
   }
 
@@ -71,9 +75,11 @@
     &-dropdown {
       padding-block: 0;
       height: 0;
+      background-color: transparent;
 
       &--open {
         height: 100%;
+
         .dropdown__img {
           aspect-ratio: 3 / 1;
           @include onTablet {
@@ -91,6 +97,7 @@
           @include onDesktop {
             grid-template-columns: 260px 1fr;
             padding-block: 0;
+            color: $color-dark;
           }
         }
       }
@@ -100,20 +107,15 @@
   &__dropdown {
     &-button {
       transform: scale(0.7);
-      &:hover {
-        background-color: rgba($color: $page-background-night, $alpha: 0.5);
-      }
 
+      &:hover {
+        background-color: transparent;
+      }
       &::after,
       &::before {
-        background-color: $primary-font-color;
+        background-color: $color-dark;
       }
     }
-  }
-
-  &__content {
-    font-weight: 600;
-    color: $primary-font-color;
   }
 
   &__phone-number {
@@ -132,6 +134,6 @@
     color: inherit;
     text-transform: uppercase;
 
-    border-bottom: 1px solid $primary-font-color;
+    border-bottom: 1px solid $color-dark;
   }
 }

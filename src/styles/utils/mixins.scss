@@ -102,7 +102,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba($color: $secondary-font-color, $alpha: 0.5);
+    background-color: rgba($color: var(--font-primary), $alpha: 0.5);
     border-radius: 5px;
   }
 }
@@ -113,8 +113,8 @@
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
       transform: none !important;
-      background-color: var(--secondary-font-color) !important;
-      color: var(--primary-font-color) !important;
+      background-color: var(--font-primary) !important;
+      color: var(--font-secondary) !important;
       border-color: inherit !important;
     }
   }
@@ -124,10 +124,23 @@
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
       transform: none !important;
-      background-color: var(--secondary-font-color) !important;
-      color: var(--primary-font-color) !important;
+      background-color: var(--font-primary) !important;
+      color: var(--font-secondary) !important;
       border-color: inherit !important;
       cursor: default !important;
+    }
+  }
+}
+
+@mixin noHoverOnTouchIcons {
+  @media (hover: none), (pointer: coarse) {
+    &:hover:not(:active) {
+      box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      transform: none !important;
+      background-color: transparent !important;
+      color: inherit !important;
+      border-color: inherit !important;
     }
   }
 }

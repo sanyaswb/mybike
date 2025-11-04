@@ -1,12 +1,11 @@
-$page-background-night: #1d1d1d;
-$page-background-day: #b6b5ae;
-$primary-font-color: #1d1d1d;
-$secondary-font-color: #fff;
-$form-backround-light: #f8f8fa;
-$input-font-color: #292929;
-$input-border-color: #d5d7de;
-$placeholder-color: #7e7e83;
-$menu-background: #c2c2c2;
+// Основні кольори
+$color-dark: #1d1d1d;
+$color-light: #b6b5ae;
+$color-white: #fff;
+$color-gray: #c2c2c2;
+$color-input: #292929;
+
+// Брейкпоінти
 $tablet-min-width: 744px;
 $desktop-min-width: 1260px;
 $compare-column-gap: 20px;

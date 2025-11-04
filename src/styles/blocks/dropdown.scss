@@ -10,7 +10,7 @@
   overflow-x: clip;
   row-gap: 20px;
   top: 56px;
-  background-color: rgba($color: $menu-background, $alpha: 0.5);
+  background-color: var(--bg-dropdown);
   padding-block: 56px;
   border-radius: 0 0 10px 10px;
 
@@ -26,13 +26,13 @@
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease-in-out;
-    background-color: rgba($color: $menu-background, $alpha: 0);
+    background-color: transparent;
     min-width: 36px;
     height: 36px;
     border-radius: 5px;
 
     &:hover {
-      background-color: rgba($color: $menu-background, $alpha: 0.5);
+      background-color: var(--bg-dropdown);
     }
 
     &::before,
@@ -40,7 +40,7 @@
       content: "";
       height: 15px;
       width: 4px;
-      background-color: $secondary-font-color;
+      background-color: var(--font-primary);
     }
 
     &::before {
@@ -69,22 +69,16 @@
   &__item {
     font-size: 12px;
     font-weight: 800;
-    background-color: $primary-font-color;
-    color: $secondary-font-color;
+    background-color: var(--bg-page);
+    color: var(--font-primary);
 
     @include onDesktop {
       background-color: transparent;
-      color: $primary-font-color;
+      color: var(--font-secondary);
       font-size: 28px;
       &:hover {
-        background: linear-gradient(
-          90deg,
-          rgba(29, 29, 29, 1) 0%,
-          rgba(29, 29, 29, 1) 50%,
-          rgba(29, 29, 29, 0) 100%
-        );
-
-        color: $secondary-font-color;
+        background: var(--bg-dropdown-grad);
+        color: var(--font-primary);
       }
     }
   }
@@ -109,7 +103,7 @@
     background-position: bottom;
     background-repeat: no-repeat;
     aspect-ratio: 1.5 / 1;
-    background-color: $page-background-night;
+    background-color: var(--bg-page);
 
     &--1 {
       background-image: url(../images/bikes/bike_1.webp);

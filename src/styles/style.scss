@@ -3,6 +3,8 @@
 @import "./utils/reset";
 @import "./utils/components";
 
+@import "./blocks/theme";
+
 @import "./blocks/body";
 @import "./blocks/main";
 @import "./blocks/nav";
@@ -22,5 +24,3 @@
 @import "./blocks/compare";
 @import "./blocks/form";
 @import "./blocks/footer";
-
-@import "./blocks/theme-switcher";

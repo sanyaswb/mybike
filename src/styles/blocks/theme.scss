@@ -1,0 +1,104 @@
+// ⚫ Dark theme
+:root {
+  --bg-page: #1d1d1d;
+  --bg-form: #f8f8fa;
+  --bg-header-top: rgba(29, 29, 29, 0.9);
+  --bg-dropdown: rgba(182, 181, 174, 0.5);
+  --bg-compare: rgba(29, 29, 29, 0.9);
+  --border-form: #d5d7de;
+  --font-primary: #fff;
+  --font-secondary: #1d1d1d;
+  --font-contacts: #cecece;
+  --placeholder: #7e7e83;
+  --shadow: 1px 4px 16px 0px rgba(255, 255, 255, 0.4);
+  --shadow-active: 1px 4px 16px 0px rgba(255, 255, 255, 0.64);
+
+  --bg-tth: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 25%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.6) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  --bg-tth-line: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.6) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  --bg-dropdown-grad: linear-gradient(
+    90deg,
+    rgba(29, 29, 29, 1) 0%,
+    rgba(29, 29, 29, 1) 50%,
+    rgba(29, 29, 29, 0) 100%
+  );
+
+  --bg-dropdown-grad-reverse: linear-gradient(
+    -90deg,
+    rgba(29, 29, 29, 1) 0%,
+    rgba(29, 29, 29, 1) 50%,
+    rgba(29, 29, 29, 0) 100%
+  );
+}
+
+// 🟢 Light theme
+html[data-theme="light"] {
+  --bg-page: #b6b5ae;
+  --bg-header-top: rgba(182, 181, 174, 0.9);
+  --bg-form: #7e7e83;
+  --bg-dropdown: rgba(29, 29, 29, 0.5);
+  --bg-compare: rgba(194, 194, 194, 0.5);
+  --border-form: #1d1d1d;
+  --font-primary: #1d1d1d;
+  --font-secondary: #fff;
+  --font-contacts: #545454;
+  --placeholder: #1d1d1d;
+  --shadow: 1px 4px 16px 0px rgba(29, 29, 29, 0.4);
+  --shadow-active: 1px 4px 16px 0px rgba(29, 29, 29, 0.64);
+
+  --bg-tth: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.6) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  --bg-tth-line: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 25%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.6) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  --bg-dropdown-grad: linear-gradient(
+    90deg,
+    rgba(182, 181, 174, 1) 0%,
+    rgba(182, 181, 174, 1) 50%,
+    rgba(182, 181, 174, 0) 100%
+  );
+
+  --bg-dropdown-grad-reverse: linear-gradient(
+    -90deg,
+    rgba(182, 181, 174, 1) 0%,
+    rgba(182, 181, 174, 1) 50%,
+    rgba(182, 181, 174, 0) 100%
+  );
+
+  .header {
+    background-image: none;
+
+    &__title {
+      background-color: rgba($color: $color-gray, $alpha: 0.5);
+      border-radius: 20px;
+    }
+  }
+}

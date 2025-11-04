@@ -1,3 +1,5 @@
+"use strict";
+
 // 01. CONFIG / CONSTANTS
 
 const COLOR_GREEN = "rgba(23,120,76,0.5)";
@@ -774,11 +776,12 @@ buyBtn.forEach((button) => {
 });
 
 switcher.addEventListener("click", () => {
-  switcher.classList.toggle("switcher--day");
+  const html = document.documentElement;
+  const isLight = html.dataset.theme === "light";
+  const currentLogoPath = logoImg.getAttribute("src");
+
   switcherIcon.classList.toggle("switcher__icon--day");
   switcherImg.classList.toggle("switcher__img--day");
-
-  const currentLogoPath = logoImg.getAttribute("src");
 
   if (currentLogoPath === whiteLogoPath) {
     logoImg.setAttribute("src", blackLogoPath);
@@ -789,7 +792,12 @@ switcher.addEventListener("click", () => {
   iconPhone.classList.toggle("icon-phone--black");
   iconMenu.classList.toggle("icon-menu--black");
   iconShop.classList.toggle("icon-shop--black");
-  page.classList.toggle("theme-switcher");
+
+  if (isLight) {
+    html.removeAttribute("data-theme");
+  } else {
+    html.dataset.theme = "light";
+  }
 });
 
 document.addEventListener("DOMContentLoaded", () => {

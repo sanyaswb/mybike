@@ -1,8 +1,8 @@
 .page {
   font-family: Poppins, sans-serif;
-  color: $secondary-font-color;
+  color: var(--font-primary);
   scroll-behavior: smooth;
-  background-color: $primary-font-color;
+  background-color: var(--bg-page);
   transition: all 0.3s;
 
   &--overflow {

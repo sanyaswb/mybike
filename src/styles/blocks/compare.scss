@@ -6,10 +6,23 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba($color: $page-background-night, $alpha: 0.5);
+  background-color: rgba($color: var(--bg-page), $alpha: 0.5);
 
   &--open {
     display: block;
+  }
+
+  &__grid {
+    display: grid;
+    column-gap: $compare-column-gap;
+    grid-template-columns: 1fr 1fr;
+    left: 0;
+    right: 0;
+    height: 100%;
+
+    @include onDesktop {
+      column-gap: calc($compare-column-gap * 9);
+    }
   }
 
   &__container {
@@ -22,7 +35,7 @@
     padding-top: 20px;
     background: transparent;
     backdrop-filter: blur(10px);
-    border: 1px solid $secondary-font-color;
+    border: 1px solid var(--font-primary);
     border-radius: 20px;
     justify-content: center;
     overflow-y: scroll;
@@ -39,212 +52,6 @@
 
     @include onDesktop {
       margin-inline: 120px;
-    }
-  }
-
-  &__nav {
-    z-index: 3;
-    display: flex;
-    justify-content: end;
-    position: sticky;
-    top: 0;
-  }
-
-  &__button {
-    &--close {
-      display: flex;
-      width: 50px;
-      height: 50px;
-      border: 1px solid $secondary-font-color;
-      border-radius: 10px;
-      background-color: rgba($color: $secondary-font-color, $alpha: 0.2);
-      justify-content: center;
-      align-items: center;
-      transform: scale(0.7);
-
-      @include onTablet {
-        transform: scale(1);
-      }
-
-      &:hover {
-        cursor: pointer;
-        background-color: rgba($color: red, $alpha: 0.4);
-      }
-
-      &::after {
-        content: "";
-        display: block;
-        height: 30px;
-        width: 6px;
-        background-color: $secondary-font-color;
-        transform: translateX(-50%) rotate(-45deg);
-      }
-      &::before {
-        content: "";
-        display: block;
-        height: 30px;
-        width: 6px;
-        background-color: $secondary-font-color;
-        transform: translateX(50%) rotate(45deg);
-      }
-
-      @include noHoverOnTouch;
-    }
-  }
-
-  &__bar {
-    display: flex;
-    height: 25px;
-    width: 100%;
-    border: 1px solid $secondary-font-color;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    overflow: hidden;
-
-    &--first {
-      height: 100%;
-      width: 50%;
-      background-color: rgba($color: $secondary-font-color, $alpha: 0.1);
-      border-radius: 10px 0 0 10px;
-      border-right: 1px solid $secondary-font-color;
-      justify-items: center;
-    }
-
-    &--last {
-      height: 100%;
-      width: 50%;
-      background-color: rgba($color: $secondary-font-color, $alpha: 0.1);
-      border-radius: 0 10px 10px 0;
-      border-left: 1px solid $secondary-font-color;
-      justify-items: center;
-    }
-  }
-
-  &__grid {
-    display: grid;
-    column-gap: $compare-column-gap;
-    grid-template-columns: 1fr 1fr;
-    left: 0;
-    right: 0;
-    height: 100%;
-
-    @include onDesktop {
-      column-gap: calc($compare-column-gap * 9);
-    }
-  }
-
-  &__top {
-    z-index: 2;
-    grid-column: 1 / -1;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "first last";
-    column-gap: $compare-column-gap;
-    position: absolute;
-    left: $compare-column-gap;
-    right: $compare-column-gap;
-    padding-top: 20px;
-
-    @include onDesktop {
-      column-gap: calc($compare-column-gap * 9);
-    }
-  }
-
-  &__dropdown {
-    position: relative;
-    justify-items: center;
-
-    &-top {
-      display: flex;
-      justify-content: end;
-      width: 100%;
-      max-width: 80%;
-      background-color: rgba($color: $menu-background, $alpha: 0.5);
-      border-radius: 10px;
-      padding: 10px;
-      cursor: pointer;
-      height: 36px;
-      align-items: center;
-
-      @include onTablet {
-        height: auto;
-      }
-
-      &--open {
-        border-radius: 10px 10px 0 0;
-      }
-
-      &-bike {
-        align-content: center;
-        margin-inline: auto;
-        font-size: 10px;
-        color: $primary-font-color;
-        font-weight: 800;
-
-        @include onTablet {
-          font-size: 20px;
-        }
-      }
-
-      &-button {
-        position: relative;
-        right: 0;
-        transform: scale(0.5);
-
-        @include onTablet {
-          transform: scale(1);
-        }
-      }
-    }
-
-    &--first {
-      grid-area: first;
-    }
-
-    &--last {
-      grid-area: last;
-    }
-
-    &-list {
-      width: 100%;
-      max-width: 80%;
-      display: none;
-      padding-inline: 10px;
-
-      &--open {
-        display: grid;
-      }
-    }
-
-    &-item {
-      &--last {
-        @include onDesktop {
-          &:hover {
-            background: linear-gradient(
-              -90deg,
-              rgba(29, 29, 29, 1) 0%,
-              rgba(29, 29, 29, 1) 50%,
-              rgba(29, 29, 29, 0) 100%
-            );
-          }
-        }
-      }
-
-      @include noHoverOnTouch;
-    }
-
-    &-link {
-      &--last {
-        grid-template-columns: 1fr 162px;
-      }
-    }
-
-    &-img {
-      &--last {
-        grid-area: last;
-        transform: scaleX(-1);
-      }
     }
   }
 
@@ -265,7 +72,7 @@
     left: 0;
     width: 100%;
     padding-top: 56px;
-    background-color: rgba($color: $page-background-night, $alpha: 0.9);
+    background-color: var(--bg-compare);
     border-radius: 20px;
 
     &--first {
@@ -311,6 +118,199 @@
     }
   }
 
+  &__nav {
+    z-index: 3;
+    display: flex;
+    justify-content: end;
+    position: sticky;
+    top: 0;
+  }
+
+  &__button {
+    &--close {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--font-primary);
+      border-radius: 10px;
+      background-color: rgba($color: var(--font-primary), $alpha: 0.2);
+      justify-content: center;
+      align-items: center;
+      transform: scale(0.7);
+
+      @include onTablet {
+        transform: scale(1);
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba($color: red, $alpha: 0.4);
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 30px;
+        width: 6px;
+        background-color: var(--font-primary);
+        transform: translateX(-50%) rotate(-45deg);
+      }
+      &::before {
+        content: "";
+        display: block;
+        height: 30px;
+        width: 6px;
+        background-color: var(--font-primary);
+        transform: translateX(50%) rotate(45deg);
+      }
+
+      @include noHoverOnTouch;
+    }
+  }
+
+  &__bar {
+    display: flex;
+    height: 25px;
+    width: 100%;
+    border: 1px solid var(--font-primary);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    &--first {
+      height: 100%;
+      width: 50%;
+      background-color: rgba($color: var(--font-primary), $alpha: 0.1);
+      border-radius: 10px 0 0 10px;
+      border-right: 1px solid var(--font-primary);
+      justify-items: center;
+    }
+
+    &--last {
+      height: 100%;
+      width: 50%;
+      background-color: rgba($color: var(--font-primary), $alpha: 0.1);
+      border-radius: 0 10px 10px 0;
+      border-left: 1px solid var(--font-primary);
+      justify-items: center;
+    }
+  }
+
+  &__top {
+    z-index: 2;
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "first last";
+    column-gap: $compare-column-gap;
+    position: absolute;
+    left: $compare-column-gap;
+    right: $compare-column-gap;
+    padding-top: 20px;
+
+    @include onDesktop {
+      column-gap: calc($compare-column-gap * 9);
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+    justify-items: center;
+
+    &-top {
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      max-width: 80%;
+      background-color: var(--bg-dropdown);
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      height: 36px;
+      align-items: center;
+
+      @include onTablet {
+        height: auto;
+      }
+
+      &--open {
+        border-radius: 10px 10px 0 0;
+      }
+
+      &-bike {
+        align-content: center;
+        margin-inline: auto;
+        font-size: 10px;
+        color: var(--font-secondary);
+        font-weight: 800;
+
+        @include onTablet {
+          font-size: 20px;
+        }
+      }
+
+      &-button {
+        position: relative;
+        right: 0;
+        transform: scale(0.5);
+
+        &::after,
+        &::before {
+          background-color: var(--font-secondary);
+        }
+
+        @include onTablet {
+          transform: scale(1);
+        }
+      }
+    }
+
+    &--first {
+      grid-area: first;
+    }
+
+    &--last {
+      grid-area: last;
+    }
+
+    &-list {
+      width: 100%;
+      max-width: 80%;
+      display: none;
+      padding-inline: 10px;
+
+      &--open {
+        display: grid;
+      }
+    }
+
+    &-item {
+      &--last {
+        @include onDesktop {
+          &:hover {
+            background: var(--bg-dropdown-grad-reverse);
+          }
+        }
+      }
+
+      @include noHoverOnTouch;
+    }
+
+    &-link {
+      &--last {
+        grid-template-columns: 1fr 162px;
+      }
+    }
+
+    &-img {
+      &--last {
+        grid-area: last;
+        transform: scaleX(-1);
+      }
+    }
+  }
+
   &__tth {
     &-weights {
       position: relative;
@@ -346,30 +346,9 @@
     &-list {
       width: 100%;
       display: grid;
-      row-gap: 5px;
+      row-gap: 6px;
       text-align: center;
       min-width: 320px;
-
-      &:nth-child(1) {
-        &::before {
-          content: "";
-          grid-column: 1 / -1;
-          display: block;
-          position: relative;
-          top: 5px;
-          height: 1px;
-          width: 100%;
-          background: #fff;
-          background: linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.6) 25%,
-            rgba(255, 255, 255, 1) 50%,
-            rgba(255, 255, 255, 0.6) 75%,
-            rgba(255, 255, 255, 0) 100%
-          );
-        }
-      }
     }
 
     &-item {
@@ -378,8 +357,9 @@
       grid-template-columns: 1fr 0.5fr 1fr;
       grid-template-areas: "first value last";
       font-size: 12px;
-      padding-block: 5px;
       align-items: center;
+      background: #000;
+      background: var(--bg-tth);
 
       @include onTablet {
         font-size: 18px;
@@ -389,33 +369,14 @@
         font-size: 24px;
       }
 
-      background: #000;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.6) 25%,
-        rgba(0, 0, 0, 1) 50%,
-        rgba(0, 0, 0, 0.6) 75%,
-        rgba(0, 0, 0, 0) 100%
-      );
-
-      &::after {
+      &::before {
         content: "";
         display: block;
         position: relative;
         grid-column: 1 / -1;
-        bottom: -5px;
         height: 1px;
-        width: 100%;
         background: #fff;
-        background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.6) 25%,
-          rgba(255, 255, 255, 1) 50%,
-          rgba(255, 255, 255, 0.6) 75%,
-          rgba(255, 255, 255, 0) 100%
-        );
+        background: var(--bg-tth-line);
       }
     }
 
@@ -430,6 +391,7 @@
     &--value {
       grid-area: value;
       font-weight: 700;
+      padding-block: 5px;
     }
 
     &--last {
