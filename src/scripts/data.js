@@ -1,0 +1,185 @@
+"use strict";
+
+// engine-create-js(data)
+// engine-import(this)
+// engine-import-generated
+import { amiraSL4Cost, cowboy4STCost, cowboyC3Cost, sporty4Cost } from './config.js';
+
+
+
+const sporty4 = {
+  id: "1",
+  type: "electric",
+  name: "Sporty",
+  version: 4,
+  cost: `$ ${sporty4Cost}`,
+  color: ["black", "white"],
+  material: "Aluminum",
+  height: 677,
+  lengt: 1855,
+  width: 610,
+  weight: 20.2,
+  diameterWheels: 10,
+  widthFrontWheel: 40,
+  widthBackWheel: 56,
+  speedometer: "Yes",
+  numberSpeedGears: 12,
+  electricEngine: "Super MX2000",
+  enginePower: 500,
+  gyroscope: "No",
+  batteryCapacity: 20,
+  travelRange: 40,
+  maxSpeed: 70,
+  maxLoad: 120,
+  headLight: "Xenon",
+  releaseYear: 2025,
+};
+
+const cowboy4ST = {
+  id: "2",
+  type: "electric",
+  name: "Cowboy ST",
+  version: 4,
+  cost: `$ ${cowboy4STCost}`,
+  color: ["black", "white", "yellow"],
+  material: "Titan",
+  height: 647,
+  lengt: 1725,
+  width: 557,
+  weight: 17.1,
+  diameterWheels: 12,
+  widthFrontWheel: 43,
+  widthBackWheel: 53,
+  speedometer: "Yes",
+  numberSpeedGears: 13,
+  electricEngine: "Super MX3000",
+  enginePower: 700,
+  gyroscope: "Yes",
+  batteryCapacity: 25,
+  travelRange: 50,
+  maxSpeed: 88,
+  maxLoad: 126,
+  headLight: "LED",
+  releaseYear: 2025,
+};
+
+const cowboyC3 = {
+  id: "3",
+  type: "electric",
+  name: "Cowboy C",
+  version: 3,
+  cost: `$ ${cowboyC3Cost}`,
+  color: ["grey"],
+  material: "Titan",
+  height: 637,
+  lengt: 1625,
+  width: 760,
+  weight: 25.2,
+  diameterWheels: 9,
+  widthFrontWheel: 40,
+  widthBackWheel: 40,
+  speedometer: "No",
+  numberSpeedGears: 6,
+  electricEngine: "Super MX1000",
+  enginePower: 400,
+  gyroscope: "No",
+  batteryCapacity: 10,
+  travelRange: 20,
+  maxSpeed: 50,
+  maxLoad: 90,
+  headLight: "Halogen",
+  releaseYear: 2024,
+};
+
+const amiraSL4 = {
+  id: "4",
+  type: "classic",
+  name: "Amira SL",
+  version: 4,
+  cost: `$ ${amiraSL4Cost}`,
+  color: ["black"],
+  material: "Carbone",
+  height: 654,
+  lengt: 1589,
+  width: 678,
+  weight: 2.2,
+  diameterWheels: 12,
+  widthFrontWheel: 20,
+  widthBackWheel: 20,
+  speedometer: "---",
+  numberSpeedGears: 20,
+  electricEngine: "---",
+  enginePower: "---",
+  gyroscope: "---",
+  batteryCapacity: "---",
+  travelRange: "---",
+  maxSpeed: "---",
+  maxLoad: 90,
+  headLight: "---",
+  releaseYear: 2025,
+};
+
+const products = {
+  "sporty-4": sporty4,
+  "cowboy-4-st": cowboy4ST,
+  "cowboy-c-3": cowboyC3,
+  "amira-sl-4": amiraSL4,
+};
+
+const weights = {
+  Carbone: 5,
+  Titan: 3,
+  Aluminum: 2,
+  "Stainless steel": 1,
+  Steel: 0,
+  Yes: 1,
+  No: 0,
+  Halogen: 1,
+  LED: 2,
+  Xenon: 3,
+  "---": 0,
+  "Super MX1000": 1,
+  "Super MX2000": 2,
+  "Super MX3000": 3,
+};
+
+const notWeighed = {
+  id: "",
+  type: "",
+  name: "",
+};
+
+const propertiesToCompare = [
+  { key: "cost", label: "Cost" },
+  { key: "material", label: "Frame Material" },
+  { key: "weight", label: "Weight (kg)" },
+  { key: "diameterWheels", label: "Wheel Diameter" },
+  { key: "widthFrontWheel", label: "Front Wheel Width" },
+  { key: "widthBackWheel", label: "Back Wheel Width" },
+  { key: "speedometer", label: "Speedometer" },
+  { key: "numberSpeedGears", label: "Speed Gears" },
+  { key: "electricEngine", label: "Engine Type" },
+  { key: "enginePower", label: "Engine Power" },
+  { key: "gyroscope", label: "Gyroscope" },
+  { key: "batteryCapacity", label: "Battery (Ah)" },
+  { key: "travelRange", label: "Travel Range (km)" },
+  { key: "maxSpeed", label: "Max Speed (km/h)" },
+  { key: "maxLoad", label: "Max Load (kg)" },
+  { key: "headLight", label: "Head Light Type" },
+  { key: "releaseYear", label: "Release Year" },
+];
+
+const slidesData = [
+  { class: "header__image--1", details: "#details-bike4", buy: "#buy-bike1" },
+  { class: "header__image--2", details: "#details-bike3", buy: "#buy-bike2" },
+  { class: "header__image--3", details: "#details-bike1", buy: "#buy-bike3" },
+  { class: "header__image--4", details: "#details-bike2", buy: "#buy-bike4" },
+];
+
+export {
+  notWeighed,
+  products,
+  propertiesToCompare,
+  slidesData,
+  weights
+};

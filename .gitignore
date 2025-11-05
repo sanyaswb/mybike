@@ -17,5 +17,7 @@ cypress/screenshots
 cypress/videos
 reports
 
-# Ignor the files
+# Engine files
+.backups
+refactor.js
 local-bridge.js
