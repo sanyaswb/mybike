@@ -7,7 +7,11 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.0",
-    "parcel": "^2.16.0"
+    "glob": "^11.0.3",
+    "parcel": "^2.16.0",
+    "sharp": "^0.34.4",
+    "ttf2woff": "^3.0.0",
+    "ttf2woff2": "^8.0.0"
   },
   "dependencies": {
     "acorn": "^8.15.0",

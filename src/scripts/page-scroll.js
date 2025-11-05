@@ -3,9 +3,15 @@
 // engine-create-js(page-scroll)
 // engine-import(this)
 // engine-import-generated
-import { detailsDropdown, detailsDropdownButton, detailsDropdownTop, dropdown, header, headerTop, scrollTopBtn } from './dom.js';
-
-
+import {
+  detailsDropdown,
+  detailsDropdownButton,
+  detailsDropdownTop,
+  dropdown,
+  header,
+  headerTop,
+  scrollTopBtn,
+} from "./dom.js";
 
 let lastScrollY = window.scrollY;
 let isHidden = false;
@@ -49,4 +55,3 @@ window.addEventListener("scroll", () => {
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0 });
 });
-

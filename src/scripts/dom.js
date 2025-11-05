@@ -155,5 +155,5 @@ export {
   switcher,
   switcherIcon,
   switcherImg,
-  whiteLogoPath
+  whiteLogoPath,
 };

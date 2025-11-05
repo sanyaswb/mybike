@@ -3,9 +3,31 @@
 // engine-create-js(events)
 // engine-import(this)
 // engine-import-generated
-import { blackLogoPath, detailContainer, detailImage, detailsButtonEvent, detailsDropdown, detailsDropdownButton, detailsDropdownLinks, detailsDropdownTop, iconMenu, iconPhone, iconShop, logoImg, menu, menuClose, menuDetailsDropdown, menuDetailsLink, menuDropdownButton, menuIcon, page, switcher, switcherIcon, switcherImg, whiteLogoPath } from './dom.js';
-
-
+import {
+  blackLogoPath,
+  detailContainer,
+  detailImage,
+  detailsButtonEvent,
+  detailsDropdown,
+  detailsDropdownButton,
+  detailsDropdownLinks,
+  detailsDropdownTop,
+  iconMenu,
+  iconPhone,
+  iconShop,
+  logoImg,
+  menu,
+  menuClose,
+  menuDetailsDropdown,
+  menuDetailsLink,
+  menuDropdownButton,
+  menuIcon,
+  page,
+  switcher,
+  switcherIcon,
+  switcherImg,
+  whiteLogoPath,
+} from "./dom.js";
 
 switcher.addEventListener("click", () => {
   const html = document.documentElement;
@@ -90,4 +112,3 @@ detailsDropdownLinks.forEach((link) => {
     menuDetailsLink.classList.remove("menu__details-link--open");
   });
 });
-

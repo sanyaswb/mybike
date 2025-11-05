@@ -3,11 +3,16 @@
 // engine-create-js(header-slider)
 // engine-import(this)
 // engine-import-generated
-import { animationDuration, changeInterval } from './config.js';
-import { buyBtn, buyBtnLeft, buyBtnRightAll, iconShop, menuIcon, sliderTrack } from './dom.js';
-import { slidesData } from './data.js';
-
-
+import { animationDuration, changeInterval } from "./config.js";
+import {
+  buyBtn,
+  buyBtnLeft,
+  buyBtnRightAll,
+  iconShop,
+  menuIcon,
+  sliderTrack,
+} from "./dom.js";
+import { slidesData } from "./data.js";
 
 let currentSlide = sliderTrack.querySelector(".header__image--current");
 let nextSlide = sliderTrack.querySelector(".header__image--next");
@@ -74,4 +79,3 @@ buyBtn.forEach((button) => {
     updateShopCounter(iconShop, currentShopCount);
   });
 });
-

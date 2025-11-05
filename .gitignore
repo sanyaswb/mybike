@@ -21,3 +21,6 @@ reports
 .backups
 refactor.js
 local-bridge.js
+convert-fonts.js
+convert-images.js
+import-fonts.js

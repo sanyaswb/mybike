@@ -3,9 +3,19 @@
 // engine-create-js(utilities)
 // engine-import(this)
 // engine-import-generated
-import { compare, compareDropdownButtonFirst, compareDropdownButtonLast, compareDropdownListFirst, compareDropdownListLast, compareDropdownTopFirst, compareDropdownTopLast, detailsDropdown, detailsDropdownButton, detailsDropdownTop, page } from './dom.js';
-
-
+import {
+  compare,
+  compareDropdownButtonFirst,
+  compareDropdownButtonLast,
+  compareDropdownListFirst,
+  compareDropdownListLast,
+  compareDropdownTopFirst,
+  compareDropdownTopLast,
+  detailsDropdown,
+  detailsDropdownButton,
+  detailsDropdownTop,
+  page,
+} from "./dom.js";
 
 function turnOffHover() {
   if (
@@ -56,6 +66,4 @@ handleClickOutside(
   { el: compareDropdownTopLast, className: "compare__dropdown-top--open" }
 );
 
-export {
-  getProp
-};
+export { getProp };

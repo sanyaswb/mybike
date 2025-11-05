@@ -3,9 +3,12 @@
 // engine-create-js(data)
 // engine-import(this)
 // engine-import-generated
-import { amiraSL4Cost, cowboy4STCost, cowboyC3Cost, sporty4Cost } from './config.js';
-
-
+import {
+  amiraSL4Cost,
+  cowboy4STCost,
+  cowboyC3Cost,
+  sporty4Cost,
+} from "./config.js";
 
 const sporty4 = {
   id: "1",
@@ -176,10 +179,4 @@ const slidesData = [
   { class: "header__image--4", details: "#details-bike2", buy: "#buy-bike4" },
 ];
 
-export {
-  notWeighed,
-  products,
-  propertiesToCompare,
-  slidesData,
-  weights
-};
+export { notWeighed, products, propertiesToCompare, slidesData, weights };

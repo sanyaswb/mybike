@@ -3,13 +3,35 @@
 // engine-create-js(compare)
 // engine-import(this)
 // engine-import-generated
-import { calculatePercentages, decideColors } from './calculate.js';
-import { compare, compareBarFirst, compareBarLast, compareButton, compareCardFirst, compareCardLast, compareCardTth, compareChoseBikeFirst, compareChoseBikeLast, compareDropdowEventLast, compareDropdownButtonFirst, compareDropdownButtonLast, compareDropdownEventFirst, compareDropdownListFirst, compareDropdownListLast, compareDropdownTopFirst, compareDropdownTopLast, compareLists, compareOpen, firstBarProcent, lastBarProcent, menu, page } from './dom.js';
-import { getProductsMaxWeights } from './normalization.js';
-import { getProp } from './utilities.js';
-import { products, propertiesToCompare, weights } from './data.js';
-
-
+import { calculatePercentages, decideColors } from "./calculate.js";
+import {
+  compare,
+  compareBarFirst,
+  compareBarLast,
+  compareButton,
+  compareCardFirst,
+  compareCardLast,
+  compareCardTth,
+  compareChoseBikeFirst,
+  compareChoseBikeLast,
+  compareDropdowEventLast,
+  compareDropdownButtonFirst,
+  compareDropdownButtonLast,
+  compareDropdownEventFirst,
+  compareDropdownListFirst,
+  compareDropdownListLast,
+  compareDropdownTopFirst,
+  compareDropdownTopLast,
+  compareLists,
+  compareOpen,
+  firstBarProcent,
+  lastBarProcent,
+  menu,
+  page,
+} from "./dom.js";
+import { getProductsMaxWeights } from "./normalization.js";
+import { getProp } from "./utilities.js";
+import { products, propertiesToCompare, weights } from "./data.js";
 
 let selectedFirstBike = {};
 let selectedLastBike = {};
@@ -286,4 +308,3 @@ compareLists.addEventListener("click", (event) => {
 
   renderCompareTable();
 });
-

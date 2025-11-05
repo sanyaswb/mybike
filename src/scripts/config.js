@@ -24,5 +24,5 @@ export {
   changeInterval,
   cowboy4STCost,
   cowboyC3Cost,
-  sporty4Cost
+  sporty4Cost,
 };

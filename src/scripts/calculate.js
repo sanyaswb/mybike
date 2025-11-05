@@ -3,9 +3,7 @@
 // engine-create-js(calculate)
 // engine-import(this)
 // engine-import-generated
-import { COLOR_GREEN, COLOR_RED, COLOR_TRANSPARENT } from './config.js';
-
-
+import { COLOR_GREEN, COLOR_RED, COLOR_TRANSPARENT } from "./config.js";
 
 function calculatePercentages(key, valFirst, valLast) {
   if (
@@ -116,7 +114,4 @@ function decideColors(key, valFirst, valLast) {
   }
 }
 
-export {
-  calculatePercentages,
-  decideColors
-};
+export { calculatePercentages, decideColors };
