@@ -46,6 +46,8 @@
       border-right: 1px solid var(--font-secondary);
       border-radius: 40px 0 0 40px;
       font-size: 14px;
+      padding-inline: 10px;
+      overflow: hidden;
 
       @include onTablet {
         font-size: 16px;
@@ -66,6 +68,8 @@
       border-left: 1px solid var(--font-secondary);
       border-radius: 0 40px 40px 0;
       font-size: 14px;
+      padding-inline: 10px;
+      overflow: hidden;
 
       @include onTablet {
         font-size: 16px;
