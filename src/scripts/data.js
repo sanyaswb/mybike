@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(data)
-// engine-import(this)
-// engine-import-generated
 import {
   amiraSL4Cost,
   cowboy4STCost,

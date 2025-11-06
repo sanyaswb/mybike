@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(utilities)
-// engine-import(this)
-// engine-import-generated
 import {
   compare,
   compareDropdownButtonFirst,

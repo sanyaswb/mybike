@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(calculate)
-// engine-import(this)
-// engine-import-generated
 import { COLOR_GREEN, COLOR_RED, COLOR_TRANSPARENT } from "./config.js";
 
 function calculatePercentages(key, valFirst, valLast) {

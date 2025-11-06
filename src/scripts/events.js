@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(events)
-// engine-import(this)
-// engine-import-generated
 import {
   blackLogoPath,
   detailContainer,

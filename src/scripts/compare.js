@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(compare)
-// engine-import(this)
-// engine-import-generated
 import { calculatePercentages, decideColors } from "./calculate.js";
 import {
   compare,

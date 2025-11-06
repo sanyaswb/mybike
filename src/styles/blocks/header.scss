@@ -9,7 +9,7 @@
   height: 480px;
 
   background-color: $color-gray;
-  background-image: url("../images/backgrounds/header_bk-fhd.webp");
+  background-image: url("../images/backgrounds/header_bk--low.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
@@ -86,16 +86,16 @@
     }
 
     &--1 {
-      background-image: url("../images/backgrounds/header_bike-fhd-1.webp");
+      background-image: url("../images/backgrounds/header_bike-fhd-1--low.webp");
     }
     &--2 {
-      background-image: url("../images/backgrounds/header_bike-fhd-2.webp");
+      background-image: url("../images/backgrounds/header_bike-fhd-2--low.webp");
     }
     &--3 {
-      background-image: url("../images/backgrounds/header_bike-fhd-3.webp");
+      background-image: url("../images/backgrounds/header_bike-fhd-3--low.webp");
     }
     &--4 {
-      background-image: url("../images/backgrounds/header_bike-fhd-4.webp");
+      background-image: url("../images/backgrounds/header_bike-fhd-4--low.webp");
     }
   }
 

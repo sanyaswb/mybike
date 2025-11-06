@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(normalization)
-// engine-import(this)
-// engine-import-generated
 import { buyBtnLeftAll, buyBtnRightAll } from "./dom.js";
 import { notWeighed, products, weights } from "./data.js";
 

@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(dom)
-// engine-import(this)
-
 const page = document.querySelector(".page");
 
 const logoImg = document.getElementById("logo-img");

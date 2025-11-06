@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(page-scroll)
-// engine-import(this)
-// engine-import-generated
 import {
   detailsDropdown,
   detailsDropdownButton,

@@ -10,21 +10,28 @@
       href="images/icons/favicon.svg"
       type="image/x-icon"
     />
+    <script src="./scripts/smart-loader.js" defer></script>
     <script type="module" src="./index.js" defer></script>
   </head>
   <body class="body">
-    <header class="header" id="header">
+    <header
+      class="header"
+      id="header"
+      data-bg-high="./images/backgrounds/header_bk-fhd.webp"
+    >
       <div class="header__slider-container">
         <div class="header__slider-track" id="slider-track">
           <div
             class="header__image header__image--1 header__image--current"
             data-details="#details-bike4"
             data-buy="#buy-bike1"
+            data-bg-src="./images/backgrounds/header_bike-fhd-1"
           ></div>
           <div
             class="header__image header__image--2 header__image--next"
             data-details="#details-bike3"
             data-buy="#buy-bike2"
+            data-bg-src="./images/backgrounds/header_bike-fhd-2"
           ></div>
         </div>
       </div>
@@ -111,7 +118,10 @@
                     class="dropdown__link dropdown__details-link"
                     id="sporty-4"
                   >
-                    <div class="dropdown__img dropdown__img--1"></div>
+                    <div
+                      class="dropdown__img dropdown__img--1"
+                      data-bg-high="./images/bikes/bike_1.webp"
+                    ></div>
                     <span class="dropdown__text">Sporty 4</span>
                   </a>
                 </li>
@@ -121,7 +131,10 @@
                     class="dropdown__link dropdown__details-link"
                     id="ride-in-town"
                   >
-                    <div class="dropdown__img dropdown__img--2"></div>
+                    <div
+                      class="dropdown__img dropdown__img--2"
+                      data-bg-high="./images/bikes/bike_2.webp"
+                    ></div>
                     <span class="dropdown__text">Ride in town</span>
                   </a>
                 </li>
@@ -131,7 +144,10 @@
                     class="dropdown__link dropdown__details-link"
                     id="cowboy-c-3"
                   >
-                    <div class="dropdown__img dropdown__img--3"></div>
+                    <div
+                      class="dropdown__img dropdown__img--3"
+                      data-bg-high="./images/bikes/bike_3.webp"
+                    ></div>
                     <span class="dropdown__text">Agile ride 3</span>
                   </a>
                 </li>
@@ -253,7 +269,10 @@
                     class="dropdown__link dropdown__details-link"
                     id="amira-sl-4"
                   >
-                    <div class="dropdown__img dropdown__img--4"></div>
+                    <div
+                      class="dropdown__img dropdown__img--4"
+                      data-bg-high="./images/bikes/bike_4.webp"
+                    ></div>
                     <span class="dropdown__text">Amira SL4</span>
                   </a>
                 </li>
@@ -401,7 +420,10 @@
                     class="dropdown__link compare__dropdown-link"
                     data-product-id="amira-sl-4--first"
                   >
-                    <div class="dropdown__img dropdown__img--4"></div>
+                    <div
+                      class="dropdown__img dropdown__img--4"
+                      data-bg-high="./images/bikes/bike_4.webp"
+                    ></div>
                     <span class="dropdown__text">Amira SL4</span>
                   </a>
                 </li>
@@ -475,6 +497,7 @@
                   >
                     <div
                       class="dropdown__img compare__dropdown-img--last dropdown__img--4"
+                      data-bg-high="./images/bikes/bike_4.webp"
                     ></div>
                     <span class="dropdown__text">Amira SL4</span>
                   </a>
@@ -507,7 +530,10 @@
             <h2 class="section__title" id="sectionBikes">Chose your bike</h2>
             <div class="bikes__container">
               <article class="bikes__card card">
-                <div class="card__img bikes__card-img bikes__card-img--1"></div>
+                <div
+                  class="card__img bikes__card-img bikes__card-img--1"
+                  data-bg-high="./images/bikes/bike_1.webp"
+                ></div>
                 <h3 class="card__title">Sporty 4</h3>
                 <p class="card__description bikes__description">
                   The iconic frame brought to a new performance height as a
@@ -531,7 +557,10 @@
                 </div>
               </article>
               <article class="bikes__card card">
-                <div class="card__img bikes__card-img bikes__card-img--2"></div>
+                <div
+                  class="card__img bikes__card-img bikes__card-img--2"
+                  data-bg-high="./images/bikes/bike_2.webp"
+                ></div>
                 <h3 class="card__title">Cowboy 4 ST</h3>
                 <p class="card__description bikes__description">
                   An open frame for an upright riding position as the most
@@ -555,7 +584,10 @@
                 </div>
               </article>
               <article class="bikes__card card">
-                <div class="card__img bikes__card-img bikes__card-img--3"></div>
+                <div
+                  class="card__img bikes__card-img bikes__card-img--3"
+                  data-bg-high="./images/bikes/bike_3.webp"
+                ></div>
                 <h3 class="card__title">Cowboy C3</h3>
                 <p class="card__description card__description--bike--3">
                   The lightweight frame that has earned its street tread as a
@@ -579,7 +611,10 @@
                 </div>
               </article>
               <article class="bikes__card card">
-                <div class="card__img bikes__card-img bikes__card-img--4"></div>
+                <div
+                  class="card__img bikes__card-img bikes__card-img--4"
+                  data-bg-high="./images/bikes/bike_4.webp"
+                ></div>
                 <h3 class="card__title">Amira SL4</h3>
                 <p class="card__description bikes__description">
                   The frame is robust and durable, without too much of a weight
@@ -615,14 +650,16 @@
                   <div class="detail__container">
                     <a class="detail__link detail__link--wide">
                       <img
-                        src="./images/bikes/bike_4-1.webp"
+                        src="./images/bikes/bike_4-1--low.webp"
+                        data-src-high="./images/bikes/bike_4-1.webp"
                         class="detail__image"
                         alt="bike ride in town"
                       />
                     </a>
                     <a class="detail__link">
                       <img
-                        src="./images/bikes/bike_4-2.webp"
+                        src="./images/bikes/bike_4-2--low.webp"
+                        data-src-high="./images/bikes/bike_4-2.webp"
                         class="detail__image"
                         alt="bike ride in town"
                       />
@@ -642,14 +679,16 @@
                   <div class="detail__container">
                     <a class="detail__link detail__link--wide">
                       <img
-                        src="./images/bikes/bike_4-3.webp"
+                        src="./images/bikes/bike_4-3--low.webp"
+                        data-src-high="./images/bikes/bike_4-3.webp"
                         class="detail__image"
                         alt="bike ride in town"
                       />
                     </a>
                     <a class="detail__link">
                       <img
-                        src="./images/bikes/bike_4-4.webp"
+                        src="./images/bikes/bike_4-4--low.webp"
+                        data-src-high="./images/bikes/bike_4-4.webp"
                         class="detail__image detail__image--reverse"
                         alt="bike ride in town"
                       />
@@ -669,14 +708,16 @@
                   <div class="detail__container">
                     <a class="detail__link">
                       <img
-                        src="./images/bikes/bike_4-5.webp"
+                        src="./images/bikes/bike_4-5--low.webp"
+                        data-src-high="./images/bikes/bike_4-5.webp"
                         class="detail__image detail__image--position"
                         alt="bike ride in town"
                       />
                     </a>
                     <a class="detail__link detail__link--wide">
                       <img
-                        src="./images/bikes/bike_4-6.webp"
+                        src="./images/bikes/bike_4-6--low.webp"
+                        data-src-high="./images/bikes/bike_4-6.webp"
                         class="detail__image"
                         alt="bike ride in town"
                       />
@@ -710,10 +751,16 @@
                 <article class="detail">
                   <div class="detail__container">
                     <a class="detail__link detail__link--wide">
-                      <div class="detail__image detail__image--1"></div>
+                      <div
+                        class="detail__image detail__image--1"
+                        data-bg-high="./images/bikes/details-bike-4-1.webp"
+                      ></div>
                     </a>
                     <a class="detail__link">
-                      <div class="detail__image detail__image--2"></div>
+                      <div
+                        class="detail__image detail__image--2"
+                        data-bg-high="./images/bikes/details-bike-4-2.webp"
+                      ></div>
                     </a>
                   </div>
                   <h3 class="detail__title">Carbon fork</h3>
@@ -730,10 +777,16 @@
                 <article class="detail">
                   <div class="detail__container">
                     <a class="detail__link detail__link--wide">
-                      <div class="detail__image detail__image--3"></div>
+                      <div
+                        class="detail__image detail__image--3"
+                        data-bg-high="./images/bikes/details-bike-4-3.webp"
+                      ></div>
                     </a>
                     <a class="detail__link">
-                      <div class="detail__image detail__image--4"></div>
+                      <div
+                        class="detail__image detail__image--4"
+                        data-bg-high="./images/bikes/details-bike-4-4.webp"
+                      ></div>
                     </a>
                   </div>
                   <h3 class="detail__title">Aluminium frameset</h3>
@@ -751,10 +804,16 @@
                 <article class="detail">
                   <div class="detail__container">
                     <a class="detail__link">
-                      <div class="detail__image detail__image--5"></div>
+                      <div
+                        class="detail__image detail__image--5"
+                        data-bg-high="./images/bikes/details-bike-4-5.webp"
+                      ></div>
                     </a>
                     <a class="detail__link detail__link--wide">
-                      <div class="detail__image detail__image--6"></div>
+                      <div
+                        class="detail__image detail__image--6"
+                        data-bg-high="./images/bikes/details-bike-4-6.webp"
+                      ></div>
                     </a>
                   </div>
                   <h3 class="detail__title">Shimano 105 & FSA crankset</h3>
@@ -844,7 +903,8 @@
 
     <footer class="footer">
       <img
-        src="./images/footer-low.webp"
+        src="./images/footer--low.webp"
+        data-src-high="./images/footer.webp"
         alt="footer"
         class="footer__image"
         loading="lazy"

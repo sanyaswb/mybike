@@ -1,8 +1,5 @@
 "use strict";
 
-// engine-create-js(header-slider)
-// engine-import(this)
-// engine-import-generated
 import { animationDuration, changeInterval } from "./config.js";
 import {
   buyBtn,
