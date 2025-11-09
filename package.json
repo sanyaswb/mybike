@@ -3,7 +3,8 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel --open",
-    "build": "parcel build"
+    "build": "rm -rf dist .parcel-cache && parcel build src/index.html --public-url ./",
+    "deploy": "npm run build && npx gh-pages -d dist"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.1",
