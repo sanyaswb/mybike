@@ -6,8 +6,6 @@ const logoImg = document.getElementById("logo-img");
 const iconPhone = document.querySelector(".icon-phone");
 const iconMenu = document.querySelector(".icon-menu");
 const iconShop = document.getElementById("icon-shop");
-const whiteLogoPath = logoImg.getAttribute("data-logo-white");
-const blackLogoPath = logoImg.getAttribute("data-logo-black");
 
 const header = document.getElementById("header");
 const headerTop = document.querySelector(".header__top");
@@ -100,7 +98,6 @@ const compareWeightRight = document.querySelector(
 );
 
 export {
-  blackLogoPath,
   buyBtn,
   buyBtnLeft,
   buyBtnLeftAll,
@@ -152,5 +149,4 @@ export {
   switcher,
   switcherIcon,
   switcherImg,
-  whiteLogoPath,
 };

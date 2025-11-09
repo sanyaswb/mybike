@@ -9,62 +9,58 @@ import {
   menuIcon,
   sliderTrack,
 } from "./dom.js";
-import { slidesData } from "./data.js";
 
-let currentSlide = sliderTrack.querySelector(".header__image--current");
-let nextSlide = sliderTrack.querySelector(".header__image--next");
+const allSlides = Array.from(sliderTrack.querySelectorAll(".header__image"));
+const totalSlides = allSlides.length;
+
 let currentSlideIndex = 0;
-let nextSlideIndex = 1;
-let currentShopCount = 0;
 
 function updateHeaderLinks(slide) {
-  buyBtnLeft.href = slide.dataset.details;
-  buyBtnRightAll.href = slide.dataset.buy;
+  if (slide.dataset.details) {
+    buyBtnLeft.href = slide.dataset.details;
+  }
+  if (slide.dataset.buy) {
+    buyBtnRightAll.href = slide.dataset.buy;
+  }
 }
 
 function doSlide() {
+  if (sliderTrack.classList.contains("is-animating")) {
+    return;
+  }
   sliderTrack.classList.add("is-animating");
+
+  const currentSlide = allSlides[currentSlideIndex];
+
+  const nextSlideIndex = (currentSlideIndex + 1) % totalSlides;
+  const nextSlide = allSlides[nextSlideIndex];
+
+  const futureSlideIndex = (nextSlideIndex + 1) % totalSlides;
+  const futureSlide = allSlides[futureSlideIndex];
 
   setTimeout(() => {
     sliderTrack.classList.remove("is-animating");
-    currentSlide.className = `header__image ${slidesData[currentSlideIndex].class}`;
-    nextSlide.className = `header__image ${slidesData[nextSlideIndex].class} header__image--current`;
 
-    updateHeaderLinks(nextSlide);
+    currentSlide.classList.remove("header__image--current");
+    nextSlide.classList.remove("header__image--next");
+    nextSlide.classList.add("header__image--current");
+    futureSlide.classList.add("header__image--next");
 
     currentSlideIndex = nextSlideIndex;
-    nextSlideIndex = (nextSlideIndex + 1) % slidesData.length;
 
-    const newNextSlide = document.createElement("div");
-
-    newNextSlide.className = `header__image ${slidesData[nextSlideIndex].class} header__image--next`;
-    newNextSlide.dataset.details = slidesData[nextSlideIndex].details;
-    newNextSlide.dataset.buy = slidesData[nextSlideIndex].buy;
-
-    sliderTrack.innerHTML = "";
-    sliderTrack.appendChild(nextSlide);
-    sliderTrack.appendChild(newNextSlide);
-
-    currentSlide = nextSlide;
-    nextSlide = newNextSlide;
+    updateHeaderLinks(nextSlide);
   }, animationDuration);
 }
 
+let currentShopCount = 0;
 function updateShopCounter(elementId, newCount) {
   const contentValue = `"${newCount}"`;
   iconShop.style.setProperty("--shop-count", contentValue);
   menuIcon.style.setProperty("--shop-count", contentValue);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  updateHeaderLinks(currentSlide);
-  setInterval(doSlide, changeInterval);
-});
-
 buyBtn.forEach((button) => {
   button.addEventListener("click", () => {
     currentShopCount += 1;
-
     if (currentShopCount != 0) {
       iconShop.classList.add("counter--open");
       menuIcon.classList.add("counter--open");
@@ -72,7 +68,21 @@ buyBtn.forEach((button) => {
       iconShop.classList.remove("counter--open");
       menuIcon.classList.remove("counter--open");
     }
-
     updateShopCounter(iconShop, currentShopCount);
   });
 });
+
+if (totalSlides < 2) {
+  console.warn("Header Slider: Недостатньо слайдів для запуску.");
+} else {
+  allSlides.forEach((slide) => {
+    slide.classList.remove("header__image--current", "header__image--next");
+  });
+
+  allSlides[0].classList.add("header__image--current");
+  allSlides[1].classList.add("header__image--next");
+
+  updateHeaderLinks(allSlides[0]);
+
+  setInterval(doSlide, changeInterval);
+}

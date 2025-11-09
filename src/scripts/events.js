@@ -1,7 +1,6 @@
 "use strict";
 
 import {
-  blackLogoPath,
   detailContainer,
   detailImage,
   detailsButtonEvent,
@@ -9,9 +8,6 @@ import {
   detailsDropdownButton,
   detailsDropdownLinks,
   detailsDropdownTop,
-  iconMenu,
-  iconPhone,
-  iconShop,
   logoImg,
   menu,
   menuClose,
@@ -23,33 +19,38 @@ import {
   switcher,
   switcherIcon,
   switcherImg,
-  whiteLogoPath,
 } from "./dom.js";
 
-switcher.addEventListener("click", () => {
-  const html = document.documentElement;
-  const isLight = html.dataset.theme === "light";
-  const currentLogoPath = logoImg.getAttribute("src");
+const whiteLogoURL = new URL(
+  "../../images/icons/logo-my-bike-white.svg",
+  import.meta.url
+);
+const blackLogoURL = new URL(
+  "../../images/icons/logo-my-bike-black.svg",
+  import.meta.url
+);
 
-  switcherIcon.classList.toggle("switcher__icon--day");
-  switcherImg.classList.toggle("switcher__img--day");
+if (switcher) {
+  switcher.addEventListener("click", () => {
+    const html = document.documentElement;
+    const isLight = html.dataset.theme === "light";
 
-  if (currentLogoPath === whiteLogoPath) {
-    logoImg.setAttribute("src", blackLogoPath);
-  } else {
-    logoImg.setAttribute("src", whiteLogoPath);
-  }
+    switcherIcon.classList.toggle("switcher__icon--day");
+    switcherImg.classList.toggle("switcher__img--day");
 
-  iconPhone.classList.toggle("icon-phone--black");
-  iconMenu.classList.toggle("icon-menu--black");
-  iconShop.classList.toggle("icon-shop--black");
+    if (isLight) {
+      logoImg.src = whiteLogoURL.href;
+    } else {
+      logoImg.src = blackLogoURL.href;
+    }
 
-  if (isLight) {
-    html.removeAttribute("data-theme");
-  } else {
-    html.dataset.theme = "light";
-  }
-});
+    if (isLight) {
+      html.removeAttribute("data-theme");
+    } else {
+      html.dataset.theme = "light";
+    }
+  });
+}
 
 menuIcon.addEventListener("click", () => {
   page.classList.toggle("page--overflow");

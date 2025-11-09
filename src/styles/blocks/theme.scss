@@ -94,7 +94,7 @@ html[data-theme="light"] {
   );
 
   .header {
-    background-image: none;
+    background-image: none !important;
 
     &__title {
       background-color: rgba($color: $color-gray, $alpha: 0.5);
