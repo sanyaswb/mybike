@@ -4,7 +4,7 @@
 
 export const highResImages = {
   "header_bk-fhd": new URL(
-    "../../images/backgrounds/header_bk-fhd.png",
+    "../../images/backgrounds/header_bk-fhd.webp",
     import.meta.url
   ),
   "header_bike-fhd-1": new URL(
