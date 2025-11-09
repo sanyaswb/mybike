@@ -47,14 +47,14 @@ function handleClickOutside(containerElement, ...targets) {
 }
 
 handleClickOutside(
-  page, // <- Елемент-контейнер
+  page,
   { el: detailsDropdownButton, className: "dropdown-button--open" },
   { el: detailsDropdownTop, className: "header__details-top--open" },
   { el: detailsDropdown, className: "header__details-dropdown--open" }
 );
 
 handleClickOutside(
-  compare, // <- Елемент-контейнер
+  compare,
   { el: compareDropdownButtonFirst, className: "dropdown-button--open" },
   { el: compareDropdownListFirst, className: "compare__dropdown-list--open" },
   { el: compareDropdownTopFirst, className: "compare__dropdown-top--open" },
